@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # Allauth apps
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
     'store',
 ]
 
@@ -111,6 +112,16 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',  # allauth
 ]
 
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # allow login by username or email
+ACCOUNT_EMAIL_REQUIRED = True                     # email is required
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'         # force email confirmation
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+ACCOUNT_USERNAME_MIN_LENGTH = 4                  # min username length
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5                 # optional, adds login security
+
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'  # redirects users to home page
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -142,3 +153,5 @@ MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 1
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #temproary - logs emails to console instead of sending them :)
