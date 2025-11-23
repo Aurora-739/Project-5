@@ -44,37 +44,19 @@
 </head>
 
 <body>
+  {% block page_header %}
+  {% endblock %}
   <header class="container-fluid fixed-top">
-    <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
-      <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-        <a href="{% url 'home' %}" class="nav-link main-logo-link">
-          <h2 class=""><em>Michelle's_Craft_Room</em></h2>
-          <!-- The reason the title fonts all have "_" between the words is that it looks better on the page in the font I chose than just leaving it with spaces.-->
-        </a>
-      </div>
-      <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-        <form method="GET" action="">
-          <div class="input-group w-100">
-            <input class="form-control border border-black rounded-0" type="text" name="q"
-              placeholder="Search our site">
-            <div class="input-group-append">
-              <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                <span class="icon">
-                  <i class="fas fa-search"></i>
-                </span>
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
+    <div id="topnav" class="row pt-lg-2 d-none d-lg-flex justify-content-end align-items-center">
+      
       <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
         <ul class="list-inline list-unstyled text-center text-lg-right my-0">
           <li class="list-inline-item dropdown">
-            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
+            <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
               <div class="text-center">
                 <div><i class="fas fa-user fa-lg"></i></div>
-                <p class="my-0">My_Account</p>
+                <p class="my-0">My Account</p>
               </div>
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -98,7 +80,7 @@
                   {% if grand_total %}
                   ${{ grand_total|floatformat:2 }}
                   {% else %}
-                  $0.00
+                  £0.00
                   {% endif %}
                 </p>
               </div>
@@ -107,16 +89,29 @@
         </ul>
       </div>
     </div>
+    
   </header>
 
   {% if messages %}
   <div class="message-container"></div>
   {% endif %}
 
-  {% block page_header %}
-  {% endblock %}
-
   {% block content %}
+  <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+    <form method="GET" action="">
+      <div class="input-group w-100">
+        <input class="form-control rounded-0 search" type="text" name="q"
+          placeholder="Search our site">
+        <div class="input-group-append">
+          <button class="form-control rounded-0 search" type="submit">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
   {% endblock %}
 
   {% block postloadjs %}
@@ -125,3 +120,14 @@
 </body>
 
 </html>
+
+<script>
+  window.addEventListener('scroll', function() {
+    const topnav = document.getElementById('topnav');
+    if (window.scrollY > 50) {      
+      topnav.classList.add('scrolled');
+    } else {
+      topnav.classList.remove('scrolled');
+    }
+  });
+  </script>

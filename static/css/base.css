@@ -3,15 +3,40 @@ html {
     height: 100%;
 }
 
+/* colour codes for main site.
+Mauve = #601A32
+Prussian Blue = #003152
+Soft orange = #944817
+Soft Brown = #8E685B
+Grey/white = #DBDAD6
+*/
+
+.rotate{
+    transform: rotate(90deg);
+}
+
 body {
     background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
     font-family: 'DM Serif Text', serif;
     background-size: cover;
     height: calc(100vh - 164px);
+    background-color: #DBDAD6;
 }
 
 h1, h2 {
     font-family: 'Playwrite NZ Guides', sans-serif;
+}
+
+/*Nav and carasol*/
+.carousel-item img {
+    height: 37rem;        /* adjust height */
+    object-fit: cover;    /* prevents distortion */
+}
+
+.search {
+    background-color: transparent;
+    border-color: #8E685B;
+    color: #8E685B;
 }
 
 /* from Bulma */
@@ -23,35 +48,54 @@ h1, h2 {
     width: 1.5rem;
 }
 
-.shop-now-button {
-    background: black;
-    color: white;
-    min-width: 260px;
+.nav-link{
+    color: #8E685B;
 }
 
-.btn-black {
-    background: black;
-    color: white;
+
+#hero-title {
+    line-height: 3.2;
+    position: absolute;          /* sits on top of carousel */
+    top: 20px;                   /* distance from top of carousel */
+    left: 50%;                   /* center horizontally */
+    transform: translateX(-50%);
+    z-index: 10;                 /* above images */
+    font-size: 6rem;             /* independent size */
+    color: #8E685B;             /* independent color */
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.6); /* for readability */
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
+#hero-title:hover {
+    color: #601A32;
+    text-decoration: none;
 }
 
-.text-black {
-    color: #000 !important;
+.carousel-item{
+    filter: opacity(30%);
+
 }
 
-.border-black {
-    border: 1px solid black !important;
+#topnav {
+    z-index: 999;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: transparent; /* initial transparent */
 }
 
+#topnav a.nav-link {
+    color: #8E685B;               /* initial link color */
+    text-decoration: none;
+    margin-left: 15px;
+    transition: color 1s;
+}
+
+/* Active scroll state */
+#topnav.scrolled {
+    background-color: #8E685B;  /* bar color after scroll */
+}
+
+#topnav.scrolled a.nav-link {
+    color: #D7D6DB;             /* text color after scroll */
+}
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
