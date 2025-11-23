@@ -4,11 +4,12 @@ html {
 }
 
 /* colour codes for main site.
-Mauve = #601A32
+Emerald = #1D3B28
+Mauve = #874C62
 Prussian Blue = #003152
-Soft orange = #944817
-Soft Brown = #8E685B
-Grey/white = #DBDAD6
+Chartreuse = #BA9F38
+Pale Lime = #E1CC96
+Butter Base = #FCEBD0
 */
 
 .rotate{
@@ -20,11 +21,26 @@ body {
     font-family: 'DM Serif Text', serif;
     background-size: cover;
     height: calc(100vh - 164px);
-    background-color: #DBDAD6;
+    background-color: #FCEBD0;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-family: 'Playwrite NZ Guides', sans-serif;
+}
+
+.shop-now-button {
+    padding: 10px 20px;
+    background-color: #BA9F38;
+    color: #FCEBD0;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.shop-now-button:hover {
+    color: #874C62;
+    background-color: #E1CC96;
 }
 
 /*Nav and carasol*/
@@ -35,8 +51,19 @@ h1, h2 {
 
 .search {
     background-color: transparent;
-    border-color: #8E685B;
-    color: #8E685B;
+    border-color: #E1CC96;
+    color: #E1CC96;
+}
+
+.search-btn {
+    border-color: transparent;
+    background-color: transparent;
+    color: #E1CC96;
+}
+
+.carousel-img {
+    max-height: 400px;
+    object-fit: cover;
 }
 
 /* from Bulma */
@@ -49,9 +76,8 @@ h1, h2 {
 }
 
 .nav-link{
-    color: #8E685B;
+    color: #E1CC96;
 }
-
 
 #hero-title {
     line-height: 3.2;
@@ -61,12 +87,12 @@ h1, h2 {
     transform: translateX(-50%);
     z-index: 10;                 /* above images */
     font-size: 6rem;             /* independent size */
-    color: #8E685B;             /* independent color */
+    color: #874C62;             /* independent color */
     text-shadow: 3px 3px 8px rgba(0,0,0,0.6); /* for readability */
 }
 
 #hero-title:hover {
-    color: #601A32;
+    color: #BA9F38;
     text-decoration: none;
 }
 
@@ -82,7 +108,7 @@ h1, h2 {
 }
 
 #topnav a.nav-link {
-    color: #8E685B;               /* initial link color */
+    color: #874C62;               /* initial link color */
     text-decoration: none;
     margin-left: 15px;
     transition: color 1s;
@@ -90,11 +116,16 @@ h1, h2 {
 
 /* Active scroll state */
 #topnav.scrolled {
-    background-color: #8E685B;  /* bar color after scroll */
+    background-color: #874C62;  /* bar color after scroll */
 }
 
 #topnav.scrolled a.nav-link {
-    color: #D7D6DB;             /* text color after scroll */
+    color: #FCEBD0;             /* text color after scroll */
+}
+
+.sub-header {
+    color: #874C62;
+    font-size: xxx-large;
 }
 /* -------------------------------- Media Queries */
 
