@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block page_header %}
-
 <!-- Carousel container -->
 <div class="carousel-container position-relative">
 
@@ -45,24 +44,32 @@
 
 </div>
 
-<!-- Optional text below carousel -->
+{% endblock %}
+
+{% block content %}
 <div class="container h-100">
-  <div class="row h-100">
-    <div class="col-7 col-md-6 my-auto">
-      <h1 class="display-4 logo-font text-black">
+  <div class="row h-100 align-items-center">
+
+    <!-- LEFT: TEXT -->
+    <div class="col-6 d-flex flex-column justify-content-center">
+      <h1 class="display-4 sub-header">
         The_new_collection_is_in!
       </h1>
       <div class="my-5">
         <h4>
-          <a href="" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
+          <a href="" class="shop-now-button btn-lg py-3">Shop Now</a>
         </h4>
       </div>
     </div>
+
+    <!-- RIGHT: IMAGE -->
+    <div class="col-6 text-center">
+      <img class="img-fluid carousel-img"
+           src="{% static 'images_project_5/mordern_green_tree.png' %}"
+           alt="Second slide">
+    </div>
+
   </div>
 </div>
-
-{% endblock %}
-
-{% block content %}
 
 {% endblock %}
