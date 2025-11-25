@@ -1,0 +1,134 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "sku": "1",
+            "name": "Blue Autumn Leaves",
+            "description": "Watercolour of prussian blue autumn leaves.",
+            "price": 1.00,
+            "category": 1,
+            "image": "images_project_5/blue_autumn_leaves.JPG"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "sku": "2",
+            "name": "Blue Feather",
+            "description": "Watercolour of prussian blue feather.",
+            "price": 1.00,
+            "category": 1,
+            "image": "images_project_5/blue_feather.JPG"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "sku": "3",
+            "name": "Pink and Blue Flowers",
+            "description": "Watercolour of pink and blue flowers.",
+            "price": 1.00,
+            "category": 1,
+            "image": "images_project_5/flowers_no_1_pink_and_blue.jpg.jpg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "sku": "4",
+            "name": "Pink and Yellow Flowers",
+            "description": "Watercolour of pink and yellow flowers.",
+            "price": 1.00,
+            "category": 1,
+            "image": "images_project_5/Flowers_No_3_Yellow_and_Pink.jpg.jpg"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "sku": "5",
+            "name": "Purple and Blue Flowers",
+            "description": "Watercolour of purple and blue flowers.",
+            "price": 1.00,
+            "category": 1,
+            "image": "images_project_5/Flowers_Purple_and_Blue.jpg.jpg"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "sku": "6",
+            "name": "Gold Fish",
+            "description": "Watercolour of a gold fish.",
+            "price": 1.00,
+            "category": 1,
+            "image": "images_project_5/gold_fish.jpg.jpg"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "sku": "7",
+            "name": "Hearts and Flowers",
+            "description": "Watercolour of hearts and flowers.",
+            "price": 1.00,
+            "category": 1,
+            "image": "images_project_5/Hearts_and_Flowers.jpg.jpg"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "sku": "8",
+            "name": "Hearts and Flowers No.2",
+            "description": "Watercolour of hearts and flowers.",
+            "price": 1.00,
+            "category": 1,
+            "image": "images_project_5/Hearty_Flowers_No_2_Bright.jpg.jpg"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "sku": "9",
+            "name": "Holly in a frame",
+            "description": "Watercolour of holly in a frame.",
+            "price": 1.00,
+            "category": 1,
+            "image": "images_project_5/Holly_in_a_frame.jpg.jpg"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.product",
+        "fields": {
+            "sku": "10",
+            "name": "Jungle Blue",
+            "description": "Watercolour of jungle blue.",
+            "price": 1.00,
+            "category": 1,
+            "image": "images_project_5/Jungle_Blue.jpg.jpg"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.product",
+        "fields": {
+            "sku": "11",
+            "name": "Modern Green Tree",
+            "description": "Watercolour of modern christmas tree.",
+            "price": 1.00,
+            "category": 1,
+            "image": "images_project_5/mordern_green_tree.png"
+        }
+    }
+]

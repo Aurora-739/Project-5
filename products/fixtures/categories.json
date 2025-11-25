@@ -1,0 +1,18 @@
+[
+    {
+        "pk": 1,
+        "model": "products.category",
+        "fields": {
+            "name": "cards",
+            "friendly_name": "Cards"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.category",
+        "fields": {
+            "name": "christmas_cards",
+            "friendly_name": "Christmas Cards"
+        }
+    }
+]
