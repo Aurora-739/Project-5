@@ -12,21 +12,22 @@
 {% block content %}
 <div class="container my-5">
     <h2 class="mb-4">Products</h2>
-
     {% if search_term %}
     <p class="products-text">Search results for "{{ search_term }}"</p>
     {% endif %}
 
-    <div class="products-text mb-3">
-        <a href="{% url 'products' %}" >All products</a> |
+    <div class="mb-2 products-text">
+        <a href="{% url 'products' %}" class="products-text">All products</a> |
         {{ products|length }} products
-        {% if search_term %}for "{{ search_term }}"{% endif %}
+        {% if search_term %}
+        for "{{ search_term }}"
+        {% endif %}
     </div>
 
     <div class="row mb-3">
         <div class="col-12 col-md-4 order-md-last">
             <select id="sort-select" class="form-control">
-                <option value="none_none" {% if current_sorting|default:"none_none" == "none_none" %}selected{% endif %}>Default</option>
+                <option value="none_none" {% if current_sorting == "none_none" %}selected{% endif %}>Default</option>
                 <option value="price_ascending" {% if current_sorting == "price_ascending" %}selected{% endif %}>Price ↑</option>
                 <option value="price_descending" {% if current_sorting == "price_descending" %}selected{% endif %}>Price ↓</option>
                 <option value="rating_descending" {% if current_sorting == "rating_descending" %}selected{% endif %}>Rating</option>
@@ -42,6 +43,7 @@
         {% for product in products %}
         <div class="col-6 col-md-4 col-lg-3 mb-4">
             <div class="card h-100">
+
                 {% if product.image %}
                 <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                 {% else %}
@@ -56,8 +58,8 @@
                     <div class="mb-3">
                         <strong>Selected categories:</strong>
                         {% for cat in current_categories %}
-                        <a href="{% url 'products' %}?categories={{ cat.name }}" class="badge badge-dark category-badge">
-                            {{ cat.get_friendly_name }}
+                        <a href="{% url 'products' %}?categories={{ cat }}" class="badge badge-dark category-badge">
+                            {{ cat }}
                         </a>
                         {% endfor %}
                     </div>
@@ -80,9 +82,46 @@
                     <p class="less-important-text">No Rating</p>
                     {% endif %}
                 </div>
+
             </div>
         </div>
         {% endfor %}
     </div>
+
+    <!-- Back to top button -->
+    <div id="back-to-top" class="btt-button text-black">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script>
+$(document).ready(function() {
+    // Sort selector change
+    $('#sort-select').on('change', function() {
+        let selector = $(this);
+        let url = new URL(window.location.href);
+        let value = selector.val();
+
+        if (value === 'none_none') {
+            url.searchParams.delete('sort');
+            url.searchParams.delete('direction');
+        } else {
+            let [sort, direction] = value.split('_');
+            url.searchParams.set('sort', sort);
+            url.searchParams.set('direction', direction);
+        }
+
+        window.location.replace(url.toString());
+    });
+
+    // Back to top button
+    $('#back-to-top').on('click', function() {
+        $('html, body').animate({scrollTop: 0}, 'slow');
+    });
+});
+</script>
 {% endblock %}
