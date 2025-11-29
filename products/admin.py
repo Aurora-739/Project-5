@@ -1,26 +1,14 @@
 from django.contrib import admin
-from .models import Product, Category
-
+from .models import Product, categories
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = (
-        'sku',
-        'name',
-        'category',
-        'price',
-        'rating',
-        'image',
-    )
+    list_display = ('name', 'price', 'display_categories')  # use a method here
+    filter_horizontal = ('categories',)
 
-    ordering = ('sku',)
-
-
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = (
-        'friendly_name',
-        'name',
-    )
-
+    def display_categories(self, obj):
+        """Creates a string of all categories for display in admin list view"""
+        return ", ".join([c.name for c in obj.categories.all()])
+    display_categories.short_description = 'Categories'
 
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(categories)

@@ -7,7 +7,7 @@
             "name": "Blue Autumn Leaves",
             "description": "Watercolour of prussian blue autumn leaves.",
             "price": 1.00,
-            "category": 1,
+            "categories": [1],
             "image": "images_project_5/blue_autumn_leaves.JPG"
         }
     },
@@ -19,7 +19,7 @@
             "name": "Blue Feather",
             "description": "Watercolour of prussian blue feather.",
             "price": 1.00,
-            "category": 1,
+            "categories": [1],
             "image": "images_project_5/blue_feather.JPG"
         }
     },
@@ -31,7 +31,7 @@
             "name": "Pink and Blue Flowers",
             "description": "Watercolour of pink and blue flowers.",
             "price": 1.00,
-            "category": 1,
+            "categories": [1],
             "image": "images_project_5/flowers_no_1_pink_and_blue.jpg.jpg"
         }
     },
@@ -43,7 +43,7 @@
             "name": "Pink and Yellow Flowers",
             "description": "Watercolour of pink and yellow flowers.",
             "price": 1.00,
-            "category": 1,
+            "categories": [1],
             "image": "images_project_5/Flowers_No_3_Yellow_and_Pink.jpg.jpg"
         }
     },
@@ -55,7 +55,7 @@
             "name": "Purple and Blue Flowers",
             "description": "Watercolour of purple and blue flowers.",
             "price": 1.00,
-            "category": 1,
+            "categories": [1],
             "image": "images_project_5/Flowers_Purple_and_Blue.jpg.jpg"
         }
     },
@@ -67,7 +67,7 @@
             "name": "Gold Fish",
             "description": "Watercolour of a gold fish.",
             "price": 1.00,
-            "category": 1,
+            "categories": [1],
             "image": "images_project_5/gold_fish.jpg.jpg"
         }
     },
@@ -79,7 +79,7 @@
             "name": "Hearts and Flowers",
             "description": "Watercolour of hearts and flowers.",
             "price": 1.00,
-            "category": 1,
+            "categories": [1],
             "image": "images_project_5/Hearts_and_Flowers.jpg.jpg"
         }
     },
@@ -91,7 +91,7 @@
             "name": "Hearts and Flowers No.2",
             "description": "Watercolour of hearts and flowers.",
             "price": 1.00,
-            "category": 1,
+            "categories": [1],
             "image": "images_project_5/Hearty_Flowers_No_2_Bright.jpg.jpg"
         }
     },
@@ -103,7 +103,7 @@
             "name": "Holly in a frame",
             "description": "Watercolour of holly in a frame.",
             "price": 1.00,
-            "category": 1,
+            "categories": [1, 2],
             "image": "images_project_5/Holly_in_a_frame.jpg.jpg"
         }
     },
@@ -115,7 +115,7 @@
             "name": "Jungle Blue",
             "description": "Watercolour of jungle blue.",
             "price": 1.00,
-            "category": 1,
+            "categories": [1],
             "image": "images_project_5/Jungle_Blue.jpg.jpg"
         }
     },
@@ -127,7 +127,7 @@
             "name": "Modern Green Tree",
             "description": "Watercolour of modern christmas tree.",
             "price": 1.00,
-            "category": 1,
+            "categories": [1, 2],
             "image": "images_project_5/mordern_green_tree.png"
         }
     }
