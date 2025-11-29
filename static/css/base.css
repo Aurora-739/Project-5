@@ -137,17 +137,6 @@ h2 {
     font-size: xxx-large;
 }
 
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    z-index: -1;
-}
-
-
 .card {
     background-color: #874C62;
     color:#E1CC96;
@@ -157,9 +146,33 @@ h2 {
     color: #FCEBD0;
 }
 
+.searching-text {
+    color: #E1CC96;
+}
 
 placeholder {
     color: #874C62;
+}
+
+.category-badge:hover {
+    background-color: #E1CC96; /* bootstrap dark color */
+    color: #874C62
+}
+
+.categories {
+    color: #E1CC96;
+}
+
+.categories:hover {
+    color: #BA9F38;
+}
+
+.nav-link:hover {
+    color: #BA9F38;
+}
+
+.products-text {
+    color: #BA9F38;
 }
 /* -------------------------------- Media Queries */
 

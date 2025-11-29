@@ -12,15 +12,36 @@
 {% block content %}
 <div class="container my-5">
     <h2 class="mb-4">Products</h2>
+
     {% if search_term %}
-    <p class="text-muted">Search results for "{{ search_term }}"</p>
+    <p class="products-text">Search results for "{{ search_term }}"</p>
     {% endif %}
+
+    <div class="products-text mb-3">
+        <a href="{% url 'products' %}" >All products</a> |
+        {{ products|length }} products
+        {% if search_term %}for "{{ search_term }}"{% endif %}
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-12 col-md-4 order-md-last">
+            <select id="sort-select" class="form-control">
+                <option value="none_none" {% if current_sorting|default:"none_none" == "none_none" %}selected{% endif %}>Default</option>
+                <option value="price_ascending" {% if current_sorting == "price_ascending" %}selected{% endif %}>Price ↑</option>
+                <option value="price_descending" {% if current_sorting == "price_descending" %}selected{% endif %}>Price ↓</option>
+                <option value="rating_descending" {% if current_sorting == "rating_descending" %}selected{% endif %}>Rating</option>
+                <option value="name_ascending" {% if current_sorting == "name_ascending" %}selected{% endif %}>Name A-Z</option>
+                <option value="name_descending" {% if current_sorting == "name_descending" %}selected{% endif %}>Name Z-A</option>
+                <option value="category_ascending" {% if current_sorting == "category_ascending" %}selected{% endif %}>Category ↑</option>
+                <option value="category_descending" {% if current_sorting == "category_descending" %}selected{% endif %}>Category ↓</option>
+            </select>
+        </div>
+    </div>
 
     <div class="row">
         {% for product in products %}
         <div class="col-6 col-md-4 col-lg-3 mb-4">
             <div class="card h-100">
-                
                 {% if product.image %}
                 <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                 {% else %}
@@ -31,17 +52,37 @@
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p class="card-text">${{ product.price }}</p>
 
+                    {% if current_categories %}
+                    <div class="mb-3">
+                        <strong>Selected categories:</strong>
+                        {% for cat in current_categories %}
+                        <a href="{% url 'products' %}?categories={{ cat.name }}" class="badge badge-dark category-badge">
+                            {{ cat.get_friendly_name }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if product.categories.all %}
+                    <p class="mb-1">
+                        Categories:
+                        {% for cat in product.categories.all %}
+                        <a href="{% url 'products' %}?categories={{ cat.name }}" class="categories">
+                            {{ cat.get_friendly_name }}
+                        </a>{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                    {% endif %}
+
                     {% if product.rating %}
                     <p class="text-warning">{{ product.rating }} / 5</p>
                     {% else %}
                     <p class="less-important-text">No Rating</p>
                     {% endif %}
                 </div>
-
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
 {% endblock %}
-

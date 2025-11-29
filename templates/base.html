@@ -107,25 +107,23 @@
       </div>
     </form>
     <ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'home' %}">Home</a>
-  </li>
-
-  <!-- Products Dropdown -->
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="{% url 'products' %}" id="productsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Products
-    </a>
-    <div class="dropdown-menu" aria-labelledby="productsDropdown">
-      <!-- Cards -->
-      <a class="dropdown-item" href="{% url 'products' %}?categories=cards">Cards</a>
-      <!-- Christmas Cards -->
-      <a class="dropdown-item" href="{% url 'products' %}?categories=christmas_cards">Christmas Cards</a>
-      <!-- All Products -->
-      <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
-    </div>
-  </li>
-</ul>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'products' %}?sort=price&direction=ascending">Price ↑</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'products' %}?sort=price&direction=descending">Price ↓</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'products' %}?sort=rating&direction=descending">Rating</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'products' %}?sort=name&direction=ascending">Name A-Z</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'products' %}?sort=name&direction=descending">Name Z-A</a>
+      </li>
+  </ul>
+  
 
   </div>
   {% if messages %}
