@@ -93,7 +93,7 @@
   </header>
 
   <div class="col-12 col-lg-4 my-auto mx-auto pt-5">
-    <form method="GET" action="">
+    <form method="get" action="{% url 'products' %}">
       <div class="input-group w-100">
         <input class="form-control rounded-pill search" type="text" name="q"
           placeholder="Search our site">
@@ -106,9 +106,27 @@
         </div>
       </div>
     </form>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'products' %}">Products</a>
-    </li>
+    <ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'home' %}">Home</a>
+  </li>
+
+  <!-- Products Dropdown -->
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="{% url 'products' %}" id="productsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Products
+    </a>
+    <div class="dropdown-menu" aria-labelledby="productsDropdown">
+      <!-- Cards -->
+      <a class="dropdown-item" href="{% url 'products' %}?categories=cards">Cards</a>
+      <!-- Christmas Cards -->
+      <a class="dropdown-item" href="{% url 'products' %}?categories=christmas_cards">Christmas Cards</a>
+      <!-- All Products -->
+      <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
+    </div>
+  </li>
+</ul>
+
   </div>
   {% if messages %}
   <div class="message-container"></div>

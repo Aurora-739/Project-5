@@ -21,11 +21,15 @@ body {
     font-family: 'DM Serif Text', serif;
     background-size: cover;
     height: calc(100vh - 164px);
-    background-color: #FCEBD0;
+    background-color: #FCEBD0 !important;
 }
 
 h1, h2, h3 {
     font-family: 'Playwrite NZ Guides', sans-serif;
+}
+
+h2 {
+    color: #874C62;
 }
 
 .shop-now-button {
@@ -47,6 +51,11 @@ h1, h2, h3 {
 .carousel-item img {
     height: 37rem;        /* adjust height */
     object-fit: cover;    /* prevents distortion */
+}
+
+.btn {
+    background-color: #874C62;
+    color: #FCEBD0;
 }
 
 .search {
@@ -138,6 +147,20 @@ h1, h2, h3 {
     z-index: -1;
 }
 
+
+.card {
+    background-color: #874C62;
+    color:#E1CC96;
+}
+
+.less-important-text {
+    color: #FCEBD0;
+}
+
+
+placeholder {
+    color: #874C62;
+}
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

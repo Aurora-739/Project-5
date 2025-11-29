@@ -10,11 +10,38 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container my-5">
+    <h2 class="mb-4">Products</h2>
+    {% if search_term %}
+    <p class="text-muted">Search results for "{{ search_term }}"</p>
+    {% endif %}
+
     <div class="row">
-        <div class="col">
-            {{ products }}
+        {% for product in products %}
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <div class="card h-100">
+                
+                {% if product.image %}
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                {% else %}
+                <img src="{% static 'images/noimage.png' %}" class="card-img-top" alt="No image">
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">${{ product.price }}</p>
+
+                    {% if product.rating %}
+                    <p class="text-warning">{{ product.rating }} / 5</p>
+                    {% else %}
+                    <p class="less-important-text">No Rating</p>
+                    {% endif %}
+                </div>
+
+            </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
+

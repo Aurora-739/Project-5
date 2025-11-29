@@ -13,6 +13,10 @@ import os
 
 from pathlib import Path
 
+from django.template.context_processors import media
+
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -73,6 +77,7 @@ TEMPLATES = [
                 'django.template.context_processors.request', #required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -149,7 +154,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-#For PDF files
+#For media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
