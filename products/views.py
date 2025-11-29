@@ -1,52 +1,67 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product
+from .models import Product, Category
 from django.contrib import messages
-from django.shortcuts import redirect, reverse
+from django.shortcuts import redirect
 from django.db.models import Q
-from .models import Product, categories
-
-
-# Create your views here.
+from django.db.models.functions import Lower
 
 def all_products(request):
     products = Product.objects.all()
     query = None
-    categories_param = None
     current_categories = None
+    sort = None
+    direction = None
 
-    # ---- Search Queries ----
+    # --- Handle search query ---
     if 'q' in request.GET:
         query = request.GET['q']
-        if not query:
+        if query:
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            products = products.filter(queries)
+        else:
             messages.error(request, "You didn't enter any search criteria!")
-            return redirect(reverse('products'))
+            return redirect('products')
 
-        queries = Q(name__icontains=query) | Q(description__icontains=query)
-        products = products.filter(queries)
-
-    # ---- categories Filtering ----
+    # --- Handle category filtering ---
     if 'categories' in request.GET:
-        categories_param = request.GET['categories']  # e.g., "jeans,shirts"
-        categories_list = categories_param.split(',')  # ['jeans', 'shirts']
-        products = products.filter(categories__name__in=categories_list)
+        current_categories = request.GET['categories'].split(',')
+        products = products.filter(categories__name__in=current_categories).distinct()
 
-        # Get categories objects for template
-        current_categories = categories.objects.filter(name__in=categories_list)
+    # --- Handle sorting ---
+    if 'sort' in request.GET:
+        sort = request.GET['sort']
+        direction = request.GET.get('direction', 'ascending')
+        sortkey = sort
+
+        # Special case for name: case-insensitive
+        if sort == 'name':
+            products = products.annotate(lower_name=Lower('name'))
+            sortkey = 'lower_name'
+
+        # Special case for category
+        if sort == 'category':
+            sortkey = 'categories__name'
+
+        # Reverse order if descending
+        if direction == 'descending':
+            sortkey = f'-{sortkey}'
+
+        products = products.order_by(sortkey)
+
+    # --- Pass current sorting to template ---
+    current_sorting = f'{sort}_{direction}' if sort and direction else 'none_none'
 
     context = {
         'products': products,
         'search_term': query,
         'current_categories': current_categories,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)
 
-
-
-
 def product_detail(request, product_id):
-    """ A view to show individual product details """
-
+    """ Show individual product details """
     product = get_object_or_404(Product, pk=product_id)
 
     context = {
