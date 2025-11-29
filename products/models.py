@@ -1,6 +1,6 @@
 from django.db import models
 
-class categories(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
@@ -15,9 +15,8 @@ class categories(models.Model):
 
 
 class Product(models.Model):
-    # Changed from ForeignKey to ManyToManyField
     categories = models.ManyToManyField(
-        'categories', blank=True, related_name='products'
+        'Category', blank=True, related_name='products'
     )
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)

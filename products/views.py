@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product, Category
+from .models import Product, Category 
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.db.models import Q
@@ -39,8 +39,9 @@ def all_products(request):
             sortkey = 'lower_name'
 
         # Special case for category
-        if sort == 'category':
+        if sortkey == 'category':
             sortkey = 'categories__name'
+
 
         # Reverse order if descending
         if direction == 'descending':
