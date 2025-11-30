@@ -1,29 +1,219 @@
 {% extends "base.html" %}
+{% load static %}
+{% load bag_extras %}
+{% load mathfilters %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
 
 {% block content %}
-<div class="container my-5">
-    <h2>Shopping Bag</h2>
-    {% if bag_items %}
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in bag_items %}
-                <tr>
-                    <td>{{ item.product.name }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>${{ item.product.price|floatformat:2 }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>Your bag is empty. <a href="{% url 'products' %}">Continue shopping</a></p>
-    {% endif %}
+<div class="overlay"></div>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Shopping Bag</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            {% if bag_items %}
+            <div class="table-responsive rounded">
+                <table class="table table-sm table-borderless">
+                    <thead class="text-black">
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in bag_items %}
+                        <tr>
+                            <td>
+                                {% if item.product.image %}
+                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="max-width: 80px; max-height: 80px;">
+                                {% else %}
+                                    <img src="{% static 'images/noimage.png' %}" alt="No Image" style="max-width: 80px; max-height: 80px;">
+                                {% endif %}
+                            </td>
+                            <td>{{ item.product.name }}</td>
+
+                            <!-- Quantity + Update / Remove -->
+                            <td>
+                                <form class="update-form" method="POST" data-sku="{{ item.product.sku }}">
+                                    {% csrf_token %}
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-decrement" type="button"
+                                                data-input-id="qty_{{ item.product.sku }}">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                        </div>
+                                        <input type="number" class="form-control qty_input"
+                                            id="qty_{{ item.product.sku }}" name="quantity" value="{{ item.quantity }}"
+                                            min="1" data-sku="{{ item.product.sku }}" data-price="{{ item.product.price }}">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-increment" type="button"
+                                                data-input-id="qty_{{ item.product.sku }}">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="update-link" data-sku="{{ item.product.sku }}">Update</a> |
+                                    <a href="#" class="remove-link" data-sku="{{ item.product.sku }}">Remove</a>
+                                </form>
+                            </td>
+
+                            <td>£{{ item.product.price }}</td>
+                            <td id="subtotal_{{ item.product.sku }}">£{{ item.subtotal|floatformat:2 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="pt-5 text-right">
+                                <h4 class="mt-4"><strong>Bag Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="text-right">
+                                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="text-uppercase">Keep Shopping</span>
+                                </a>
+                                <a href="" class="btn btn-black rounded-0 btn-lg">
+                                    <span class="text-uppercase">Secure Checkout</span>
+                                    <span class="icon">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tfoot>
+
+                </table>
+            </div>
+            {% else %}
+            <p class="lead mb-5">Your bag is empty.</p>
+            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Keep Shopping</span>
+            </a>
+            {% endif %}
+        </div>
+    </div>
 </div>
+
+<!-- JS -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    
+        // Helper function to update subtotal dynamically
+        function updateSubtotal(input, newSubtotal) {
+            const sku = input.dataset.sku;
+            const subtotalEl = document.getElementById(`subtotal_${sku}`);
+            if (subtotalEl) {
+                subtotalEl.textContent = `£${newSubtotal}`;
+            }
+        }
+    
+        // Increment / Decrement buttons
+        document.querySelectorAll('.btn-increment, .btn-decrement').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const inputId = btn.dataset.inputId;
+                const input = document.getElementById(inputId);
+                if (!input) return;
+    
+                let value = parseInt(input.value) || 1;
+                if (btn.classList.contains('btn-increment')) {
+                    input.value = value + 1;
+                } else {
+                    input.value = Math.max(1, value - 1);
+                }
+    
+                // Update subtotal immediately
+                const price = parseFloat(input.dataset.price);
+                const newSubtotal = (parseInt(input.value) * price).toFixed(2);
+                updateSubtotal(input, newSubtotal);
+            });
+        });
+    
+        // Update quantity via AJAX
+        document.querySelectorAll('.update-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sku = link.dataset.sku;
+                const form = document.querySelector(`form.update-form[data-sku='${sku}']`);
+                if (!form) return;
+    
+                const input = form.querySelector('input[name="quantity"]');
+                const quantity = parseInt(input.value) || 1;
+                const csrfToken = form.querySelector('input[name="csrfmiddlewaretoken"]').value;
+    
+                fetch(`/bag/adjust/${sku}/`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `quantity=${quantity}&csrfmiddlewaretoken=${csrfToken}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Update subtotal and grand total dynamically
+                        updateSubtotal(input, data.subtotal);
+                        const grandTotalEl = document.querySelector('tfoot tr:first-child strong');
+                        if (grandTotalEl) {
+                            grandTotalEl.textContent = `Bag Total: £${data.grand_total}`;
+                        }
+                    }
+                })
+                .catch(error => console.error('Error updating bag:', error));
+            });
+        });
+    
+        // Remove item via AJAX
+        document.querySelectorAll('.remove-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sku = link.dataset.sku;
+                const csrfToken = document.querySelector(`form.update-form[data-sku='${sku}'] input[name="csrfmiddlewaretoken"]`).value;
+    
+                fetch(`/bag/remove/${sku}/`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `csrfmiddlewaretoken=${csrfToken}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Remove the row from the table
+                        const row = link.closest('tr');
+                        if (row) row.remove();
+    
+                        // Optionally reload grand total
+                        location.reload();
+                    }
+                })
+                .catch(error => console.error('Error removing item:', error));
+            });
+        });
+    
+    });
+    </script>
+    
 {% endblock %}
