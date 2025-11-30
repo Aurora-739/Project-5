@@ -1,11 +1,12 @@
 from django import template
+from products.models import Product
 
 register = template.Library()
 
 @register.filter
-def multiply(value, arg):
-    """Multiplies the value by the argument."""
+def get_product(sku):
+    """Return Product instance for a given SKU"""
     try:
-        return float(value) * float(arg)
-    except (ValueError, TypeError):
-        return ''
+        return Product.objects.get(sku=sku)
+    except Product.DoesNotExist:
+        return None
