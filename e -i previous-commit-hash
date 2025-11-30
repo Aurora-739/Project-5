@@ -1,0 +1,24 @@
+[33m02279e8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m install & set stripe
+[33md628ed8[m add stripe
+[33mf597066[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m checkout is usable (payment has not been linked yet), checkout saves the items, the order numbers, the name and email of the person who orders for the admin
+[33m760a293[m create checkout. Migrate checkout
+[33mbb21d4a[m success alert when items are added to the bag
+[33m8d42138[m add toasts
+[33mefe458e[m user can now click on image in cart and be send the the page of that item
+[33mdebd345[m user can now adjust quantity and remove items from the cart
+[33m12b4ee3[m create add to bag functionality
+[33m8258cc3[m add ability to sort products
+[33mb99eb53[m make products sortable
+[33mcacee00[m make teh search bar usable and add a dropdown menu for items (style).
+[33mf9418bb[m add products page and connect products to page
+[33mf93b122[m Customized admin and created all products view/template
+[33me812a0b[m added products app, models, fixtures, and media
+[33m9d9ba9c[m continue styling the home page
+[33m40ddffa[m began styling and created scroll-change nav bar
+[33m02ce7b7[m begin styling base.html, index.html & base.css
+[33m756dd62[m connect index.html, base.html, settings.py, urls.py, base.css & views.py. TESTED
+[33m601cf9b[m add index.html & base.html
+[33m53e93fe[m setup allauth. TESTED.
+[33me64493c[m install allauth, update settings.py and urls.py for allauth
+[33m669b997[m Project 5 setup: venv, project, store & gitignore
+[33m2d43e5f[m Initial commit

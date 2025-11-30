@@ -30,5 +30,6 @@ class OrderForm(forms.ModelForm):
         }
         for field_name, placeholder in placeholders.items():
             self.fields[field_name].widget.attrs['placeholder'] = placeholder
-            self.fields[field_name].widget.attrs['class'] = 'form-control'
+            self.fields[field_name].widget.attrs['class'] = 'form-control stripe-style'
+            self.fields[field_name].widget.attrs['id'] = f'id_{field_name}'  # <- ADD THIS
             self.fields[field_name].label = False
