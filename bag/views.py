@@ -93,3 +93,7 @@ def update_bag(request, sku):
 
         request.session['bag'] = bag
         return redirect('view_bag')
+    
+
+def view_bag(request):
+    return render(request, 'bag/bag.html')

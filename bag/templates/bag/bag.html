@@ -41,12 +41,12 @@
                         <tr>
                             <td>
                                 {% if item.product.image %}
-                                <a href="{% url 'product_detail' item.product.sku %}">
+                                <a href="{% url 'products:product_detail' item.product.sku %}">
                                     <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
                                         style="max-width: 80px; max-height: 80px;">
                                 </a>
                                 {% else %}
-                                <a href="{% url 'product_detail' item.product.sku %}">
+                                <a href="{% url 'products:product_detail' item.product.sku %}">
                                     <img src="{% static 'images/noimage.png' %}" alt="No Image"
                                         style="max-width: 80px; max-height: 80px;">
                                 </a>
@@ -95,13 +95,13 @@
                         </tr>
                         <tr>
                             <td colspan="4" class="text-right">
-                                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                <a href="{% url 'products:all_products' %}" class="btn btn-outline-black rounded-0 btn-lg">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="text-uppercase">Keep Shopping</span>
                                 </a>
-                                <a href="" class="btn btn-black rounded-0 btn-lg">
+                                <a href="{% url 'checkout:checkout' %}" class="btn btn-black rounded-0 btn-lg">
                                     <span class="text-uppercase">Secure Checkout</span>
                                     <span class="icon">
                                         <i class="fas fa-lock"></i>
@@ -115,7 +115,7 @@
             </div>
             {% else %}
             <p class="lead mb-5">Your bag is empty.</p>
-            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+            <a href="{% url 'products:all_products' %}" class="btn btn-outline-black rounded-0 btn-lg">
                 <span class="icon">
                     <i class="fas fa-chevron-left"></i>
                 </span>

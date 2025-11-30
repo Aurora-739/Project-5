@@ -58,6 +58,7 @@ def all_products(request):
         'current_categories': current_categories,
         'current_sorting': current_sorting,
     }
+    products = Product.objects.all()
 
     return render(request, 'products/products.html', context)
 
@@ -69,7 +70,7 @@ def product_detail(request, sku):
         'product': product,
     }
 
-    return render(request, 'products/product_detail.html', context)
+    return render(request, 'products/product_detail.html', {'product': product})
 
 def product_detail(request, sku):
     product = get_object_or_404(Product, sku=sku)
