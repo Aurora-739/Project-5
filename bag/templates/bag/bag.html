@@ -41,9 +41,15 @@
                         <tr>
                             <td>
                                 {% if item.product.image %}
-                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="max-width: 80px; max-height: 80px;">
+                                <a href="{% url 'product_detail' item.product.sku %}">
+                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
+                                        style="max-width: 80px; max-height: 80px;">
+                                </a>
                                 {% else %}
-                                    <img src="{% static 'images/noimage.png' %}" alt="No Image" style="max-width: 80px; max-height: 80px;">
+                                <a href="{% url 'product_detail' item.product.sku %}">
+                                    <img src="{% static 'images/noimage.png' %}" alt="No Image"
+                                        style="max-width: 80px; max-height: 80px;">
+                                </a>
                                 {% endif %}
                             </td>
                             <td>{{ item.product.name }}</td>
@@ -61,7 +67,8 @@
                                         </div>
                                         <input type="number" class="form-control qty_input"
                                             id="qty_{{ item.product.sku }}" name="quantity" value="{{ item.quantity }}"
-                                            min="1" data-sku="{{ item.product.sku }}" data-price="{{ item.product.price }}">
+                                            min="1" data-sku="{{ item.product.sku }}"
+                                            data-price="{{ item.product.price }}">
                                         <div class="input-group-append">
                                             <button class="btn btn-increment" type="button"
                                                 data-input-id="qty_{{ item.product.sku }}">
@@ -122,7 +129,7 @@
 <!-- JS -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-    
+
         // Helper function to update subtotal dynamically
         function updateSubtotal(input, newSubtotal) {
             const sku = input.dataset.sku;
@@ -131,7 +138,7 @@
                 subtotalEl.textContent = `£${newSubtotal}`;
             }
         }
-    
+
         // Increment / Decrement buttons
         document.querySelectorAll('.btn-increment, .btn-decrement').forEach(btn => {
             btn.addEventListener('click', function (e) {
@@ -139,81 +146,81 @@
                 const inputId = btn.dataset.inputId;
                 const input = document.getElementById(inputId);
                 if (!input) return;
-    
+
                 let value = parseInt(input.value) || 1;
                 if (btn.classList.contains('btn-increment')) {
                     input.value = value + 1;
                 } else {
                     input.value = Math.max(1, value - 1);
                 }
-    
+
                 // Update subtotal immediately
                 const price = parseFloat(input.dataset.price);
                 const newSubtotal = (parseInt(input.value) * price).toFixed(2);
                 updateSubtotal(input, newSubtotal);
             });
         });
-    
+
         // Update quantity via AJAX
         document.querySelectorAll('.update-link').forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const sku = link.dataset.sku;
                 const form = document.querySelector(`form.update-form[data-sku='${sku}']`);
                 if (!form) return;
-    
+
                 const input = form.querySelector('input[name="quantity"]');
                 const quantity = parseInt(input.value) || 1;
                 const csrfToken = form.querySelector('input[name="csrfmiddlewaretoken"]').value;
-    
+
                 fetch(`/bag/adjust/${sku}/`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: `quantity=${quantity}&csrfmiddlewaretoken=${csrfToken}`
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        // Update subtotal and grand total dynamically
-                        updateSubtotal(input, data.subtotal);
-                        const grandTotalEl = document.querySelector('tfoot tr:first-child strong');
-                        if (grandTotalEl) {
-                            grandTotalEl.textContent = `Bag Total: £${data.grand_total}`;
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Update subtotal and grand total dynamically
+                            updateSubtotal(input, data.subtotal);
+                            const grandTotalEl = document.querySelector('tfoot tr:first-child strong');
+                            if (grandTotalEl) {
+                                grandTotalEl.textContent = `Bag Total: £${data.grand_total}`;
+                            }
                         }
-                    }
-                })
-                .catch(error => console.error('Error updating bag:', error));
+                    })
+                    .catch(error => console.error('Error updating bag:', error));
             });
         });
-    
+
         // Remove item via AJAX
         document.querySelectorAll('.remove-link').forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const sku = link.dataset.sku;
                 const csrfToken = document.querySelector(`form.update-form[data-sku='${sku}'] input[name="csrfmiddlewaretoken"]`).value;
-    
+
                 fetch(`/bag/remove/${sku}/`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: `csrfmiddlewaretoken=${csrfToken}`
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        // Remove the row from the table
-                        const row = link.closest('tr');
-                        if (row) row.remove();
-    
-                        // Optionally reload grand total
-                        location.reload();
-                    }
-                })
-                .catch(error => console.error('Error removing item:', error));
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Remove the row from the table
+                            const row = link.closest('tr');
+                            if (row) row.remove();
+
+                            // Optionally reload grand total
+                            location.reload();
+                        }
+                    })
+                    .catch(error => console.error('Error removing item:', error));
             });
         });
-    
+
     });
-    </script>
-    
+</script>
+
 {% endblock %}
