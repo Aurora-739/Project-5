@@ -61,12 +61,20 @@ def all_products(request):
 
     return render(request, 'products/products.html', context)
 
-def product_detail(request, product_id):
+def product_detail(request, sku):
     """ Show individual product details """
-    product = get_object_or_404(Product, pk=product_id)
+    product = get_object_or_404(Product, sku=sku)
 
     context = {
         'product': product,
     }
 
     return render(request, 'products/product_detail.html', context)
+
+def product_detail(request, sku):
+    product = get_object_or_404(Product, sku=sku)
+    context = {
+        'product': product,
+    }
+    return render(request, 'products/product_detail.html', context)
+
