@@ -163,21 +163,13 @@
   {{ block.super }}
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-      var toastList = toastElList.map(function (toastEl) {
-        return new bootstrap.Toast(toastEl, { autohide: false }).show();
+      var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+      toastElList.forEach(function (toastEl) {
+        new bootstrap.Toast(toastEl, { autohide: false }).show();
       });
     });
-  </script>
-{% endblock %}
 
-
-</body>
-
-</html>
-
-<script>
-  window.addEventListener('scroll', function () {
+    window.addEventListener('scroll', function () {
     const topnav = document.getElementById('topnav');
     if (window.scrollY > 50) {
       topnav.classList.add('scrolled');
@@ -185,5 +177,10 @@
       topnav.classList.remove('scrolled');
     }
   });
-  
-</script>
+  </script>
+{% endblock %}
+
+
+</body>
+
+</html>

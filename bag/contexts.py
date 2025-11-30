@@ -25,4 +25,4 @@ def bag_contents(request):
         'bag_items': bag_items,
         'grand_total': grand_total
     }
-
+    

@@ -208,7 +208,6 @@ placeholder {
 
   /* Wrapper for bag preview in toast */
 .bag-notification-wrapper {
-    max-height: 100px;
     overflow-y: auto;
     overflow-x: hidden;
   }
