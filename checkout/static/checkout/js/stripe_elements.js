@@ -24,7 +24,7 @@ const style = {
 // Create card element
 const card = elements.create("card", { style: style });
 
-// Mount card element to div
+// Mount card element
 card.mount("#card-element");
 
 // Handle realtime validation errors
@@ -41,21 +41,28 @@ card.on('change', function(event) {
 const form = document.getElementById('payment-form');
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
+
+    // Disable card input and submit button to prevent double submissions
+    card.update({ 'disabled': true });
+    document.getElementById('submit-button').disabled = true;
+
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
-            card: card,
-            billing_details: {
-                name: document.getElementById('id_full_name').value,
-                email: document.getElementById('id_email').value
-            }
+            card: card
         }
     }).then(function(result) {
         if (result.error) {
-            // Show error to your customer
+            // Show error to customer
             document.getElementById('card-errors').textContent = result.error.message;
+
+            // Re-enable card input and submit button
+            card.update({ 'disabled': false });
+            document.getElementById('submit-button').disabled = false;
         } else {
-            // Payment succeeded, submit form
-            form.submit();
+            // Payment succeeded, submit the form
+            if (result.paymentIntent.status === 'succeeded') {
+                form.submit();
+            }
         }
     });
 });

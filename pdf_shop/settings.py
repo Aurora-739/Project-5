@@ -23,6 +23,7 @@ if os.path.isfile('env.py'):
 # Stripe
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WEBHOOK_SECRET')  # this comes from Stripe dashboard
 STRIPE_CURRENCY = os.environ.get('STRIPE_CURRENCY', 'gbp')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
