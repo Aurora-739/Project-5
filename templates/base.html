@@ -144,15 +144,33 @@
 
 
   </div>
-  {% if messages %}
-  <div class="message-container"></div>
-  {% endif %}
+  <div id="messages">
+    {% if messages %}
+      {% for message in messages %}
+        {% if message.level == 25 %}
+          {% include "includes/toasts/toast_success.html" %}
+        {% elif message.level == 40 %}
+          {% include "includes/toasts/toast_error.html" %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
 
   {% block content %}
   {% endblock %}
 
-  {% block postloadjs %}
-  {% endblock %}
+  {% block post_loadjs %}
+  {{ block.super }}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+      var toastList = toastElList.map(function (toastEl) {
+        return new bootstrap.Toast(toastEl, { autohide: false }).show();
+      });
+    });
+  </script>
+{% endblock %}
+
 
 </body>
 
@@ -167,4 +185,5 @@
       topnav.classList.remove('scrolled');
     }
   });
+  
 </script>
