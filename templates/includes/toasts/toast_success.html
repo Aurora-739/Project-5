@@ -1,0 +1,21 @@
+{% if bag_items %}
+<div class="bag-notification-wrapper">
+  <p><strong>Items in your bag ({{ bag_items|length }})</strong></p>
+  {% for item in bag_items %}
+    <div class="row mb-2">
+      <div class="col-3">
+        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid">
+      </div>
+      <div class="col-9">
+        <p>{{ item.product.name }}{% if item.product.size %} ({{ item.product.size }}){% endif %} x {{ item.quantity }}</p>
+      </div>
+    </div>
+  {% endfor %}
+  <div class="row mt-2">
+    <div class="col">
+      <p><strong>Total: £{{ grand_total }}</strong></p>
+      <a href="{% url 'view_bag' %}" class="btn btn-primary btn-sm">View Bag</a>
+    </div>
+  </div>
+</div>
+{% endif %}
