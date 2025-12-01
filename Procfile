@@ -1,1 +1,1 @@
-web: gunicorn Project-5.wsgi:application
+web: gunicorn pdf_shop.wsgi:application
