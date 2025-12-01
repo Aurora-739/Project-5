@@ -1,5 +1,6 @@
 # checkout/views.py
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.mail import send_mail
 from django.contrib import messages
 from products.models import Product
 from .models import Order, OrderLineItem
@@ -108,6 +109,16 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
+    send_mail(
+        subject=f"Order Confirmation - {order.order_number}",
+        message=f"Thank you for your order!\n\n"
+                f"Order Number: {order.order_number}\n"
+                f"We will process your order and ship it shortly.\n\n"
+                f"Thank you for shopping with us!",
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        recipient_list=[order.email],
+        fail_silently=False,  # Set True if you don’t want errors to break the page
+    )
     messages.success(
         request,
         f'Order successfully processed! Your order number is {order_number}. '
