@@ -42,7 +42,10 @@ SECRET_KEY = 'django-insecure-4w)rg=obh-m++-9%gwga66!*ardu(da61vvlb=h6tl9(1s_b2w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+]
 
 
 # Application definition
@@ -125,9 +128,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  # your email provider
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'michellescraftroomcontact@gmail.com'
-EMAIL_HOST_PASSWORD = 'HotDog17!' #Sensative info but relevent
-DEFAULT_FROM_EMAIL = 'michellescraftroomcontact@gmail.com'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -203,5 +206,3 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 1
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #temproary - logs emails to console instead of sending them :)
