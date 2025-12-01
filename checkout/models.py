@@ -2,7 +2,13 @@
 import uuid
 from django.db import models
 from django.conf import settings
-from products.models import Product  # assuming you have a Product model
+from products.models import Product
+from django_countries.fields import CountryField
+from profiles.models import UserProfile
+
+
+country = CountryField(blank_label='Country*')
+
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, editable=False, unique=True)
@@ -34,6 +40,14 @@ class Order(models.Model):
 
     def __str__(self):
         return self.order_number
+    
+    user_profile = models.ForeignKey(
+        UserProfile,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='orders'
+    )
 
 
 class OrderLineItem(models.Model):

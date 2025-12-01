@@ -181,6 +181,16 @@ placeholder {
     color: #874C62;
 }
 
+select {
+    color: black;
+}
+select:invalid {
+    color: grey;
+}
+select option[value=""] {
+    color: grey;
+}
+
 
 /* Position toast container in top-right corner */
 #messages {
