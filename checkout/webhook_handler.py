@@ -23,7 +23,7 @@ class StripeWH_Handler:
         Thank you for your order!
 
         Order Number: {order.order_number}
-        Total: £{order.grand_total}
+        Total: £{order.order_total}
 
         We will process your order and ship it shortly.
         """

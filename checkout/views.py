@@ -7,6 +7,7 @@ from .models import Order, OrderLineItem
 from .forms import OrderForm
 from django.conf import settings
 from profiles.models import UserProfile
+from .webhook_handler import StripeWH_Handler
 import stripe
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -118,8 +119,16 @@ def checkout_success(request, order_number):
     if 'bag' in request.session:
         del request.session['bag']
 
+    # Create a handler instance (you can pass request if you need it)
+    handler = StripeWH_Handler(request)
+    
+    # Call the print email method directly
+    handler._send_confirmation_email(order)
+
     context = {'order': order}
     return render(request, 'checkout/checkout_success.html', context)
+
+    
 
 
 def payment_declined(request):
