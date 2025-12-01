@@ -40,7 +40,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-4w)rg=obh-m++-9%gwga66!*ardu(da61vvlb=h6tl9(1s_b2w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -150,7 +150,6 @@ AUTHENTICATION_BACKENDS = [
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # allow login by username or email
 ACCOUNT_EMAIL_REQUIRED = True                     # email is required
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'         # force email confirmation
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4                  # min username length
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5                 # optional, adds login security
@@ -200,5 +199,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 1
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
+
+DEFAULT_FROM_EMAIL = os.environ.setdefault('DEFAULT_FROM_EMAIL')
