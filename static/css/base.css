@@ -23,6 +23,7 @@ body {
     height: calc(100vh - 164px);
     background-color: #FCEBD0 !important;
     z-index: 0;
+    height: 100%;
 }
 
 h1, h2, h3 {
@@ -118,20 +119,12 @@ h2 {
 }
 
 #topnav a.nav-link {
-    color: #874C62;               /* initial link color */
+    color: #BA9F38;               /* initial link color */
     text-decoration: none;
     margin-left: 15px;
     transition: color 1s;
 }
 
-/* Active scroll state */
-#topnav.scrolled {
-    background-color: #874C62;  /* bar color after scroll */
-}
-
-#topnav.scrolled a.nav-link {
-    color: #FCEBD0;             /* text color after scroll */
-}
 
 .sub-header {
     color: #874C62;
@@ -192,6 +185,20 @@ select option[value=""] {
 }
 
 
+/* for a sticky footer */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+footer, .footer {
+    background-color: #874C62;
+    color: #FCEBD0;
+}
+
+.facebook {
+    color: #FCEBD0;
+}
 /* Position toast container in top-right corner */
 #messages {
     position: fixed;       /* Fix it relative to viewport */

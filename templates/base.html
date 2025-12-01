@@ -65,7 +65,7 @@
               {% if request.user.is_superuser %}
               <a href="" class="dropdown-item">Product Management</a>
               {% endif %}
-              <a href="" class="dropdown-item">My Profile</a>
+              <a href="{% url 'profiles:profile' %}" class="dropdown-item">My Profile</a>
               <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
               {% else %}
               <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -74,7 +74,7 @@
             </div>
           </li>
           <li class="list-inline-item">
-            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+            <a class="{% if grand_total %}text-info font-weight-bold{% else %}{% endif %} nav-link" href="">
               <div class="text-center">
                 <div><a href="{% url 'bag:view_bag' %}" class="dropdown-item">
                     <i class="fas fa-shopping-bag fa-lg"></i>
@@ -183,5 +183,55 @@
 
 
 </body>
+
+<!-- Footer -->
+<footer class="pt-5 pb-3">
+  <div class="container">
+      <div class="row">
+
+          <!-- About / Logo -->
+          <div class="col-12 col-md-4 mb-4">
+              <h5 class="mb-3 logo-font">Michelle's Craft Room</h5>
+              <p class="small">Delivering high-quality PNG artwork and digital products straight to your inbox. Stay creative and inspired!</p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-6 col-md-2 mb-4 footer">
+              <h6 class="mb-3">Quick Links</h6>
+              <ul class="list-unstyled">
+                  <li><a href="{% url 'home' %}" class=" footer text-decoration-none">Home</a></li>
+                  <li><a href="{% url 'products:products' %}" class="footer text-decoration-none">Shop</a></li>
+              </ul>
+          </div>
+
+          <!-- Customer Service -->
+          <div class="col-6 col-md-2 mb-4">
+              <h6 class="mb-3">Customer Service</h6>
+              <ul class="list-unstyled">
+                  <li><a href="{% url 'home' %}#contact" class="footer text-decoration-none">Contact Us at 013924567456</a></li>
+              </ul>
+          </div>
+
+          <!-- Social Media -->
+          <div class="col-12 col-md-4 mb-4">
+              <h6 class="mb-3">Follow Us</h6>
+              <div class="d-flex gap-3">
+                  <a href="#" class="fs-4 facebook"><i class="fab fa-facebook-f"></i></a>
+              </div>
+          </div>
+
+      </div>
+
+      <hr class="bg-light">
+
+      <!-- Copyright -->
+      <div class="row">
+          <div class="col text-center">
+              <p class="small mb-0">&copy; {{ now.year }} Michelles Craft Room. All rights reserved.</p>
+          </div>
+      </div>
+  </div>
+</footer>
+
 
 </html>

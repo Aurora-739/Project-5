@@ -154,6 +154,7 @@ ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5                 # optional, adds login security
 
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'  # redirects users to home page
+LOGOUT_REDIRECT_URL = '/' #redirects users to home page
 
 # Crispy Forms settings
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
