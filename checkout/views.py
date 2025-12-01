@@ -5,16 +5,20 @@ from products.models import Product
 from .models import Order, OrderLineItem
 from .forms import OrderForm
 from django.conf import settings
+from profiles.models import UserProfile
 import stripe
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
-
 def checkout(request):
     bag = request.session.get('bag', {})
 
+    # Pre-fill form with user info if logged in
+    profile = None
+    if request.user.is_authenticated:
+        profile, _ = UserProfile.objects.get_or_create(user=request.user)
+
     if request.method == 'POST':
-        # Gather form data from POST
         form_data = {
             'full_name': request.POST.get('full_name', ''),
             'email': request.POST.get('email', ''),
@@ -27,15 +31,12 @@ def checkout(request):
 
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            # Create order instance but do not save yet
             order = order_form.save(commit=False)
 
             # Attach user profile if logged in
-            if request.user.is_authenticated:
-                from profiles.models import UserProfile
-                order.user_profile = UserProfile.objects.get(user=request.user)
+            if profile:
+                order.user_profile = profile
 
-            # Save order to DB
             order.save()
 
             # Create order line items
@@ -51,40 +52,48 @@ def checkout(request):
                 except Product.DoesNotExist:
                     messages.error(
                         request,
-                        "One of the products in your bag wasn't found in our database. "
-                        "Please contact us for assistance."
+                        "One of the products in your bag wasn't found in our database. Please contact us."
                     )
                     order.delete()
                     return redirect('bag:view_bag')
 
-            # Save info to session if requested
+            # Save info to profile if "save info" checked
             request.session['save_info'] = 'save_info' in request.POST
+            if profile and request.session['save_info']:
+                profile.default_phone_number = request.POST.get('phone_number', '')
+                profile.default_street_address1 = request.POST.get('address_line1', '')
+                profile.default_street_address2 = request.POST.get('address_line2', '')
+                profile.default_town_or_city = request.POST.get('city', '')
+                profile.default_county = request.POST.get('county', '')
+                profile.default_postcode = request.POST.get('postcode', '')
+                profile.default_country = request.POST.get('country', '')
+                profile.save()
 
-            # Calculate grand total
-            grand_total = sum(item.lineitem_total for item in order.lineitems.all())
-
-            # Create Stripe PaymentIntent
-            intent = stripe.PaymentIntent.create(
-                amount=int(grand_total * 100),  # convert to pence
-                currency='gbp',
-                metadata={'order_number': order.order_number}
-            )
-
-            # Redirect to success page
+            # Redirect to checkout success
             return redirect('checkout:checkout_success', order_number=order.order_number)
 
         else:
-            messages.error(
-                request,
-                'There was an error with your form. Please double check your information.'
-            )
+            messages.error(request, 'There was an error with your form. Please check your information.')
 
     else:
-        # GET request: show empty form
-        order_form = OrderForm()
-        # Create dummy PaymentIntent for Stripe Elements
+        # GET request: pre-fill form
+        initial_data = {}
+        if profile:
+            initial_data = {
+                'full_name': request.user.get_full_name(),
+                'email': request.user.email,
+                'address_line1': profile.default_street_address1,
+                'address_line2': profile.default_street_address2,
+                'postcode': profile.default_postcode,
+                'city': profile.default_town_or_city,
+                'country': profile.default_country,
+            }
+
+        order_form = OrderForm(initial=initial_data)
+
+        # Dummy Stripe PaymentIntent
         intent = stripe.PaymentIntent.create(
-            amount=100,  # £1 dummy
+            amount=100,
             currency='gbp',
         )
 
@@ -99,21 +108,16 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
-
     messages.success(
         request,
         f'Order successfully processed! Your order number is {order_number}. '
         f'A confirmation email has been sent to {order.email}.'
     )
 
-    # Clear shopping bag from session
     if 'bag' in request.session:
         del request.session['bag']
 
-    context = {
-        'order': order,
-    }
-
+    context = {'order': order}
     return render(request, 'checkout/checkout_success.html', context)
 
 
