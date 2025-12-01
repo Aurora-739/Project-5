@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+print("DJANGO SETTINGS LOADED")
 import os
 from dotenv import load_dotenv
 import dj_database_url
