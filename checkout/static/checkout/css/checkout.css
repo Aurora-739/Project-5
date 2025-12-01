@@ -1,33 +1,50 @@
-/* checkout.css */
+/* ---------------------------------------------
+   Checkout Styles
+---------------------------------------------- */
 
-/* Style all form controls */
-input, select, textarea, .StripeElement {
+/* Normal input fields */
+input, select, textarea {
     color: #874C62;
     border: 1px solid #874C62;
-    border-radius: 0; /* Remove Bootstrap default rounded corners */
+    border-radius: 0;
     padding: 0.5rem;
     font-size: 1rem;
-}
-
-/* Adjust fieldset labels */
-fieldset label {
-    font-weight: bold;
-    margin-bottom: 0.25rem;
-    display: block;
-}
-
-/* Stripe card element styling */
-.StripeElement {
-    background-color: white;
-    padding: 12px;
-    border: 1px solid #874C62;
-    border-radius: 0; /* match site theme */
-}
-
-.card-element{
     background-color: #E1CC96;
-    border: #874C62;
 }
+
+/* Stripe Element – keep it clean & isolated */
+.StripeElement {
+    background-color: #fff !important;
+    padding: 12px !important;
+    border: 1px solid #874C62 !important;
+    border-radius: 0 !important;
+    color: #000 !important;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto !important;
+}
+
+/* Stripe state styles */
+.StripeElement--focus {
+    border-color: #874C62 !important;
+    box-shadow: 0 0 0 0.2rem rgba(135, 76, 98, 0.25);
+}
+
+.StripeElement--invalid {
+    border-color: #dc3545 !important;
+}
+
+/* Card element wrapper */
+#card-element {
+    background-color: #fff;
+    padding: 0; /* padding must be on .StripeElement, not wrapper */
+    border: none;
+    position: relative;
+    z-index: 10;
+}
+
+/* Layout colors */
 body {
     color: #874C62;
 }
@@ -35,37 +52,4 @@ legend, h4, p {
     color: #874C62;
 }
 
-input {
-    background-color: #E1CC96;
-    color: #874C62;
-}
 
-.StripeElement {
-    border: 1px solid #000;
-    padding: 10px;
-    border-radius: 0;
-    background-color: #fff;
-    color: #000;
-    width: 100%;
-}
-
-.StripeElement--focus {
-    box-shadow: 0 0 0 0.2rem rgba(0,0,0,.25);
-}
-
-.StripeElement--invalid {
-    border-color: #dc3545;
-}
-
-
-#card-element {
-    border: 1px solid #000;
-    padding: 10px;
-    border-radius: 0;
-    background-color: #fff;
-}
-
-.StripeElement {
-    z-index: 2;
-    position: relative;
-}

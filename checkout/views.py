@@ -5,6 +5,9 @@ from .models import Order, OrderLineItem
 from .forms import OrderForm
 from django.conf import settings
 from .webhook_handler import StripeWH_Handler
+import stripe
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 def checkout(request):
@@ -25,7 +28,7 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
-            
+
             # Create order line items
             for item_id, item_data in bag.items():
                 try:
@@ -57,8 +60,26 @@ def checkout(request):
             # Save info to session if needed
             request.session['save_info'] = 'save_info' in request.POST
 
-            # Redirect to checkout success page
-            return redirect('checkout:checkout_success', order_number=order.order_number)
+            # Create Stripe PaymentIntent
+            # Convert grand_total to smallest currency unit (pence)
+            grand_total = sum(
+                (item.subtotal for item in order.lineitems.all())
+            )
+            intent = stripe.PaymentIntent.create(
+                amount=int(grand_total * 100),
+                currency='gbp',
+                metadata={'order_number': order.order_number}
+            )
+
+            context = {
+                'order_form': order_form,
+                'stripe_public_key': settings.STRIPE_PUBLIC_KEY,
+                'client_secret': intent.client_secret,
+                'order': order,
+            }
+
+            return render(request, 'checkout/checkout.html', context)
+
         else:
             messages.error(request, 'There was an error with your form. Please double check your information.')
 
@@ -66,10 +87,16 @@ def checkout(request):
         # GET request: show empty form
         order_form = OrderForm()
 
+        # Create a "dummy" PaymentIntent for GET to mount the card element
+        intent = stripe.PaymentIntent.create(
+            amount=100,  # £1 dummy amount
+            currency='gbp',
+        )
+
     context = {
         'order_form': order_form,
         'stripe_public_key': settings.STRIPE_PUBLIC_KEY,
-        'client_secret': 'test_client_secret',  # Replace with actual payment intent client secret
+        'client_secret': intent.client_secret,
     }
 
     return render(request, 'checkout/checkout.html', context)
@@ -77,7 +104,10 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
-    messages.success(request, f'Order successfully processed! Your order number is {order_number}. A confirmation email has been sent to {order.email}.')
+    messages.success(
+        request,
+        f'Order successfully processed! Your order number is {order_number}. A confirmation email has been sent to {order.email}.'
+    )
 
     # Delete shopping bag from session
     if 'bag' in request.session:
@@ -88,3 +118,7 @@ def checkout_success(request, order_number):
     }
 
     return render(request, 'checkout/checkout_success.html', context)
+
+
+def payment_declined(request):
+    return render(request, 'checkout/payment_declined.html')
