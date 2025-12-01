@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: Arial, sans-serif; color: #333; }
+    .order-info { border: 1px solid #ddd; padding: 10px; margin-top: 10px; }
+    h2 { color: #2d2d2d; }
+  </style>
+</head>
+<body>
+  <h2>Thank you for your order, {{ order.full_name }}!</h2>
+  <div class="order-info">
+    <p><strong>Order Number:</strong> {{ order.order_number }}</p>
+    <p><strong>Total:</strong> £{{ order.grand_total }}</p>
+  </div>
+  <p>We will process your order and get it to you shortly.</p>
+  <p>If you have questions, contact us at <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>.</p>
+</body>
+</html>
