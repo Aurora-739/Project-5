@@ -27,7 +27,7 @@ if os.path.isfile('env.py'):
 # Stripe
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
-STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WEBHOOK_SECRET')  # this comes from Stripe dashboard
+STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WH_SECRET')  # this comes from Stripe dashboard
 STRIPE_CURRENCY = os.environ.get('STRIPE_CURRENCY', 'gbp')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,7 +41,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-4w)rg=obh-m++-9%gwga66!*ardu(da61vvlb=h6tl9(1s_b2w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
