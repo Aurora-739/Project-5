@@ -17,7 +17,7 @@
     <div class="row">
         {% for product in products %}
             <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-                <a href="{% url 'product_detail' product.sku %}" class="text-decoration-none text-dark">
+                <a href="{% url 'products:product_detail' product.sku %}" class="text-decoration-none text-dark">
                     <div class="card h-100 border-0 shadow-sm">
                         {% if product.image %}
                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">

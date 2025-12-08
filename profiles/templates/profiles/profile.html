@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+            <h2 class="logo-font mb-4">My Profile</h2>
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <!-- Profile Form Column -->
+        <div class="col-12 col-md-6 mb-4">
+            <div class="profile-form-wrapper p-3 border">
+                <h4 class="mb-3">Profile Information</h4>
+                <form id="profile-update-form" method="post" action="{% url 'profiles:profile' %}">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn float-right mt-2">Update Profile</button>
+                </form>
+                
+            </div>
+        </div>
+        
+        <!-- Order History Column -->
+        <div class="col-12 col-md-6 mb-4">
+            <div class="order-history-wrapper p-3 border">
+                <h4 class="mb-3">Order History</h4>
+                {% if orders %}
+                    {% for order in orders %}
+                    <div class="order-item mb-3 p-2 border-bottom">
+                        <p class="mb-1"><strong>Order Number:</strong> {{ order.order_number }}</p>
+                        <p class="mb-1"><strong>Date:</strong> {{ order.date }}</p>
+                        <p class="mb-1"><strong>Total:</strong> {{ order.grand_total }}</p>
+                        <a href="{% url 'checkout:checkout_success' order_number=order.order_number %}" class="btn btn-outline-black btn-sm mt-1">View Details</a>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p>You have no past orders.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="text-center mb-3">
+        <a href="{% url 'profiles:newsletter_signup' %}" class="btn btn-primary">Sign up to our Newsletter</a>
+    </div>
+</div>
+
+{% endblock %}

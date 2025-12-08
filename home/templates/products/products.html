@@ -19,7 +19,7 @@
     {% endif %}
 
     <div class="mb-2 products-text">
-        <a href="{% url 'products' %}" class="products-text">All products</a> |
+        <a href="{% url 'products:all_products' %}" class="products-text">All products</a> |
         {{ products|length }} products
         {% if search_term %} for "{{ search_term }}" {% endif %}
     </div>
@@ -43,7 +43,7 @@
         {% for product in products %}
         <div class="col-6 col-md-4 col-lg-3 mb-4">
             <!-- Wrap the card in a link to make it clickable -->
-            <a href="{% url 'product_detail' product.sku %}" class="text-decoration-none text-dark">
+            <a href="{% url 'products:product_detail' product.sku %}" class="text-decoration-none text-dark">
                 <div class="card h-100">
                     {% if product.image %}
                         <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">

@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /account/
+Disallow: /bag/
+Disallow: /checkout/
+Disallow: /profile/
+
+Allow: /
+Allow: /products/
+
+Sitemap: https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/sitemap.xml

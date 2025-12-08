@@ -1,0 +1,41 @@
+/* checkout.css */
+
+/* Style all form controls */
+input, select, textarea, .StripeElement {
+    color: #874C62;
+    border: 1px solid #874C62;
+    border-radius: 0; /* Remove Bootstrap default rounded corners */
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Adjust fieldset labels */
+fieldset label {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+/* Stripe card element styling */
+.StripeElement {
+    background-color: white;
+    padding: 12px;
+    border: 1px solid #874C62;
+    border-radius: 0; /* match site theme */
+}
+
+.card-element{
+    background-color: #E1CC96;
+    border: #874C62;
+}
+body {
+    color: #874C62;
+}
+legend, h4, p {
+    color: #874C62;
+}
+
+input {
+    background-color: #E1CC96;
+    color: #874C62;
+}
