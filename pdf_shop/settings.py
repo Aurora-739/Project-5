@@ -18,6 +18,8 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 os.environ.setdefault('MY_ENVIRONMENT_VARIABLE', 'variable_value')
 
