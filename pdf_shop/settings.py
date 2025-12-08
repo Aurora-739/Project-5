@@ -10,6 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+from dotenv import load_dotenv
+import dj_database_url
+load_dotenv()  # take environment variables from .env.
+# Cloudinary settings
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+
+os.environ.setdefault('MY_ENVIRONMENT_VARIABLE', 'variable_value')
 
 from pathlib import Path
 
@@ -21,8 +31,14 @@ if os.path.isfile('env.py'):
 # Stripe
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WH_SECRET')  # this comes from Stripe dashboard
 STRIPE_CURRENCY = os.environ.get('STRIPE_CURRENCY', 'gbp')
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET')
+}
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -34,14 +50,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-4w)rg=obh-m++-9%gwga66!*ardu(da61vvlb=h6tl9(1s_b2w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com', #heroku app
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'cloudinary_storage',
     # Django apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -50,6 +71,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',  # required by allauth
+    'cloudinary',
     # Allauth apps
     'allauth',
     'allauth.account',
@@ -61,6 +83,9 @@ INSTALLED_APPS = [
     'bag',
     'checkout',
     'crispy_forms',
+    'crispy_bootstrap4',
+    'profiles',
+    'django_countries',
     #maths apps
     'mathfilters',
 ]
@@ -73,7 +98,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'allauth.account.middleware.AccountMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'pdf_shop.urls'
@@ -106,12 +131,20 @@ WSGI_APPLICATION = 'pdf_shop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+import dj_database_url
+
+# Check if DATABASE_URL exists (Heroku), otherwise use SQLite (local)
+if os.environ.get("DATABASE_URL"):
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
@@ -139,14 +172,17 @@ AUTHENTICATION_BACKENDS = [
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # allow login by username or email
 ACCOUNT_EMAIL_REQUIRED = True                     # email is required
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'         # force email confirmation
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4                  # min username length
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5                 # optional, adds login security
 
-LOGIN_URL = '/accounts/login/'
+LOGIN_URL = 'account_login'
 LOGIN_REDIRECT_URL = '/'  # redirects users to home page
+LOGOUT_REDIRECT_URL = '/' #redirects users to home page
 
+# Crispy Forms settings
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -172,9 +208,18 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 #For media files
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+#MEDIA_ROOT = BASE_DIR / 'media'
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
@@ -185,4 +230,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 1
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #temproary - logs emails to console instead of sending them :)
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "michellescraftroomcontact@gmail.com")
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+
+# Send emails to the console (development only)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'http' 
