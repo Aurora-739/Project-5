@@ -32,7 +32,7 @@ urlpatterns = [
     path('mypage/', views.mypage, name='mypage'),  # mypage
     path('signup2/', views.signup2, name='signup2'),  # signup2
     path('login2/', views.login2, name='login2'),  #login2
-    path('logout2/', views.logout2, name='login2'),  #login2
+    path('logout2/', views.logout2, name='logout2'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

@@ -207,20 +207,40 @@ placeholder {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 10vh;
+  min-height: 60vh;
   text-align: center;
+  padding-bottom: 150px; /* Prevent footer overlap */
+  margin-bottom: 50px;
 }
-.auth-container button {
-  padding: 10px 20px;
+
+.auth-container button[type="submit"] {
+  background-color: #874C62;
+  color: #FCEBD0;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
   cursor: pointer;
+  margin: 50px auto 100px auto;
+  display: block;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.auth-container button[type="submit"]:hover {
+  background-color: #BA9F38;
+  color: #874C62;
 }
 
 .auth-container form input,
 .auth-container form select,
 .auth-container form textarea {
-    position: relative;
-    z-index: 10;
-    pointer-events: auto;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  padding: 8px 12px;
+  margin: 5px 0;
+  border: 1px solid #E1CC96;
+  border-radius: 4px;
 }
 
 .auth-container form ul {
@@ -231,6 +251,16 @@ placeholder {
 .auth-container form li {
   list-style: none;
 }
+
+.auth-container a {
+  color: #874C62;
+  text-decoration: none;
+}
+
+.auth-container a:hover {
+  color: #BA9F38;
+}
+
 /* Position toast container in top-right corner */
 #messages {
     position: fixed;       /* Fix it relative to viewport */

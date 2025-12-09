@@ -1,12 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login2</title>
-</head>
-<body>
-    <h1>Welcome to login2!</h1>
-    <p>This is a new page accessible at /login2.</p>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h2>Login</h2>
+    
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    
+    <form method="post" action="{% url 'login2' %}">
+        {% csrf_token %}
+        
+        <p>
+            <label for="id_username">Username:</label><br>
+            <input type="text" name="username" id="id_username" required>
+        </p>
+        
+        <p>
+            <label for="id_password">Password:</label><br>
+            <input type="password" name="password" id="id_password" required>
+        </p>
+        
+        <button type="submit">Login</button>
+    </form>
+    
+    <p>Don't have an account? <a href="{% url 'signup2' %}">Sign up here</a></p>
+</div>
+{% endblock %}
