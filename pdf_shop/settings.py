@@ -35,6 +35,8 @@ if ENVIRONMENT == 'DEV':
 else:
     ALLOWED_HOSTS = ['project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com']
 
+print("ALLOWED_HOSTS =", ALLOWED_HOSTS)
+
 # ----------------------
 # Installed Apps
 # ----------------------
@@ -85,6 +87,8 @@ MIDDLEWARE = [
 # Add allauth middleware only for PROD
 if ENVIRONMENT == 'PROD':
     MIDDLEWARE.append('allauth.account.middleware.AccountMiddleware')
+
+print("MIDDLEWARE =", MIDDLEWARE)
 
 # ----------------------
 # URL & Templates
