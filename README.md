@@ -512,3 +512,5 @@ heroku run python manage.py createsuperuser
 ### Acknowledgments
 - Code Institute for the learning materials and project inspiration
 - Michelle for providing the beautiful artwork and card designs
+
+PLEASE NOTE THE README.MD WAS WRITTEDN ALL IN ONE GO AND THE GITHUB COMMITS ONLY BEGAN YESTERDAY BECAUSE AN ERROR I MADE IN DEVELOPMENT LED TO GITHUB BEING WIPED INCLUDING MY README.MD AND MOST OF MY WORK THIS PAST WEEK. FORTUNATLY I HAD SAVED A COPY OF ME README.MD ELSEWHERE BEOFRE THIS ISSUE OCCURED.
