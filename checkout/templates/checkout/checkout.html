@@ -36,7 +36,7 @@
                     {{ form.country|as_crispy_field }}
 
                     {% if user.is_authenticated %}
-                    <div class="form-check">
+                    <div class="form-check mb-3">
                         {{ form.save_info }}
                         <label class="form-check-label" for="id_save_info">
                             Save this information to my profile
