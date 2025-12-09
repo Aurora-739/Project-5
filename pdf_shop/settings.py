@@ -18,6 +18,11 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
+if os.path.isfile('env.py'):
+    import env
+
+DEBUG = True
+
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
@@ -35,6 +40,10 @@ STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WH_SECRET')  # this comes from Stripe dashboard
 STRIPE_CURRENCY = os.environ.get('STRIPE_CURRENCY', 'gbp')
+
+# settings.py
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
