@@ -19,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Debug & Secret Key
 # ----------------------
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
-ENVIRONMENT = os.environ.get('ENVIRONMENT', 'PROD') == 'DEV'
+ENVIRONMENT = os.environ.get('ENVIRONMENT', 'PROD')
 SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret-key')
 
 # Optional: check immediately
