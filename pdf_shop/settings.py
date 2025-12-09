@@ -19,26 +19,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Debug & Secret Key
 # ----------------------
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+ENVIRONMENT = os.environ.get('ENVIRONMENT', 'PROD') == 'DEV'
 SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret-key')
 
 # Optional: check immediately
 print("DEBUG =", DEBUG)
+print("ENVIRONMENT =", ENVIRONMENT)
 #print("SECRET_KEY =", SECRET_KEY)
 
 # ----------------------
 # Allowed Hosts
 # ----------------------
-if DEBUG:
+if ENVIRONMENT == 'DEV':
     ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 else:
-    ALLOWED_HOSTS = [
-        'project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com'
-    ]
-
-ALLOWED_HOSTS = [
-    '127.0.0.1', 'localhost'
-        'project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com'
-    ]
+    ALLOWED_HOSTS = ['project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com']
 
 # ----------------------
 # Installed Apps
@@ -85,8 +80,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',  # Add this line
 ]
+
+# Add allauth middleware only for PROD
+if ENVIRONMENT == 'PROD':
+    MIDDLEWARE.append('allauth.account.middleware.AccountMiddleware')
 
 # ----------------------
 # URL & Templates
