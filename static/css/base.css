@@ -15,6 +15,26 @@ Butter Base = #FCEBD0
 .rotate{
     transform: rotate(90deg);
 }
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content should grow to push footer down */
+main {
+  flex: 1;
+}
+
+/* Footer stays at bottom */
+footer {
+  margin-top: auto;
+}
 
 body {
     background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
@@ -181,7 +201,36 @@ placeholder {
     color: #874C62;
 }
 
+/* Center authentication forms */
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 10vh;
+  text-align: center;
+}
+.auth-container button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
 
+.auth-container form input,
+.auth-container form select,
+.auth-container form textarea {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.auth-container form ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.auth-container form li {
+  list-style: none;
+}
 /* Position toast container in top-right corner */
 #messages {
     position: fixed;       /* Fix it relative to viewport */

@@ -7,6 +7,8 @@ from .forms import UserProfileForm
 from checkout.models import Order
 from django.shortcuts import render, get_object_or_404
 from .forms import NewsletterForm
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 
 
 @login_required
@@ -70,3 +72,14 @@ def newsletter_signup(request):
         form = NewsletterForm(initial=initial_data)
     
     return render(request, 'profiles/newsletter_signup.html', {'form': form})
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # Automatically log the user in after signup
+            return redirect('/')  
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})
