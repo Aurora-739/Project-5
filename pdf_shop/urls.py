@@ -24,6 +24,7 @@ urlpatterns = [
     path('', home_views.index, name='home'),  # home page
     path('accounts/', include('allauth.urls')),  # allauth
     path('products/', include('products.urls', namespace='products')), # products
+    path('profiles/', include('profiles.urls', namespace='profiles')), # profiles
     path('bag/', include('bag.urls', namespace='bag')), #bag
     path('checkout/', include('checkout.urls', namespace='checkout')), #checkout
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
