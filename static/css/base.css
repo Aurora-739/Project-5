@@ -109,6 +109,40 @@ h2 {
     color: #E1CC96;
 }
 
+#topnav {
+  z-index: 999;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: transparent; /* initial transparent */
+}
+
+#topnav a.nav-link {
+  color: #874C62;               /* initial link color */
+  text-decoration: none;
+  margin-left: 15px;
+  transition: color 1s;
+}
+
+#topnav i {
+  color: #874C62;  /* initial icon color */
+  transition: color 1s;
+}
+
+/* Active scroll state */
+#topnav.scrolled {
+  background-color: #874C62;  /* bar color after scroll */
+}
+
+#topnav.scrolled a.nav-link {
+  color: #FCEBD0;             /* text color after scroll */
+}
+
+#topnav.scrolled i {
+  color: #FCEBD0;  /* icon color after scroll */
+}
+
+#topnav.scrolled p {
+  color: #FCEBD0;  /* paragraph text color after scroll */
+}
 #hero-title {
     line-height: 3.2;
     position: absolute;          /* sits on top of carousel */
@@ -126,32 +160,52 @@ h2 {
     text-decoration: none;
 }
 
-.carousel-item{
-    filter: opacity(30%);
-
+.carousel-ite#topnav {
+  z-index: 999;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: transparent; /* initial transparent */
 }
 
 #topnav {
-    z-index: 999;
-    transition: background-color 0.3s, color 0.3s;
-    background-color: transparent; /* initial transparent */
+  z-index: 999;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: transparent; /* initial transparent */
 }
 
 #topnav a.nav-link {
-    color: #874C62;               /* initial link color */
-    text-decoration: none;
-    margin-left: 15px;
-    transition: color 1s;
+  color: #874C62;               /* initial link color */
+  text-decoration: none;
+  margin-left: 15px;
+  transition: color 1s;
+}
+
+#topnav i {
+  color: #874C62 !important;  /* initial icon color */
+  transition: color 1s;
+}
+
+#topnav p {
+  color: #874C62;  /* initial paragraph color */
+  transition: color 1s;
 }
 
 /* Active scroll state */
 #topnav.scrolled {
-    background-color: #874C62;  /* bar color after scroll */
+  background-color: #874C62;  /* bar color after scroll */
 }
 
 #topnav.scrolled a.nav-link {
-    color: #FCEBD0;             /* text color after scroll */
+  color: #FCEBD0;             /* text color after scroll */
 }
+
+#topnav.scrolled i {
+  color: #FCEBD0 !important;  /* icon color after scroll */
+}
+
+#topnav.scrolled p {
+  color: #FCEBD0;  /* paragraph text color after scroll */
+}
+
 
 .sub-header {
     color: #874C62;
@@ -381,9 +435,89 @@ placeholder {
       min-width: 100%;
     }
   }
-  
-/* -------------------------------- Media Queries */
+/* Force icon color changes on scroll - MUST BE AT BOTTOM */
+#topnav .fa-user,
+#topnav .fa-shopping-bag {
+    color: #874C62 !important;
+    transition: color 0.3s !important;
+}
 
+#topnav.scrolled .fa-user,
+#topnav.scrolled .fa-shopping-bag {
+    color: #FCEBD0 !important;
+    transition: color 0.3s !important;
+}
+
+#topnav .my-0 {
+    color: #874C62 !important;
+    transition: color 0.3s !important;
+}
+
+#topnav.scrolled .my-0 {
+    color: #FCEBD0 !important;
+    transition: color 0.3s !important;
+}
+/* -------------------------------- Media Queries */
+/* -------------------------------- Responsive Media Queries for Home Page */
+
+/* Tablet and below (768px and smaller) */
+@media (max-width: 768px) {
+  #hero-title {
+      font-size: 3rem;  /* Smaller title on tablets */
+      top: 10px;
+  }
+  
+  .carousel-item img {
+      height: 25rem;  /* Shorter carousel on tablets */
+  }
+  
+  .carousel-img {
+      max-height: 300px;
+  }
+}
+
+/* Mobile (576px and smaller) */
+@media (max-width: 576px) {
+  #hero-title {
+      font-size: 2rem;  /* Even smaller on mobile */
+      top: 5px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  }
+  
+  .carousel-item img {
+      height: 15rem;  /* Much shorter carousel on mobile */
+  }
+  
+  .carousel-img {
+      max-height: 200px;
+  }
+  
+  /* Stack home page content vertically on mobile */
+  .container .row .col-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+  
+  .sub-header {
+      font-size: 2rem !important;
+      text-align: center;
+  }
+  
+  .my-5 {
+      text-align: center;
+  }
+}
+
+/* Very small mobile (400px and smaller) */
+@media (max-width: 400px) {
+  #hero-title {
+      font-size: 1.5rem;
+  }
+  
+  .carousel-item img {
+      height: 12rem;
+  }
+}
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
   .container {

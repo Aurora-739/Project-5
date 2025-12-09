@@ -21,11 +21,11 @@
             {% if request.user.is_superuser %}
             <a href="" class="dropdown-item">Product Management</a>
             {% endif %}
-            <a href="" class="dropdown-item">My Profile</a>
-            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+            <a href="{% url 'profiles:profile' %}" class="dropdown-item">My Profile</a>
+            <a href="{% url 'logout2' %}" class="dropdown-item">Logout</a>
             {% else %}
-            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+            <a href="{% url 'signup2' %}" class="dropdown-item">Register</a>
+            <a href="{% url 'login2' %}" class="dropdown-item">Login</a>
             {% endif %}
           </div>
         </li>
@@ -122,4 +122,20 @@
   </div>
 </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script>
+  window.addEventListener('scroll', function () {
+    const topnav = document.getElementById('topnav');
+    if (topnav) {
+      if (window.scrollY > 50) {
+        topnav.classList.add('scrolled');
+      } else {
+        topnav.classList.remove('scrolled');
+      }
+    }
+  });
+</script>
 {% endblock %}
