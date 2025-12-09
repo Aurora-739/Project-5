@@ -18,6 +18,7 @@ from django.urls import path, include
 from home import views as home_views
 from django.conf import settings
 from django.conf.urls.static import static
+from pdf_shop.views import signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +28,8 @@ urlpatterns = [
     path('profiles/', include('profiles.urls', namespace='profiles')), # profiles
     path('bag/', include('bag.urls', namespace='bag')), #bag
     path('checkout/', include('checkout.urls', namespace='checkout')), #checkout
+    path('accounts/', include('django.contrib.auth.urls')),  # default auth
+    path('accounts/signup/', signup, name='signup'),  # signup 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

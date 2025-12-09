@@ -41,6 +41,15 @@ print("ALLOWED_HOSTS =", ALLOWED_HOSTS)
 # Installed Apps
 # ----------------------
 INSTALLED_APPS = [
+    # Django default apps
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.sites',
+
     # Third-party apps
     'cloudinary_storage',
     'cloudinary',
@@ -51,15 +60,6 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'django_countries',
     'mathfilters',
-    
-    # Django default apps
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sites',
     
     # Internal apps
     'store',
@@ -98,7 +98,7 @@ ROOT_URLCONF = 'pdf_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -157,6 +157,11 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+
+ACCOUNT_FORMS = {
+    'login': 'allauth.account.forms.LoginForm',
+    'signup': 'allauth.account.forms.SignupForm',
+}
 
 LOGIN_URL = 'account_login'
 LOGIN_REDIRECT_URL = '/'
@@ -247,3 +252,10 @@ CLOUDINARY_STORAGE = {
     'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET')
 }
+
+# ----------------------
+# Login redirects
+# ----------------------
+LOGIN_REDIRECT_URL = '/'  # Where to go after successful login
+LOGOUT_REDIRECT_URL = '/'  # Where to go after logout
+LOGIN_URL = '/accounts/login/'  # Where to go when login is required
