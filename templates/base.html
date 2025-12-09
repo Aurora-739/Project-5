@@ -63,7 +63,7 @@
             <div class="dropdown-menu border-0" aria-labelledby="user-options">
               {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
-              <a href="" class="dropdown-item">Product Management</a>
+              <a href="https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/admin/" class="dropdown-item">Product Management</a>
               {% endif %}
               <a href="{% url 'profiles:profile' %}" class="dropdown-item">My Profile</a>
               <a href="{% url 'logout2' %}" class="dropdown-item">Logout</a>
