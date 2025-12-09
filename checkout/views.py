@@ -60,6 +60,13 @@ def checkout(request):
             pid = client_secret.split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
+            
+            # Link order to user profile if authenticated
+            if request.user.is_authenticated:
+                from profiles.models import UserProfile
+                profile = UserProfile.objects.get(user=request.user)
+                order.user_profile = profile
+            
             order.save()
 
             for item_id, item_data in bag.items():
