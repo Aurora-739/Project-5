@@ -1,6 +1,6 @@
 // ---------- Get Keys ----------
-const stripePublicKey = document.getElementById('id_stripe_public_key').textContent.trim();
-const clientSecret = document.getElementById('id_client_secret').textContent.trim();
+const stripePublicKey = JSON.parse(document.getElementById('id_stripe_public_key').textContent);
+const clientSecret = JSON.parse(document.getElementById('id_client_secret').textContent);
 
 // ---------- Initialise Stripe ----------
 const stripe = Stripe(stripePublicKey);
@@ -37,9 +37,20 @@ card.on('change', function (event) {
 
 // ---------- Handle Form Submit ----------
 const form = document.getElementById('payment-form');
+const submitButton = document.getElementById('submit-button');
+let isProcessing = false; 
 
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
+    
+    // Prevent multiple submissions
+    if (isProcessing) {
+        return;
+    }
+    
+    isProcessing = true;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Processing...';
 
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -52,8 +63,19 @@ form.addEventListener('submit', function(ev) {
     }).then(function(result) {
         if (result.error) {
             document.getElementById('card-errors').textContent = result.error.message;
+            // Re-enable button on error
+            submitButton.disabled = false;
+            submitButton.textContent = 'Place Order';
+            isProcessing = false;
         } else {
             if (result.paymentIntent.status === "succeeded") {
+                // Add client_secret to form before submitting
+                const hiddenInput = document.createElement('input');
+                hiddenInput.setAttribute('type', 'hidden');
+                hiddenInput.setAttribute('name', 'client_secret');
+                hiddenInput.setAttribute('value', clientSecret);
+                form.appendChild(hiddenInput);
+                
                 form.submit();
             }
         }

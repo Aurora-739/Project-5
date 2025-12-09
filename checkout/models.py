@@ -11,12 +11,15 @@ class Order(models.Model):
     full_name = models.CharField(max_length=50)
     email = models.EmailField()
     address_line1 = models.CharField(max_length=80)
-    address_line2 = models.CharField(max_length=80, blank=True)
-    postcode = models.CharField(max_length=20, blank=True)
-    city = models.CharField(max_length=40)
-    country = models.CharField(max_length=40)
+    address_line2 = models.CharField(max_length=80, blank=True, default='')
+    postcode = models.CharField(max_length=20, blank=True, default='')
+    city = models.CharField(max_length=40, default='')
+    country = models.CharField(max_length=40, default='')
     
     order_total = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    original_bag = models.TextField(null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """Generate a random, unique order number"""
