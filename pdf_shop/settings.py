@@ -35,6 +35,10 @@ else:
         'project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com'
     ]
 
+ALLOWED_HOSTS = [
+        'project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com'
+    ]
+
 # ----------------------
 # Installed Apps
 # ----------------------
