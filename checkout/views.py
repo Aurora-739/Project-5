@@ -82,7 +82,7 @@ def checkout(request):
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout:checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
@@ -95,11 +95,21 @@ def checkout(request):
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
+        
+        print(f"Creating payment intent for: £{total} (stripe amount: {stripe_total})")
+        
         stripe.api_key = stripe_secret_key
-        intent = stripe.PaymentIntent.create(
-            amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY,
-        )
+        
+        try:
+            intent = stripe.PaymentIntent.create(
+                amount=stripe_total,
+                currency=settings.STRIPE_CURRENCY,
+            )
+            print(f"Payment intent created: {intent.id}")
+        except Exception as e:
+            print(f"Error creating payment intent: {e}")
+            messages.error(request, 'There was an error processing your payment.')
+            return redirect(reverse('checkout:checkout'))
 
         order_form = OrderForm()
 
