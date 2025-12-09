@@ -36,6 +36,7 @@ else:
     ]
 
 ALLOWED_HOSTS = [
+    '127.0.0.1', 'localhost'
         'project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com'
     ]
 
