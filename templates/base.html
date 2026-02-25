@@ -11,6 +11,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+    content="Michelle's Craft Room - browse and instantly download digital PDF sewing patterns and craft resources.">
   {% endblock %}
 
   {% block corecss %}
@@ -63,7 +65,8 @@
             <div class="dropdown-menu border-0" aria-labelledby="user-options">
               {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
-              <a href="https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/admin/" class="dropdown-item">Product Management</a>
+              <a href="https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/admin/"
+                class="dropdown-item">Product Management</a>
               {% endif %}
               <a href="{% url 'profiles:profile' %}" class="dropdown-item">My Profile</a>
               <a href="{% url 'logout2' %}" class="dropdown-item">Logout</a>
@@ -146,13 +149,13 @@
   </div>
   <div id="messages">
     {% if messages %}
-      {% for message in messages %}
-        {% if message.level == 25 %}
-          {% include "includes/toasts/toast_success.html" %}
-        {% elif message.level == 40 %}
-          {% include "includes/toasts/toast_error.html" %}
-        {% endif %}
-      {% endfor %}
+    {% for message in messages %}
+    {% if message.level == 25 %}
+    {% include "includes/toasts/toast_success.html" %}
+    {% elif message.level == 40 %}
+    {% include "includes/toasts/toast_error.html" %}
+    {% endif %}
+    {% endfor %}
     {% endif %}
   </div>
 
@@ -172,15 +175,15 @@
     });
 
     window.addEventListener('scroll', function () {
-    const topnav = document.getElementById('topnav');
-    if (window.scrollY > 50) {
-      topnav.classList.add('scrolled');
-    } else {
-      topnav.classList.remove('scrolled');
-    }
-  });
+      const topnav = document.getElementById('topnav');
+      if (window.scrollY > 50) {
+        topnav.classList.add('scrolled');
+      } else {
+        topnav.classList.remove('scrolled');
+      }
+    });
   </script>
-{% endblock %}
+  {% endblock %}
 
 
 </body>
@@ -189,7 +192,7 @@
   {% block footer %}
   <div class="footer-container">
     <div class="footer-content">
-      
+
       <div class="footer-section">
         <h3>Quick Links</h3>
         <ul>
@@ -197,21 +200,22 @@
           <li><a href="/products">Products</a></li>
         </ul>
       </div>
-      
+
       <div class="footer-section">
         <h3>Contact</h3>
         <p>Email: michellescraftroomcontact@gmail.com</p>
         <p>Phone: (123) 456-7890</p>
       </div>
-      
+
       <div class="footer-section">
         <h3>Follow Us</h3>
         <div class="social-links">
-          <a href="https://www.facebook.com/profile.php?id=61584931945505" target="_blank" aria-label="Facebook">Facebook</a>
+          <a href="https://www.facebook.com/profile.php?id=61584931945505" target="_blank"
+            aria-label="Facebook">Facebook</a>
         </div>
       </div>
     </div>
-    
+
     <div class="footer-bottom">
       <p>&copy; 2025 Michelle's Craft Room. All rights reserved.</p>
     </div>
