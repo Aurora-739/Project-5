@@ -389,19 +389,22 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 | Custom 404 displays | 1. Type a non-existent URL e.g. /thispagedoesnotexist | Custom 404 page displayed with navigation links back to site | Works as expected | ✅ Pass |
 
 ### Browser Compatibility
-Tested on:
-- Chrome ✅
-- Firefox ✅
-- Safari ✅
-- Edge ✅
+| Browser | Result |
+|---------|--------|
+| Chrome | ✅ Pass |
+| Firefox | ✅ Pass |
+| Safari | ✅ Pass |
+| Edge | ✅ Pass |
 
 ### Responsiveness
-- Tested on multiple screen sizes using Chrome DevTools
-- Mobile-first design ensures usability on all devices
-- ✅ Desktop (1920px+).
-- ✅ Laptop (1024px - 1919px).
-- ✅ Tablet (768px - 1023px).
-- ✅ Mobile (320px - 767px).
+| Screen Size | Result |
+|-------------|--------|
+| Desktop (1920px+) | ✅ Pass |
+| Laptop (1024px - 1919px) | ✅ Pass |
+| Tablet (768px - 1023px) | ✅ Pass |
+| Mobile (320px - 767px) | ✅ Pass |
+
+Tested on multiple screen sizes using Chrome DevTools. Mobile-first design ensures usability on all devices.
 
 ### Validator Testing
 
