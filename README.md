@@ -373,6 +373,10 @@ The robots.txt file is accessible at /robots.txt and tells search engine crawler
 <img width="809" height="277" alt="image" src="https://github.com/user-attachments/assets/c3365ec8-7aa2-4e64-a30c-bb19ef62d3bb" />
 Private and transactional pages like the admin panel, checkout, bag and profile are "disallowed" to keep them out of search results. The homepage and products pages are explicitly "allowed" as these are the most important pages for organic traffic.
 
+**sitemap.xml**
+The sitemap.xml file is accessible at /sitemap.xml and lists the key publicly accessible URLs so search engines can find and prioritise them:
+<img width="893" height="698" alt="image" src="https://github.com/user-attachments/assets/47916e02-86aa-4927-b30e-0e6d515febd7" />
+The homepage has the highest priority as the main entry point, with the products page ranked second as the core content of the site.
 
 ### Known Issues
 
