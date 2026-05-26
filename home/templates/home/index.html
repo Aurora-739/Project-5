@@ -16,18 +16,18 @@
             </div>
           </a>
 
-          <div class="dropdown-menu border-0" aria-labelledby="user-options">
+          <ul class="dropdown-menu border-0" aria-labelledby="user-options">
             {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
-            <a href="" class="dropdown-item">Product Management</a>
+            <li><a href="" class="dropdown-item">Product Management</a></li>
             {% endif %}
-            <a href="{% url 'profiles:profile' %}" class="dropdown-item">My Profile</a>
-            <a href="{% url 'logout2' %}" class="dropdown-item">Logout</a>
+            <li><a href="{% url 'profiles:profile' %}" class="dropdown-item">My Profile</a></li>
+            <li><a href="{% url 'logout2' %}" class="dropdown-item">Logout</a></li>
             {% else %}
-            <a href="{% url 'signup2' %}" class="dropdown-item">Register</a>
-            <a href="{% url 'login2' %}" class="dropdown-item">Login</a>
+            <li><a href="{% url 'signup2' %}" class="dropdown-item">Register</a></li>
+            <li><a href="{% url 'login2' %}" class="dropdown-item">Login</a></li>
             {% endif %}
-          </div>
+          </ul>
         </li>
         <li class="list-inline-item">
           <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
