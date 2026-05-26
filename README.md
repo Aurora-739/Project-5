@@ -17,7 +17,7 @@ Live Site: https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/
 - [Credits](#credits)
 
 ## User Stories
-I chose to write mine out on a google sheet document. although this is not acceptable for larger groups as it can easily get confusing and messy. For a simple one man operation I find it best as it keeps the user stories simple and easy to follow.
+I chose to write mine out on a google sheet document laid out as a kanban board. Although this is not acceptable for larger groups as it can easily get confusing and messy. For a simple one man operation I find it best as it keeps the user stories simple and easy to follow.
 
 <img width="1241" height="819" alt="image" src="https://github.com/user-attachments/assets/12f3aaca-78dd-4184-bbb2-3d1e6597063e" />
 
@@ -310,7 +310,7 @@ The application uses the following main models:
 
 <img width="1773" height="797" alt="image" src="https://github.com/user-attachments/assets/b5e20657-ad96-4fc2-93fd-843874408da4" />
 
-### **NewsletterSubscriber**
+### **Newsletter Subscriber**
 - ✅ Stores newsletter subscriber information (name, email).
 - ✅ Tracks subscription date and active status.
 - ✅ Prevents duplicate email subscriptions.
@@ -356,6 +356,27 @@ Tested on:
 | sitemap.xml | ✅ Pass | Accessible at /sitemap.xml |
 | 404 page | ✅ Pass | Custom 404 page with navigation |
 | All internal links working | ✅ Pass | No broken links found |
+
+#### SEO Engine Optimisation Strategy
+Michelle's Craft Room was designed to help customers find the site when searching for digital craft products, PNG cards and art prints, the following SEO elements were implemented throughout the project.
+
+**Meta Tags**
+The following meta tags are included in base.html template and apply accross all pages:
+<meta name="description" content="Michelle's Craft Room - browse and instantly download unique digital PNG cards and art prints.">
+This meta description summarises the site's purpose clearly for both serach engines and browsing serach results. 
+
+**Site Title**
+Every page carries the base title "Michelle's Craft Room". Individual pages can extend this using the {% block extra_title %} block, allowing for page-specific titles where needed.
+
+**robots.txt**
+The robots.txt file is accessible at /robots.txt and tells search engine crawlers which parts of the site to index:
+<img width="809" height="277" alt="image" src="https://github.com/user-attachments/assets/c3365ec8-7aa2-4e64-a30c-bb19ef62d3bb" />
+Private and transactional pages like the admin panel, checkout, bag and profile are "disallowed" to keep them out of search results. The homepage and products pages are explicitly "allowed" as these are the most important pages for organic traffic.
+
+**sitemap.xml**
+The sitemap.xml file is accessible at /sitemap.xml and lists the key publicly accessible URLs so search engines can find and prioritise them:
+<img width="893" height="698" alt="image" src="https://github.com/user-attachments/assets/47916e02-86aa-4927-b30e-0e6d515febd7" />
+The homepage has the highest priority as the main entry point, with the products page ranked second as the core content of the site.
 
 ### Known Issues
 
