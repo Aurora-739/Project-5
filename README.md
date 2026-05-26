@@ -378,6 +378,16 @@ The sitemap.xml file is accessible at /sitemap.xml and lists the key publicly ac
 <img width="893" height="698" alt="image" src="https://github.com/user-attachments/assets/47916e02-86aa-4927-b30e-0e6d515febd7" />
 The homepage has the highest priority as the main entry point, with the products page ranked second as the core content of the site.
 
+
+***rel Attributes**
+rel="noopener noreferrer" is used on all external links, including the Facebook page link in the footer and the admin link in the navigation. This prevents external pages from accessing the window object and is also considered good SEO practice.
+
+
+**404 Page**
+A custom 404 page is in place and will appear whenever a user navigates to a URL that doesn't exist. It includes navigation links back to the homepage and products page so users aren't left stranded.
+<img width="1845" height="844" alt="image" src="https://github.com/user-attachments/assets/60eae8ca-d91c-4250-92f7-f70a74fb94a2" />
+
+
 ### Known Issues
 
 **Resolved Bugs**
