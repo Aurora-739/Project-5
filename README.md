@@ -357,8 +357,16 @@ Tested on:
 | 404 page | ✅ Pass | Custom 404 page with navigation |
 | All internal links working | ✅ Pass | No broken links found |
 
-***SEO Engine Optimisation Strategy***
+#### SEO Engine Optimisation Strategy
+Michelle's Craft Room was designed to help customers find the site when searching for digital craft products, PNG cards and art prints, the following SEO elements were implemented throughout the project.
 
+**Meta Tags**
+The following meta tags are included in base.html template and apply accross all pages:
+<meta name="description" content="Michelle's Craft Room - browse and instantly download unique digital PNG cards and art prints.">
+This meta description summarises the site's purpose clearly for both serach engines and browsing serach results. 
+
+**Site Title**
+Every page carries the base title "Michelle's Craft Room". Individual pages can extend this using the {% block extra_title %} block, allowing for page-specific titles where needed.
 
 ### Known Issues
 
