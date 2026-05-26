@@ -410,6 +410,8 @@ Tested on multiple screen sizes using Chrome DevTools. Mobile-first design ensur
 
 **HTML**
 - No valid errors returned when passing through the [W3C Validator](https://validator.w3.org/)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9d16ca10-5097-4199-9ac4-d75df90f6c5d" />
+
 
 **CSS**
 - No errors found when passing through the [Jigsaw Validator](https://jigsaw.w3.org/css-validator/)
