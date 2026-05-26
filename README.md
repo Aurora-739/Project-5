@@ -361,11 +361,12 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 <img width="1682" height="765" alt="image" src="https://github.com/user-attachments/assets/9d6de5a5-388b-44fa-b217-72ec007976d8" />
 
 **User Profiles**
-- ✅ Profile saves and displays default delivery information.
-- ✅ Order history shows all past orders.
-- ✅ Newsletter subscription works correctly
-- ✅ Saved information pre-fills checkout form.
-
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
+|------|-------|-----------------|----------------|-----------|
+| View profile | 1. Log in 2. Click My Account 3. Click My Profile | Profile page displays with delivery info and order history | Works as expected | ✅ Pass |
+| Save default delivery info | 1. Navigate to profile 2. Fill in delivery details 3. Click Update Information | Delivery info saved, success message displayed | Works as expected | ✅ Pass |
+| Delivery info pre-fills checkout | 1. Save delivery info to profile 2. Navigate to checkout | Checkout form pre-filled with saved delivery info | Works as expected | ✅ Pass |
+| Order history displays | 1. Complete an order 2. Navigate to profile | Past order visible in order history with correct details | Works as expected | ✅ Pass |
 <img width="1773" height="797" alt="image" src="https://github.com/user-attachments/assets/b5e20657-ad96-4fc2-93fd-843874408da4" />
 
 ### **Newsletter Subscriber**
