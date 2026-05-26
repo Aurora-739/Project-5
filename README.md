@@ -332,12 +332,8 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 <img width="1888" height="267" alt="image" src="https://github.com/user-attachments/assets/605ae742-df55-420a-856f-e62d7e098460" />
 <img width="1375" height="839" alt="image" src="https://github.com/user-attachments/assets/313ef365-5630-4c6c-b480-ef5c393727e3" />
 
-**Shopping Experience**
-- ✅ Products display correctly with images and details.
-- ✅ Add to bag functionality works across all products.
-- ✅ Bag updates correctly when quantities are adjusted.
-- ✅ Bag total calculates accurately.
 
+**Shopping Experience**
 | Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
 |------|-------|-----------------|----------------|-----------|
 | Products display correctly | 1. Navigate to /products/ | All products visible with images, names and prices | Works as expected | ✅ Pass |
@@ -352,12 +348,15 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 <img width="1736" height="527" alt="image" src="https://github.com/user-attachments/assets/7849a352-101c-45dd-b49c-1710b4a2d6d2" />
 
 **Checkout Process**
-- ✅ Checkout form validates all required fields.
-- ✅ Stripe payment processing works with test cards.
-- ✅ Order confirmation displays correct information.
-- ✅ Email confirmations print to terminal correctly during production.
-- ✅ Webhooks create orders even if user closes browser.
 
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
+|------|-------|-----------------|----------------|-----------|
+| Checkout form validation | 1. Navigate to checkout 2. Leave required fields empty 3. Click Complete Order | Error messages shown on empty required fields | Works as expected | ✅ Pass |
+| Successful payment | 1. Fill in checkout form 2. Enter test card 4242 4242 4242 4242, expiry 12/26, CVC 123 3. Click Complete Order | Order confirmed, success page displayed with order number | Works as expected | ✅ Pass |
+| Declined payment | 1. Fill in checkout form 2. Enter test card 4000 0000 0000 0002 3. Click Complete Order | Payment declined error message displayed | Works as expected | ✅ Pass |
+| Order confirmation displayed | 1. Complete a successful payment | Order confirmation page shows correct order number, items and delivery details | Works as expected | ✅ Pass |
+| Webhook creates order | 1. Complete payment 2. Check Stripe dashboard webhook logs | Order created in database via webhook | Works as expected | ✅ Pass |
+| Save delivery info to profile | 1. Check Save delivery info box at checkout 2. Complete order 3. Navigate to profile | Delivery information pre-filled in profile | Works as expected | ✅ Pass |
 <img width="1819" height="809" alt="image" src="https://github.com/user-attachments/assets/078df0b5-442f-450c-ad52-11c2df3dee97" />
 <img width="1682" height="765" alt="image" src="https://github.com/user-attachments/assets/9d6de5a5-388b-44fa-b217-72ec007976d8" />
 
