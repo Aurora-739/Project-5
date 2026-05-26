@@ -287,9 +287,9 @@ The application uses the following main models:
 Michelle's Craft Room was designed to help customers find the site when searching for digital craft products, PNG cards and art prints, the following SEO elements were implemented throughout the project.
 
 **Meta Tags**
-The following meta tags are included in base.html template and apply accross all pages:
+The following meta tags are included in base.html template and apply across all pages:
 <meta name="description" content="Michelle's Craft Room - browse and instantly download unique digital PNG cards and art prints.">
-This meta description summarises the site's purpose clearly for both serach engines and browsing serach results. 
+This meta description summarises the site's purpose clearly for both search engines and browsing serach results. 
 
 **Site Title**
 Every page carries the base title "Michelle's Craft Room". Individual pages can extend this using the {% block extra_title %} block, allowing for page-specific titles where needed.
@@ -305,7 +305,7 @@ The sitemap.xml file is accessible at /sitemap.xml and lists the key publicly ac
 The homepage has the highest priority as the main entry point, with the products page ranked second as the core content of the site.
 
 
-***rel Attributes**
+**rel Attributes**
 rel="noopener noreferrer" is used on all external links, including the Facebook page link in the footer and the admin link in the navigation. This prevents external pages from accessing the window object and is also considered good SEO practice.
 
 
