@@ -30,11 +30,10 @@
           </ul>
         </li>
         <li class="list-inline-item">
-          <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+          <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'bag:view_bag' %}">
             <div class="text-center">
-              <div><a href="{% url 'bag:view_bag' %}" class="dropdown-item">
-                  <i class="fas fa-shopping-bag fa-lg"></i>
-                </a>
+              <div>
+                <i class="fas fa-shopping-bag fa-lg"></i>
               </div>
               <p class="my-0">
                 {% if grand_total %}
