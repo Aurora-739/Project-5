@@ -338,6 +338,16 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 - ✅ Bag updates correctly when quantities are adjusted.
 - ✅ Bag total calculates accurately.
 
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
+|------|-------|-----------------|----------------|-----------|
+| Products display correctly | 1. Navigate to /products/ | All products visible with images, names and prices | Works as expected | ✅ Pass |
+| Search for a product | 1. Type a product name into the search bar 2. Click the search button | Relevant products displayed in results | Works as expected | ✅ Pass |
+| Sort by price ascending | 1. Click Price ↑ in the navigation | Products reorder from lowest to highest price | Works as expected | ✅ Pass |
+| Sort by price descending | 1. Click Price ↓ in the navigation | Products reorder from highest to lowest price | Works as expected | ✅ Pass |
+| Sort by rating | 1. Click Rating in the navigation | Products reorder by highest rating first | Works as expected | ✅ Pass |
+| Add product to bag | 1. Click on a product 2. Click Add to Bag | Product added to bag, success toast appears, bag total updates | Works as expected | ✅ Pass |
+| Update quantity in bag | 1. Navigate to bag 2. Change quantity 3. Click Update | Bag total recalculates correctly | Works as expected | ✅ Pass |
+| Remove item from bag | 1. Navigate to bag 2. Click Remove on an item | Item removed, bag total updates | Works as expected | ✅ Pass |
 <img width="1829" height="825" alt="image" src="https://github.com/user-attachments/assets/dbf56d6b-4941-445f-b3f8-527e70bcd270" />
 <img width="1736" height="527" alt="image" src="https://github.com/user-attachments/assets/7849a352-101c-45dd-b49c-1710b4a2d6d2" />
 
