@@ -415,15 +415,17 @@ Tested on multiple screen sizes using Chrome DevTools. Mobile-first design ensur
 
 **CSS**
 - No errors found when passing through the [Jigsaw Validator](https://jigsaw.w3.org/css-validator/)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b2a708f5-44fd-45af-85f6-e9352fbb222e" />
+
 
 **JavaScript**
 - No warnings returned when passing through [JSHint](https://jshint.com/)
-- (there is a comment about unused variables - these have been left in for continuity and in case I ever want to update the payment system to include using username and information)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/055e8596-5a2e-41d5-a8c1-81ca2550af88" />
+
+
   
 **Python**
 - All Python code follows PEP8 standards
-
-
 
 
 ### Known Issues
