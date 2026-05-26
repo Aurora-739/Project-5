@@ -369,10 +369,11 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 | Order history displays | 1. Complete an order 2. Navigate to profile | Past order visible in order history with correct details | Works as expected | ✅ Pass |
 <img width="1773" height="797" alt="image" src="https://github.com/user-attachments/assets/b5e20657-ad96-4fc2-93fd-843874408da4" />
 
-### **Newsletter Subscriber**
-- ✅ Stores newsletter subscriber information (name, email).
-- ✅ Tracks subscription date and active status.
-- ✅ Prevents duplicate email subscriptions.
+**Newsletter Subscriber**
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
+|------|-------|-----------------|----------------|-----------|
+| Subscribe to newsletter | 1. Navigate to profile 2. Enter name and email 3. Click Subscribe | Success message displayed, email saved to database | Works as expected | ✅ Pass |
+| Duplicate email blocked | 1. Subscribe with an email 2. Try to subscribe again with the same email | Error message displayed, duplicate not created | Works as expected | ✅ Pass |
 
 ### Browser Compatibility
 Tested on:
