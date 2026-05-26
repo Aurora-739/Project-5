@@ -276,8 +276,13 @@ The application uses the following main models:
 ### Manual Testing
 
 **User Authentication**
-- ✅ User registration with email verification works correctly in terminal.
-- ✅ Login and logout functionality working as expected.
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail | 
+|------|-------|------------------|----------------|-----------|
+| User Registration | 1. Navigate to /accounts/signup 2. Fill in username, email and password 3. Click Register | Account created, verification email sent, redirect to confirmation page | Works as expected | ✅ Pass | 
+| Login |1. Navigate to /accounts/login 2. Enter valid credentials 3. Click Login | User logged in, redirected to homepage, account name visible in nav | Works as expected | ✅ Pass |
+| Logout | 1. Click My Account in nav 2. Click Logout | User logged out, redirected to homepage | Works as expected | ✅ Pass |
+| Access restricted page when logged out | 1. Log out 2. Manually type /profile/ in the URL bar | Redirected to login page | Works as expected | ✅ Pass | 
+| Register with duplicate email | 1. Navigate to /accounts/signup 2. Enter an email already registered 3. Submit | Error message displayed, account not created | Works as expected | ✅ Pass| 
 
 <img width="1046" height="606" alt="image" src="https://github.com/user-attachments/assets/33c3291f-b7ab-4b90-b3d2-851fde7d6f1e" />
 <img width="1888" height="267" alt="image" src="https://github.com/user-attachments/assets/605ae742-df55-420a-856f-e62d7e098460" />
