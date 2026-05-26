@@ -12,6 +12,7 @@ Live Site: https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Database Schema](#database-schema)
+- [SEO Testing](#seo-testing)
 - [Testing](#testing)
 - [Deployment](#deployment)
 - [Credits](#credits)
@@ -270,65 +271,140 @@ The application uses the following main models:
 - Links to Django's built-in User model.
 
 ---
+## SEO Testing
+
+| SEO Element | Status | Notes |
+|-------------|--------|-------|
+| Meta description tags | ✅ Pass | Present in all pages |
+| Meta keywords | ✅ Pass | Relevant keywords included |
+| Site title | ✅ Pass | Descriptive and SEO-friendly |
+| robots.txt | ✅ Pass | Accessible at /robots.txt |
+| sitemap.xml | ✅ Pass | Accessible at /sitemap.xml |
+| 404 page | ✅ Pass | Custom 404 page with navigation |
+| All internal links working | ✅ Pass | No broken links found |
+
+#### SEO Engine Optimisation Strategy
+Michelle's Craft Room was designed to help customers find the site when searching for digital craft products, PNG cards and art prints, the following SEO elements were implemented throughout the project.
+
+**Meta Tags**
+The following meta tags are included in base.html template and apply across all pages:
+<meta name="description" content="Michelle's Craft Room - browse and instantly download unique digital PNG cards and art prints.">
+This meta description summarises the site's purpose clearly for both search engines and browsing serach results. 
+
+**Site Title**
+Every page carries the base title "Michelle's Craft Room". Individual pages can extend this using the {% block extra_title %} block, allowing for page-specific titles where needed.
+
+**robots.txt**
+The robots.txt file is accessible at /robots.txt and tells search engine crawlers which parts of the site to index:
+<img width="809" height="277" alt="image" src="https://github.com/user-attachments/assets/c3365ec8-7aa2-4e64-a30c-bb19ef62d3bb" />
+Private and transactional pages like the admin panel, checkout, bag and profile are "disallowed" to keep them out of search results. The homepage and products pages are explicitly "allowed" as these are the most important pages for organic traffic.
+
+**sitemap.xml**
+The sitemap.xml file is accessible at /sitemap.xml and lists the key publicly accessible URLs so search engines can find and prioritise them:
+<img width="893" height="698" alt="image" src="https://github.com/user-attachments/assets/47916e02-86aa-4927-b30e-0e6d515febd7" />
+The homepage has the highest priority as the main entry point, with the products page ranked second as the core content of the site.
+
+
+**rel Attributes**
+rel="noopener noreferrer" is used on all external links, including the Facebook page link in the footer and the admin link in the navigation. This prevents external pages from accessing the window object and is also considered good SEO practice.
+
+
+**404 Page**
+A custom 404 page is in place and will appear whenever a user navigates to a URL that doesn't exist. It includes navigation links back to the homepage and products page so users aren't left stranded.
+<img width="1845" height="844" alt="image" src="https://github.com/user-attachments/assets/60eae8ca-d91c-4250-92f7-f70a74fb94a2" />
+
+---
 
 ## Testing
 
 ### Manual Testing
 
 **User Authentication**
-- ✅ User registration with email verification works correctly in terminal.
-- ✅ Login and logout functionality working as expected.
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail | 
+|------|-------|------------------|----------------|-----------|
+| User Registration | 1. Navigate to /accounts/signup 2. Fill in username, email and password 3. Click Register | Account created, verification email sent, redirect to confirmation page | Works as expected | ✅ Pass | 
+| Login |1. Navigate to /accounts/login 2. Enter valid credentials 3. Click Login | User logged in, redirected to homepage, account name visible in nav | Works as expected | ✅ Pass |
+| Logout | 1. Click My Account in nav 2. Click Logout | User logged out, redirected to homepage | Works as expected | ✅ Pass |
+| Access restricted page when logged out | 1. Log out 2. Manually type /profile/ in the URL bar | Redirected to login page | Works as expected | ✅ Pass | 
+| Register with duplicate email | 1. Navigate to /accounts/signup 2. Enter an email already registered 3. Submit | Error message displayed, account not created | Works as expected | ✅ Pass| 
 
 <img width="1046" height="606" alt="image" src="https://github.com/user-attachments/assets/33c3291f-b7ab-4b90-b3d2-851fde7d6f1e" />
 <img width="1888" height="267" alt="image" src="https://github.com/user-attachments/assets/605ae742-df55-420a-856f-e62d7e098460" />
 <img width="1375" height="839" alt="image" src="https://github.com/user-attachments/assets/313ef365-5630-4c6c-b480-ef5c393727e3" />
 
-**Shopping Experience**
-- ✅ Products display correctly with images and details.
-- ✅ Add to bag functionality works across all products.
-- ✅ Bag updates correctly when quantities are adjusted.
-- ✅ Bag total calculates accurately.
 
+**Shopping Experience**
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
+|------|-------|-----------------|----------------|-----------|
+| Products display correctly | 1. Navigate to /products/ | All products visible with images, names and prices | Works as expected | ✅ Pass |
+| Search for a product | 1. Type a product name into the search bar 2. Click the search button | Relevant products displayed in results | Works as expected | ✅ Pass |
+| Sort by price ascending | 1. Click Price ↑ in the navigation | Products reorder from lowest to highest price | Works as expected | ✅ Pass |
+| Sort by price descending | 1. Click Price ↓ in the navigation | Products reorder from highest to lowest price | Works as expected | ✅ Pass |
+| Sort by rating | 1. Click Rating in the navigation | Products reorder by highest rating first | Works as expected | ✅ Pass |
+| Add product to bag | 1. Click on a product 2. Click Add to Bag | Product added to bag, success toast appears, bag total updates | Works as expected | ✅ Pass |
+| Update quantity in bag | 1. Navigate to bag 2. Change quantity 3. Click Update | Bag total recalculates correctly | Works as expected | ✅ Pass |
+| Remove item from bag | 1. Navigate to bag 2. Click Remove on an item | Item removed, bag total updates | Works as expected | ✅ Pass |
 <img width="1829" height="825" alt="image" src="https://github.com/user-attachments/assets/dbf56d6b-4941-445f-b3f8-527e70bcd270" />
 <img width="1736" height="527" alt="image" src="https://github.com/user-attachments/assets/7849a352-101c-45dd-b49c-1710b4a2d6d2" />
 
 **Checkout Process**
-- ✅ Checkout form validates all required fields.
-- ✅ Stripe payment processing works with test cards.
-- ✅ Order confirmation displays correct information.
-- ✅ Email confirmations print to terminal correctly during production.
-- ✅ Webhooks create orders even if user closes browser.
 
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
+|------|-------|-----------------|----------------|-----------|
+| Checkout form validation | 1. Navigate to checkout 2. Leave required fields empty 3. Click Complete Order | Error messages shown on empty required fields | Works as expected | ✅ Pass |
+| Successful payment | 1. Fill in checkout form 2. Enter test card 4242 4242 4242 4242, expiry 12/26, CVC 123 3. Click Complete Order | Order confirmed, success page displayed with order number | Works as expected | ✅ Pass |
+| Declined payment | 1. Fill in checkout form 2. Enter test card 4000 0000 0000 0002 3. Click Complete Order | Payment declined error message displayed | Works as expected | ✅ Pass |
+| Order confirmation displayed | 1. Complete a successful payment | Order confirmation page shows correct order number, items and delivery details | Works as expected | ✅ Pass |
+| Webhook creates order | 1. Complete payment 2. Check Stripe dashboard webhook logs | Order created in database via webhook | Works as expected | ✅ Pass |
+| Save delivery info to profile | 1. Check Save delivery info box at checkout 2. Complete order 3. Navigate to profile | Delivery information pre-filled in profile | Works as expected | ✅ Pass |
 <img width="1819" height="809" alt="image" src="https://github.com/user-attachments/assets/078df0b5-442f-450c-ad52-11c2df3dee97" />
 <img width="1682" height="765" alt="image" src="https://github.com/user-attachments/assets/9d6de5a5-388b-44fa-b217-72ec007976d8" />
 
 **User Profiles**
-- ✅ Profile saves and displays default delivery information.
-- ✅ Order history shows all past orders.
-- ✅ Newsletter subscription works correctly
-- ✅ Saved information pre-fills checkout form.
-
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
+|------|-------|-----------------|----------------|-----------|
+| View profile | 1. Log in 2. Click My Account 3. Click My Profile | Profile page displays with delivery info and order history | Works as expected | ✅ Pass |
+| Save default delivery info | 1. Navigate to profile 2. Fill in delivery details 3. Click Update Information | Delivery info saved, success message displayed | Works as expected | ✅ Pass |
+| Delivery info pre-fills checkout | 1. Save delivery info to profile 2. Navigate to checkout | Checkout form pre-filled with saved delivery info | Works as expected | ✅ Pass |
+| Order history displays | 1. Complete an order 2. Navigate to profile | Past order visible in order history with correct details | Works as expected | ✅ Pass |
 <img width="1773" height="797" alt="image" src="https://github.com/user-attachments/assets/b5e20657-ad96-4fc2-93fd-843874408da4" />
 
-### **Newsletter Subscriber**
-- ✅ Stores newsletter subscriber information (name, email).
-- ✅ Tracks subscription date and active status.
-- ✅ Prevents duplicate email subscriptions.
+**Newsletter Subscriber**
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
+|------|-------|-----------------|----------------|-----------|
+| Subscribe to newsletter | 1. Navigate to profile 2. Enter name and email 3. Click Subscribe | Success message displayed, email saved to database | Works as expected | ✅ Pass |
+| Duplicate email blocked | 1. Subscribe with an email 2. Try to subscribe again with the same email | Error message displayed, duplicate not created | Works as expected | ✅ Pass |
+
+**Admin**
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
+|------|-------|-----------------|----------------|-----------|
+| Add product | 1. Log in as superuser 2. Navigate to /admin/ 3. Add a new product with image | Product appears in the store | Works as expected | ✅ Pass |
+| Edit product | 1. Log in as superuser 2. Navigate to /admin/ 3. Edit an existing product | Changes reflected in the store | Works as expected | ✅ Pass |
+| Delete product | 1. Log in as superuser 2. Navigate to /admin/ 3. Delete a product | Product removed from store | Works as expected | ✅ Pass |
+| Non-superuser cannot access admin | 1. Log in as regular user 2. Manually type /admin/ in URL bar | Redirected away, access denied | Works as expected | ✅ Pass |
+
+**404 Page**
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
+|------|-------|-----------------|----------------|-----------|
+| Custom 404 displays | 1. Type a non-existent URL e.g. /thispagedoesnotexist | Custom 404 page displayed with navigation links back to site | Works as expected | ✅ Pass |
 
 ### Browser Compatibility
-Tested on:
-- Chrome ✅
-- Firefox ✅
-- Safari ✅
-- Edge ✅
+| Browser | Result |
+|---------|--------|
+| Chrome | ✅ Pass |
+| Firefox | ✅ Pass |
+| Safari | ✅ Pass |
+| Edge | ✅ Pass |
 
 ### Responsiveness
-- Tested on multiple screen sizes using Chrome DevTools
-- Mobile-first design ensures usability on all devices
-- ✅ Desktop (1920px+).
-- ✅ Laptop (1024px - 1919px).
-- ✅ Tablet (768px - 1023px).
-- ✅ Mobile (320px - 767px).
+| Screen Size | Result |
+|-------------|--------|
+| Desktop (1920px+) | ✅ Pass |
+| Laptop (1024px - 1919px) | ✅ Pass |
+| Tablet (768px - 1023px) | ✅ Pass |
+| Mobile (320px - 767px) | ✅ Pass |
+
+Tested on multiple screen sizes using Chrome DevTools. Mobile-first design ensures usability on all devices.
 
 ### Validator Testing
 
@@ -345,38 +421,8 @@ Tested on:
 **Python**
 - All Python code follows PEP8 standards
 
-### SEO Testing
 
-| SEO Element | Status | Notes |
-|-------------|--------|-------|
-| Meta description tags | ✅ Pass | Present in all pages |
-| Meta keywords | ✅ Pass | Relevant keywords included |
-| Site title | ✅ Pass | Descriptive and SEO-friendly |
-| robots.txt | ✅ Pass | Accessible at /robots.txt |
-| sitemap.xml | ✅ Pass | Accessible at /sitemap.xml |
-| 404 page | ✅ Pass | Custom 404 page with navigation |
-| All internal links working | ✅ Pass | No broken links found |
 
-#### SEO Engine Optimisation Strategy
-Michelle's Craft Room was designed to help customers find the site when searching for digital craft products, PNG cards and art prints, the following SEO elements were implemented throughout the project.
-
-**Meta Tags**
-The following meta tags are included in base.html template and apply accross all pages:
-<meta name="description" content="Michelle's Craft Room - browse and instantly download unique digital PNG cards and art prints.">
-This meta description summarises the site's purpose clearly for both serach engines and browsing serach results. 
-
-**Site Title**
-Every page carries the base title "Michelle's Craft Room". Individual pages can extend this using the {% block extra_title %} block, allowing for page-specific titles where needed.
-
-**robots.txt**
-The robots.txt file is accessible at /robots.txt and tells search engine crawlers which parts of the site to index:
-<img width="809" height="277" alt="image" src="https://github.com/user-attachments/assets/c3365ec8-7aa2-4e64-a30c-bb19ef62d3bb" />
-Private and transactional pages like the admin panel, checkout, bag and profile are "disallowed" to keep them out of search results. The homepage and products pages are explicitly "allowed" as these are the most important pages for organic traffic.
-
-**sitemap.xml**
-The sitemap.xml file is accessible at /sitemap.xml and lists the key publicly accessible URLs so search engines can find and prioritise them:
-<img width="893" height="698" alt="image" src="https://github.com/user-attachments/assets/47916e02-86aa-4927-b30e-0e6d515febd7" />
-The homepage has the highest priority as the main entry point, with the products page ranked second as the core content of the site.
 
 ### Known Issues
 
