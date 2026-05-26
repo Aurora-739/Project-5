@@ -63,18 +63,18 @@
             </a>
 
             <ul class="dropdown-menu border-0" aria-labelledby="user-options">
-              {% if request.user.is_authenticated %}
-              {% if request.user.is_superuser %}
-              <a href="https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/admin/" class="dropdown-item"
-                rel="noopener noreferrer">Product Management</a>
-              {% endif %}
-              <a href="{% url 'profiles:profile' %}" class="dropdown-item">My Profile</a>
-              <a href="{% url 'logout2' %}" class="dropdown-item">Logout</a>
-              {% else %}
-              <a href="{% url 'signup2' %}" class="dropdown-item">Register</a>
-              <a href="{% url 'login2' %}" class="dropdown-item">Login</a>
-              {% endif %}
-            </ul>
+  {% if request.user.is_authenticated %}
+  {% if request.user.is_superuser %}
+  <li><a href="https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/admin/" class="dropdown-item"
+    rel="noopener noreferrer">Product Management</a></li>
+  {% endif %}
+  <li><a href="{% url 'profiles:profile' %}" class="dropdown-item">My Profile</a></li>
+  <li><a href="{% url 'logout2' %}" class="dropdown-item">Logout</a></li>
+  {% else %}
+  <li><a href="{% url 'signup2' %}" class="dropdown-item">Register</a></li>
+  <li><a href="{% url 'login2' %}" class="dropdown-item">Login</a></li>
+  {% endif %}
+</ul>
           </li>
           <li class="list-inline-item">
   <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'bag:view_bag' %}">
