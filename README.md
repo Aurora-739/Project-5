@@ -310,7 +310,7 @@ The application uses the following main models:
 
 <img width="1773" height="797" alt="image" src="https://github.com/user-attachments/assets/b5e20657-ad96-4fc2-93fd-843874408da4" />
 
-### **NewsletterSubscriber**
+### **Newsletter Subscriber**
 - ✅ Stores newsletter subscriber information (name, email).
 - ✅ Tracks subscription date and active status.
 - ✅ Prevents duplicate email subscriptions.
@@ -356,6 +356,9 @@ Tested on:
 | sitemap.xml | ✅ Pass | Accessible at /sitemap.xml |
 | 404 page | ✅ Pass | Custom 404 page with navigation |
 | All internal links working | ✅ Pass | No broken links found |
+
+***SEO Engine Optimisation Strategy***
+
 
 ### Known Issues
 
