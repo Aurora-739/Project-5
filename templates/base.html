@@ -62,7 +62,7 @@
               </div>
             </a>
 
-            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+            <ul class="dropdown-menu border-0" aria-labelledby="user-options">
               {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
               <a href="https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/admin/" class="dropdown-item"
@@ -74,7 +74,7 @@
               <a href="{% url 'signup2' %}" class="dropdown-item">Register</a>
               <a href="{% url 'login2' %}" class="dropdown-item">Login</a>
               {% endif %}
-            </div>
+            </ul>
           </li>
           <li class="list-inline-item">
             <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
