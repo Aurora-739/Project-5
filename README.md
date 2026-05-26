@@ -368,6 +368,12 @@ This meta description summarises the site's purpose clearly for both serach engi
 **Site Title**
 Every page carries the base title "Michelle's Craft Room". Individual pages can extend this using the {% block extra_title %} block, allowing for page-specific titles where needed.
 
+**robots.txt**
+The robots.txt file is accessible at /robots.txt and tells search engine crawlers which parts of the site to index:
+<img width="809" height="277" alt="image" src="https://github.com/user-attachments/assets/c3365ec8-7aa2-4e64-a30c-bb19ef62d3bb" />
+Private and transactional pages like the admin panel, checkout, bag and profile are "disallowed" to keep them out of search results. The homepage and products pages are explicitly "allowed" as these are the most important pages for organic traffic.
+
+
 ### Known Issues
 
 **Resolved Bugs**
