@@ -375,6 +375,19 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 | Subscribe to newsletter | 1. Navigate to profile 2. Enter name and email 3. Click Subscribe | Success message displayed, email saved to database | Works as expected | ✅ Pass |
 | Duplicate email blocked | 1. Subscribe with an email 2. Try to subscribe again with the same email | Error message displayed, duplicate not created | Works as expected | ✅ Pass |
 
+**Admin**
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
+|------|-------|-----------------|----------------|-----------|
+| Add product | 1. Log in as superuser 2. Navigate to /admin/ 3. Add a new product with image | Product appears in the store | Works as expected | ✅ Pass |
+| Edit product | 1. Log in as superuser 2. Navigate to /admin/ 3. Edit an existing product | Changes reflected in the store | Works as expected | ✅ Pass |
+| Delete product | 1. Log in as superuser 2. Navigate to /admin/ 3. Delete a product | Product removed from store | Works as expected | ✅ Pass |
+| Non-superuser cannot access admin | 1. Log in as regular user 2. Manually type /admin/ in URL bar | Redirected away, access denied | Works as expected | ✅ Pass |
+
+**404 Page**
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
+|------|-------|-----------------|----------------|-----------|
+| Custom 404 displays | 1. Type a non-existent URL e.g. /thispagedoesnotexist | Custom 404 page displayed with navigation links back to site | Works as expected | ✅ Pass |
+
 ### Browser Compatibility
 Tested on:
 - Chrome ✅
