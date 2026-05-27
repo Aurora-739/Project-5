@@ -289,7 +289,7 @@ Michelle's Craft Room was designed to help customers find the site when searchin
 **Meta Tags**
 The following meta tags are included in base.html template and apply across all pages:
 <meta name="description" content="Michelle's Craft Room - browse and instantly download unique digital PNG cards and art prints.">
-This meta description summarises the site's purpose clearly for both search engines and browsing serach results. 
+This meta description summarises the site's purpose clearly for both search engines and browsing search results. 
 
 **Site Title**
 Every page carries the base title "Michelle's Craft Room". Individual pages can extend this using the {% block extra_title %} block, allowing for page-specific titles where needed.
@@ -579,5 +579,3 @@ heroku run python manage.py createsuperuser
 ### Acknowledgments
 - Code Institute for the learning materials and project inspiration
 - Michelle for providing the beautiful artwork and card designs
-
-PLEASE NOTE THE README.MD WAS WRITTEDN ALL IN ONE GO AND THE GITHUB COMMITS ONLY BEGAN YESTERDAY BECAUSE AN ERROR I MADE IN DEVELOPMENT LED TO GITHUB BEING WIPED INCLUDING MY README.MD AND MOST OF MY WORK THIS PAST WEEK. FORTUNATLY I HAD SAVED A COPY OF ME README.MD ELSEWHERE BEOFRE THIS ISSUE OCCURED.
