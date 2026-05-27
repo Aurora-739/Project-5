@@ -410,19 +410,15 @@ Tested on multiple screen sizes using Chrome DevTools. Mobile-first design ensur
 
 **HTML**
 - No valid errors returned when passing through the [W3C Validator](https://validator.w3.org/)
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9d16ca10-5097-4199-9ac4-d75df90f6c5d" />
-
+<img width="1563" height="718" alt="image" src="https://github.com/user-attachments/assets/91d58319-7ada-4b1c-ad72-17e4fd51f38b" />
 
 **CSS**
 - No errors found when passing through the [Jigsaw Validator](https://jigsaw.w3.org/css-validator/)
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b2a708f5-44fd-45af-85f6-e9352fbb222e" />
-
+<img width="1535" height="679" alt="image" src="https://github.com/user-attachments/assets/1d2f600d-b291-43a5-8f91-7a12db6d9308" />
 
 **JavaScript**
 - No warnings returned when passing through [JSHint](https://jshint.com/)
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/055e8596-5a2e-41d5-a8c1-81ca2550af88" />
-
-
+<img width="1514" height="695" alt="image" src="https://github.com/user-attachments/assets/223e886f-bad4-467c-8631-ec18144fd2ba" />
   
 **Python**
 - All Python code follows PEP8 standards
