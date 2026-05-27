@@ -429,7 +429,6 @@ models.py:
 <img width="1590" height="813" alt="image" src="https://github.com/user-attachments/assets/d2827c08-daca-4f7a-8c93-94d37cab1f28" />
 urls.py:
 <img width="1616" height="814" alt="image" src="https://github.com/user-attachments/assets/b157d5fa-ca70-405a-925c-1320e812a10d" />
-settings.py:
 
 Home:
 views.py:
