@@ -2,7 +2,7 @@
 import uuid
 from django.db import models
 from django.conf import settings
-from products.models import Product  # assuming you have a Product model
+from products.models import Product 
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, editable=False, unique=True)
