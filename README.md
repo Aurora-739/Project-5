@@ -451,6 +451,29 @@ urls.py:
 models.py:
 <img width="1702" height="822" alt="image" src="https://github.com/user-attachments/assets/b0578a86-3221-4c8b-980a-c22b35c92d87" />
 
+Pdf_shop:
+views.py:
+<img width="1701" height="808" alt="image" src="https://github.com/user-attachments/assets/7446989c-f471-471a-ab34-4e132ee5ea17" />
+urls.py:
+<img width="1665" height="810" alt="image" src="https://github.com/user-attachments/assets/5ce71208-e5a2-41c9-a1b6-6f751eddc8ab" />
+settings.py:
+<img width="1742" height="831" alt="image" src="https://github.com/user-attachments/assets/ab33af17-2fec-4f73-823f-a547b99be8b5" />
+
+Products:
+views.py:
+<img width="1762" height="822" alt="image" src="https://github.com/user-attachments/assets/d60ab3be-66eb-4c7e-bb91-fa16f9910bd0" />
+urls.py:
+<img width="1703" height="821" alt="image" src="https://github.com/user-attachments/assets/e68af6d9-64f1-44e4-b994-1bb166bae1c7" />
+models.py:
+<img width="1718" height="821" alt="image" src="https://github.com/user-attachments/assets/08c41821-b4fc-4e6e-baeb-7f27f343b220" />
+
+Profiles:
+views.py:
+<img width="1720" height="816" alt="image" src="https://github.com/user-attachments/assets/27fa74a4-c6cb-430b-929a-e803b4a0e62a" />
+urls.py:
+<img width="1694" height="813" alt="image" src="https://github.com/user-attachments/assets/cb70bfee-d2f9-4bb1-b589-af6f04bda159" />
+models.py:
+<img width="1662" height="808" alt="image" src="https://github.com/user-attachments/assets/65804d48-bf10-48cd-9dde-54801ac84bd9" />
 
 All Python files were passed through the CI Python Linter. Some E501 line too long warnings are present in due to long string expressions and Stripe API calls that cannot be shortened without breaking functionality
 
