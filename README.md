@@ -474,7 +474,7 @@ urls.py:
 models.py:
 <img width="1662" height="808" alt="image" src="https://github.com/user-attachments/assets/65804d48-bf10-48cd-9dde-54801ac84bd9" />
 
-All Python files were passed through the CI Python Linter. Some E501 line too long warnings are present in due to long string expressions and Stripe API calls that cannot be shortened without breaking functionality
+All Python files were passed through the CI Python Linter. Some E501 line too long warnings are present due to long string expressions and Stripe API calls that cannot be shortened without breaking functionality.
 
 ### Known Issues
 
