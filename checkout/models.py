@@ -7,7 +7,7 @@ from products.models import Product  # assuming you have a Product model
 class Order(models.Model):
     order_number = models.CharField(max_length=32, editable=False, unique=True)
     user_profile = models.ForeignKey('profiles.UserProfile', on_delete=models.SET_NULL, 
-                                      null=True, blank=True, related_name='orders')  # ← ADD THIS LINE
+                                      null=True, blank=True, related_name='orders')
     date = models.DateTimeField(auto_now_add=True)
     
     full_name = models.CharField(max_length=50)
