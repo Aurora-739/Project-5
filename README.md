@@ -422,7 +422,37 @@ Tested on multiple screen sizes using Chrome DevTools. Mobile-first design ensur
   
 **Python**
 - All Python code follows PEP8 standards
+Bag:
+views.py (no significant errors found):
+<img width="1591" height="830" alt="image" src="https://github.com/user-attachments/assets/c724f8a9-3d07-4866-a075-5ac5fc8723d3" />
+models.py:
+<img width="1590" height="813" alt="image" src="https://github.com/user-attachments/assets/d2827c08-daca-4f7a-8c93-94d37cab1f28" />
+urls.py:
+<img width="1616" height="814" alt="image" src="https://github.com/user-attachments/assets/b157d5fa-ca70-405a-925c-1320e812a10d" />
+settings.py:
 
+Home:
+views.py:
+<img width="1682" height="826" alt="image" src="https://github.com/user-attachments/assets/bd46b798-efef-4a48-8e05-c2fe168093fb" />
+models.py:
+<img width="1706" height="847" alt="image" src="https://github.com/user-attachments/assets/9253c046-5d23-4aff-b1dd-25cbd5c50858" />
+
+Store:
+views.py:
+<img width="1742" height="817" alt="image" src="https://github.com/user-attachments/assets/69fb1467-9e5d-4142-91f3-8c798d53daa2" />
+models.py:
+<img width="1677" height="820" alt="image" src="https://github.com/user-attachments/assets/81c6a404-93a8-4a9e-9b89-0f8212690fb2" />
+
+Checkout:
+views.py:
+<img width="1772" height="831" alt="image" src="https://github.com/user-attachments/assets/8370d730-f6b0-4cc1-9f42-7e8e53a2be36" />
+urls.py:
+<img width="1774" height="817" alt="image" src="https://github.com/user-attachments/assets/504a9007-5dad-4618-9b8e-1e233b060110" />
+models.py:
+<img width="1702" height="822" alt="image" src="https://github.com/user-attachments/assets/b0578a86-3221-4c8b-980a-c22b35c92d87" />
+
+
+All Python files were passed through the CI Python Linter. Some E501 line too long warnings are present in due to long string expressions and Stripe API calls that cannot be shortened without breaking functionality
 
 ### Known Issues
 
