@@ -33,21 +33,24 @@ def cache_checkout_data(request):
 
 def send_confirmation_email(order):
     """Send the user a confirmation email after successful checkout"""
-    customer_email = order.email
-    subject = render_to_string(
-        'checkout/confirmation_emails/confirmation_email_subject.txt',
-        {'order': order}
-    ).strip()
-    body = render_to_string(
-        'checkout/confirmation_emails/confirmation_email_body.txt',
-        {'order': order}
-    )
-    send_mail(
-        subject,
-        body,
-        settings.DEFAULT_FROM_EMAIL,
-        [customer_email]
-    )
+    try:
+        customer_email = order.email
+        subject = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_subject.txt',
+            {'order': order}
+        ).strip()
+        body = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_body.txt',
+            {'order': order}
+        )
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [customer_email]
+        )
+    except Exception as e:
+        print(f"Email sending failed: {e}")
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
