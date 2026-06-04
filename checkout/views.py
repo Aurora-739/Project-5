@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpR
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.core.mail import send_mail #for sending confirmation emails
+from django.template.loader import render_to_string #for sending confirmation emails
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
@@ -29,6 +31,23 @@ def cache_checkout_data(request):
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
+def send_confirmation_email(order):
+    """Send the user a confirmation email after successful checkout"""
+    customer_email = order.email
+    subject = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_subject.txt',
+        {'order': order}
+    ).strip()
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_body.txt',
+        {'order': order}
+    )
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [customer_email]
+    )
 
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -146,9 +165,10 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+    send_confirmation_email(order)
     messages.success(request, f'Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}.')
+    Your order number is {order_number}. A confirmation \
+    email has been sent to {order.email}.')
 
     if 'bag' in request.session:
         del request.session['bag']
