@@ -1,0 +1,17 @@
+Hello {{ order.full_name }},
+
+Thank you for your order at Michelle's Craft Room!
+
+Your order number is: {{ order.order_number }}
+Order date: {{ order.date }}
+Order total: £{{ order.order_total }}
+
+Your order will be sent to:
+{{ order.address_line1 }}
+{% if order.address_line2 %}{{ order.address_line2 }}{% endif %}
+{{ order.city }}
+{{ order.postcode }}
+{{ order.country }}
+
+Thank you for shopping with us!
+Michelle's Craft Room
