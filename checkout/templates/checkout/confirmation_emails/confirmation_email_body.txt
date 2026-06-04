@@ -6,7 +6,9 @@ Your order number is: {{ order.order_number }}
 Order date: {{ order.date }}
 Order total: £{{ order.order_total }}
 
-Your order will be sent to:
+Your order JPG's are attached to this email for you.
+
+The order is addressed to:
 {{ order.address_line1 }}
 {% if order.address_line2 %}{{ order.address_line2 }}{% endif %}
 {{ order.city }}
@@ -15,3 +17,5 @@ Your order will be sent to:
 
 Thank you for shopping with us!
 Michelle's Craft Room
+
+https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/
