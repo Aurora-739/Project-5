@@ -8,7 +8,8 @@ Order total: £{{ order.order_total }}
 
 Your purchased items:
 {% for item in order.lineitems.all %}
-- {{ item.product.name }}: {{ item.product.image_url }}
+- {{ item.product.name }}
+{% if item.product.image %}Download: {{ item.product.image.url }}{% endif %}
 {% endfor %}
 
 The order is addressed to:
