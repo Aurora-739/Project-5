@@ -6,7 +6,10 @@ Your order number is: {{ order.order_number }}
 Order date: {{ order.date }}
 Order total: £{{ order.order_total }}
 
-Your order JPG's are attached to this email for you.
+Your purchased items:
+{% for item in order.lineitems.all %}
+- {{ item.product.name }}: {{ item.product.image_url }}
+{% endfor %}
 
 The order is addressed to:
 {{ order.address_line1 }}
