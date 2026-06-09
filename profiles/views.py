@@ -56,7 +56,7 @@ def newsletter_signup(request):
             try:
                 form.save()
                 messages.success(request, 'Thank you for subscribing to our newsletter!')
-                return redirect('profiles:profile')
+                return redirect('profiles:newsletter_signup')
             except:
                 messages.error(request, 'This email is already subscribed!')
         else:
