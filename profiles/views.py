@@ -22,7 +22,7 @@ def profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully!')
-            return redirect('profiles:newsletter_signup')
+            return redirect('profiles:profile')
         else:
             messages.error(request, 'Failed to update profile. Please check your info.')
     else:
@@ -56,7 +56,7 @@ def newsletter_signup(request):
             try:
                 form.save()
                 messages.success(request, 'Thank you for subscribing to our newsletter!')
-                return redirect('profiles:newsletter_signup')
+                return redirect('profiles:profile')
             except:
                 messages.error(request, 'This email is already subscribed!')
         else:

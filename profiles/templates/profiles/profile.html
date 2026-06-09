@@ -43,7 +43,7 @@
                     <div class="order-item mb-3 p-2 border-bottom">
                         <p class="mb-1"><strong>Order Number:</strong> {{ order.order_number }}</p>
                         <p class="mb-1"><strong>Date:</strong> {{ order.date }}</p>
-                        <p class="mb-1"><strong>Total:</strong> {{ order.grand_total }}</p>
+                        <p class="mb-1"><strong>Total:</strong> {{ order.order_total }}</p>
                         <a href="{% url 'checkout:checkout_success' order_number=order.order_number %}" class="btn btn-outline-black btn-sm mt-1">View Details</a>
                     </div>
                     {% endfor %}
