@@ -48,3 +48,13 @@ class Review(models.Model):
 
     def __str__(self):
         return f'Review by {self.user.username} for {self.product.name}'
+
+
+class Wishlist(models.Model):
+    """Custom model for user wishlists"""
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='wishlist')
+    products = models.ManyToManyField(Product, blank=True, related_name='wishlisted_by')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.user.username}\'s Wishlist'
