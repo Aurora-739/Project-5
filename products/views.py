@@ -3,9 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category, Review
+from .models import Product, Category, Review, Wishlist
 from .forms import ReviewForm
-
 
 def all_products(request):
     """Show all products with sorting and searching"""
@@ -126,3 +125,32 @@ def delete_review(request, sku, review_id):
     review.delete()
     messages.success(request, 'Your review has been deleted!')
     return redirect(reverse('products:product_detail', args=[sku]))
+
+@login_required
+def wishlist(request):
+    """Display the user's wishlist"""
+    wishlist, created = Wishlist.objects.get_or_create(user=request.user)
+    context = {
+        'wishlist': wishlist,
+    }
+    return render(request, 'products/wishlist.html', context)
+
+
+@login_required
+def add_to_wishlist(request, sku):
+    """Add a product to the user's wishlist"""
+    product = get_object_or_404(Product, sku=sku)
+    wishlist, created = Wishlist.objects.get_or_create(user=request.user)
+    wishlist.products.add(product)
+    messages.success(request, f'{product.name} added to your wishlist!')
+    return redirect(reverse('products:product_detail', args=[sku]))
+
+
+@login_required
+def remove_from_wishlist(request, sku):
+    """Remove a product from the user's wishlist"""
+    product = get_object_or_404(Product, sku=sku)
+    wishlist = get_object_or_404(Wishlist, user=request.user)
+    wishlist.products.remove(product)
+    messages.success(request, f'{product.name} removed from your wishlist!')
+    return redirect(reverse('products:wishlist'))
