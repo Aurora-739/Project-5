@@ -1,14 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
+from django.db.models import Q, Avg
 from django.db.models.functions import Lower
 from .models import Product, Category, Review, Wishlist
 from .forms import ReviewForm
 
 def all_products(request):
     """Show all products with sorting and searching"""
-    products = Product.objects.all()
+    products = Product.objects.annotate(avg_rating=Avg('reviews__rating'))
     query = None
     current_categories = None
     sort = None
@@ -35,6 +35,9 @@ def all_products(request):
         if sort == 'name':
             products = products.annotate(lower_name=Lower('name'))
             sortkey = 'lower_name'
+
+        if sort == 'rating':
+            sortkey = 'avg_rating'
 
         if sortkey == 'category':
             sortkey = 'categories__name'
