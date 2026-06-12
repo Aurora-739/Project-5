@@ -13,25 +13,52 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container my-5">
+    {% if search_term %}
+    <p class="products-text">Search results for "{{ search_term }}"</p>
+    {% endif %}
+
+    <div class="mb-2 products-text">
+        <a href="{% url 'products:all_products' %}" class="products-text">All products</a> |
+        {{ products|length }} products
+        {% if search_term %} for "{{ search_term }}" {% endif %}
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-12 col-md-4 order-md-last">
+            <select id="sort-select" class="form-control">
+                <option value="none_none" {% if current_sorting == "none_none" %}selected{% endif %}>Default</option>
+                <option value="price_ascending" {% if current_sorting == "price_ascending" %}selected{% endif %}>Price ↑</option>
+                <option value="price_descending" {% if current_sorting == "price_descending" %}selected{% endif %}>Price ↓</option>
+                <option value="rating_descending" {% if current_sorting == "rating_descending" %}selected{% endif %}>Rating</option>
+                <option value="name_ascending" {% if current_sorting == "name_ascending" %}selected{% endif %}>Name A-Z</option>
+                <option value="name_descending" {% if current_sorting == "name_descending" %}selected{% endif %}>Name Z-A</option>
+                <option value="category_ascending" {% if current_sorting == "category_ascending" %}selected{% endif %}>Category ↑</option>
+                <option value="category_descending" {% if current_sorting == "category_descending" %}selected{% endif %}>Category ↓</option>
+            </select>
+        </div>
+    </div>
+
     <div class="row">
         {% for product in products %}
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="col-6 col-md-4 col-lg-3 mb-4">
+            <!-- Wrap the card in a link to make it clickable -->
             <a href="{% url 'products:product_detail' product.sku %}" class="text-decoration-none text-dark">
-                <div class="card h-100 border-0 shadow-sm">
+                <div class="card h-100">
                     {% if product.image %}
-                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                     {% else %}
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        <img src="{% static 'images/noimage.png' %}" class="card-img-top" alt="No image">
                     {% endif %}
+
                     <div class="card-body">
-                        <p class="mb-1 font-weight-bold">{{ product.name }}</p>
-                        <p class="mb-0 text-muted">${{ product.price }}</p>
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">${{ product.price }}</p>
+
                         {% if product.average_rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.average_rating }} / 5 ({{
-                            product.reviews.count }})</small>
+                            <p class="text-warning"><i class="fas fa-star mr-1"></i>{{ product.average_rating }} / 5 ({{ product.reviews.count }})</p>
                         {% else %}
-                        <small class="text-muted">No reviews yet</small>
+                            <p class="less-important-text">No reviews yet</p>
                         {% endif %}
                     </div>
                 </div>
@@ -43,5 +70,29 @@
         </div>
         {% endfor %}
     </div>
+
+    <!-- Back to top button -->
+    <div id="back-to-top" class="btt-button text-black">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
 </div>
 {% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    $(document).ready(function () {
+        // Sort selector change
+        $('#sort-select').on('change', function () {
+            let selector = $(this);
+            let url = new URL(window.location.href);
+            let value = selector.val();
+
+            if (value === 'none_none') {
+                url.searchParams.delete('sort');
+                url.searchParams.delete('direction');
+            } else {
+                let [sort, direction] = value.split('_');
+                url.searchParams.set('sort', sort);
+                url.searchParams.set('direction', direction);

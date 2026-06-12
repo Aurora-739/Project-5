@@ -38,8 +38,7 @@
                 </p>
                 {% endif %}
                 {% if product.average_rating %}
-                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.average_rating }} / 5 ({{
-                    product.reviews.count }} review{{ product.reviews.count|pluralize }})</small>
+                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.average_rating }} / 5 ({{product.reviews.count }} review{{ product.reviews.count|pluralize }})</small>
                 {% else %}
                 <small class="text-muted">No reviews yet</small>
                 {% endif %}
