@@ -83,6 +83,14 @@
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
                 </form>
+                {% if request.user.is_authenticated %}
+                <form method="POST" action="{% url 'products:add_to_wishlist' product.sku %}" class="d-inline mt-2">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-black rounded-0 text-uppercase">
+                        Add to Wishlist
+                    </button>
+                </form>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -95,53 +103,52 @@
         <h3 class="mt-4">Customer Reviews</h3>
 
         {% if reviews %}
-            {% for review in reviews %}
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <h6 class="card-subtitle mb-2 text-muted">
-                            {{ review.user.username }} — 
-                            {% for i in "12345" %}
-                                {% if forloop.counter <= review.rating %}⭐{% endif %}
-                            {% endfor %}
-                        </h6>
-                        <small class="text-muted">{{ review.created_at|date:"d M Y" }}</small>
-                    </div>
-                    <p class="card-text">{{ review.comment }}</p>
-
-                    {% if request.user == review.user %}
-                    <form method="POST" action="{% url 'products:edit_review' product.sku review.id %}" class="d-inline">
-                        {% csrf_token %}
-                        {{ review_form.as_p }}
-                        <button type="submit" class="btn btn-sm btn-outline-secondary">Update Review</button>
-                    </form>
-                    <form method="POST" action="{% url 'products:delete_review' product.sku review.id %}" class="d-inline ml-2">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-sm btn-outline-danger"
-                            onclick="return confirm('Are you sure you want to delete your review?')">
-                            Delete Review
-                        </button>
-                    </form>
-                    {% endif %}
+        {% for review in reviews %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        {{ review.user.username }} —
+                        {% for i in "12345" %}
+                        {% if forloop.counter <= review.rating %}⭐{% endif %} {% endfor %} </h6>
+                            <small class="text-muted">{{ review.created_at|date:"d M Y" }}</small>
                 </div>
+                <p class="card-text">{{ review.comment }}</p>
+
+                {% if request.user == review.user %}
+                <form method="POST" action="{% url 'products:edit_review' product.sku review.id %}" class="d-inline">
+                    {% csrf_token %}
+                    {{ review_form.as_p }}
+                    <button type="submit" class="btn btn-sm btn-outline-secondary">Update Review</button>
+                </form>
+                <form method="POST" action="{% url 'products:delete_review' product.sku review.id %}"
+                    class="d-inline ml-2">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-outline-danger"
+                        onclick="return confirm('Are you sure you want to delete your review?')">
+                        Delete Review
+                    </button>
+                </form>
+                {% endif %}
             </div>
-            {% endfor %}
+        </div>
+        {% endfor %}
         {% else %}
-            <p class="text-muted">No reviews yet. Be the first to review this product!</p>
+        <p class="text-muted">No reviews yet. Be the first to review this product!</p>
         {% endif %}
 
         {% if request.user.is_authenticated %}
-            {% if not user_review %}
-            <hr>
-            <h4>Leave a Review</h4>
-            <form method="POST" action="{% url 'products:add_review' product.sku %}">
-                {% csrf_token %}
-                {{ review_form.as_p }}
-                <button type="submit" class="btn btn-black rounded-0 text-uppercase mt-2">Submit Review</button>
-            </form>
-            {% endif %}
+        {% if not user_review %}
+        <hr>
+        <h4>Leave a Review</h4>
+        <form method="POST" action="{% url 'products:add_review' product.sku %}">
+            {% csrf_token %}
+            {{ review_form.as_p }}
+            <button type="submit" class="btn btn-black rounded-0 text-uppercase mt-2">Submit Review</button>
+        </form>
+        {% endif %}
         {% else %}
-            <p class="mt-3"><a href="{% url 'account_login' %}">Log in</a> to leave a review.</p>
+        <p class="mt-3"><a href="{% url 'account_login' %}">Log in</a> to leave a review.</p>
         {% endif %}
     </div>
 </div>

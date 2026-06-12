@@ -69,6 +69,7 @@
     rel="noopener noreferrer">Product Management</a></li>
   {% endif %}
   <li><a href="{% url 'profiles:profile' %}" class="dropdown-item">My Profile</a></li>
+  <li><a href="{% url 'products:wishlist' %}" class="dropdown-item">My Wishlist</a></li>
   <li><a href="{% url 'logout2' %}" class="dropdown-item">Logout</a></li>
   {% else %}
   <li><a href="{% url 'signup2' %}" class="dropdown-item">Register</a></li>
