@@ -96,3 +96,16 @@
                 let [sort, direction] = value.split('_');
                 url.searchParams.set('sort', sort);
                 url.searchParams.set('direction', direction);
+
+            }
+
+window.location.replace(url.toString());
+});
+
+// Back to top button
+$('#back-to-top').on('click', function () {
+$('html, body').animate({ scrollTop: 0 }, 'slow');
+});
+});
+</script>
+{% endblock %}
