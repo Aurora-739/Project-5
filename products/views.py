@@ -141,8 +141,12 @@ def add_to_wishlist(request, sku):
     """Add a product to the user's wishlist"""
     product = get_object_or_404(Product, sku=sku)
     wishlist, created = Wishlist.objects.get_or_create(user=request.user)
-    wishlist.products.add(product)
-    messages.success(request, f'{product.name} added to your wishlist!')
+    if product in wishlist.products.all():
+        messages.info(request, f'{product.name} is already in your wishlist!')
+    else:
+        wishlist.products.add(product)
+        messages.success(request, f'{product.name} added to your wishlist!')
+
     return redirect(reverse('products:product_detail', args=[sku]))
 
 
