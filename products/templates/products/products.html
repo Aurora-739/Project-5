@@ -27,20 +27,20 @@
     <div class="row mb-3">
         <div class="col-12 col-md-4 order-md-last">
             <select id="sort-select" class="form-control">
-                <option value="none_none" {% if current_sorting=="none_none" %}selected{% endif %}>Default</option>
-                <option value="price_ascending" {% if current_sorting=="price_ascending" %}selected{% endif %}>Price ↑
+                <option value="none_none" {% if current_sorting == "none_none" %}selected{% endif %}>Default</option>
+                <option value="price_ascending" {% if current_sorting == "price_ascending" %}selected{% endif %}>Price ↑
                 </option>
-                <option value="price_descending" {% if current_sorting=="price_descending" %}selected{% endif %}>Price ↓
+                <option value="price_descending" {% if current_sorting == "price_descending" %}selected{% endif %}>Price ↓
                 </option>
-                <option value="rating_descending" {% if current_sorting=="rating_descending" %}selected{% endif %}>
+                <option value="rating_descending" {% if current_sorting == "rating_descending" %}selected{% endif %}>
                     Rating</option>
-                <option value="name_ascending" {% if current_sorting=="name_ascending" %}selected{% endif %}>Name A-Z
+                <option value="name_ascending" {% if current_sorting == "name_ascending" %}selected{% endif %}>Name A-Z
                 </option>
-                <option value="name_descending" {% if current_sorting=="name_descending" %}selected{% endif %}>Name Z-A
+                <option value="name_descending" {% if current_sorting == "name_descending" %}selected{% endif %}>Name Z-A
                 </option>
-                <option value="category_ascending" {% if current_sorting=="category_ascending" %}selected{% endif %}>
+                <option value="category_ascending" {% if current_sorting == "category_ascending" %}selected{% endif %}>
                     Category ↑</option>
-                <option value="category_descending" {% if current_sorting=="category_descending" %}selected{% endif %}>
+                <option value="category_descending" {% if current_sorting == "category_descending" %}selected{% endif %}>
                     Category ↓</option>
             </select>
         </div>
