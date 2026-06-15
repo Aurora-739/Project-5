@@ -12,7 +12,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description"
     content="Michelle's Craft Room - browse and instantly download digital PNG cards and art prints.">
-  <meta name="keywords" content="digital PNG cards, art prints, printable art, craft downloads, digital craft supplies, handmade cards, Michelle's Craft Room">
+  <meta name="keywords"
+    content="digital PNG cards, art prints, printable art, craft downloads, digital craft supplies, handmade cards, Michelle's Craft Room">
   {% endblock %}
 
   {% block corecss %}
@@ -61,28 +62,29 @@
                 <p class="my-0">My Account</p>
               </div>
             </a>
-            
+
             <ul class="dropdown-menu border-0" aria-labelledby="user-options">
-  {% if request.user.is_authenticated %}
-  {% if request.user.is_superuser %}
-  <li><a href="https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/admin/" class="dropdown-item"
-    rel="noopener noreferrer">Product Management</a></li>
-  {% endif %}
-  <li><a href="{% url 'profiles:profile' %}" class="dropdown-item">My Profile</a></li>
-  <li><a href="{% url 'products:wishlist' %}" class="dropdown-item">My Wishlist</a></li>
-  <li><a href="{% url 'logout2' %}" class="dropdown-item">Logout</a></li>
-  {% else %}
-  <li><a href="{% url 'signup2' %}" class="dropdown-item">Register</a></li>
-  <li><a href="{% url 'login2' %}" class="dropdown-item">Login</a></li>
-  {% endif %}
-</ul>
+              {% if request.user.is_authenticated %}
+              {% if request.user.is_superuser %}
+              <li><a href="https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/admin/"
+                  class="dropdown-item" rel="noopener noreferrer">Product Management</a></li>
+              {% endif %}
+              <li><a href="{% url 'profiles:profile' %}" class="dropdown-item">My Profile</a></li>
+              <li><a href="{% url 'products:wishlist' %}" class="dropdown-item">My Wishlist</a></li>
+              <li><a href="{% url 'logout2' %}" class="dropdown-item">Logout</a></li>
+              {% else %}
+              <li><a href="{% url 'signup2' %}" class="dropdown-item">Register</a></li>
+              <li><a href="{% url 'login2' %}" class="dropdown-item">Login</a></li>
+              {% endif %}
+            </ul>
           </li>
           <li class="list-inline-item">
-  <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'bag:view_bag' %}">
-    <div class="text-center">
-      <div>
-        <i class="fas fa-shopping-bag fa-lg"></i>
-      </div>
+            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+              href="{% url 'bag:view_bag' %}">
+              <div class="text-center">
+                <div>
+                  <i class="fas fa-shopping-bag fa-lg"></i>
+                </div>
                 <p class="my-0">
                   {% if grand_total %}
                   ${{ grand_total|floatformat:2 }}
@@ -110,8 +112,8 @@
   </div>
   {% endif %}
 
-
-  <div class="col-12 col-lg-5 my-auto mx-auto" style="padding-top: 70px;">
+  {% if request.resolver_match.url_name != 'home' %}
+  <div class="col-12 col-lg-5 my-auto mx-auto" style="padding-top: 55px; padding-bottom: 0; margin-bottom: 0;">
     <form method="get" action="{% url 'products:all_products' %}">
       <div class="input-group w-100">
         <input class="form-control rounded-pill search" type="text" name="q" placeholder="Search our site">
@@ -144,6 +146,7 @@
         <a class="nav-link" href="{% url 'products:all_products' %}?sort=name&direction=descending">Name Z-A</a>
       </li>
     </ul>
+    {% endif %}
 
 
   </div>
@@ -185,40 +188,41 @@
   </script>
   {% endblock %}
 
-<footer>
-  {% block footer %}
-  <div class="footer-container">
-    <div class="footer-content">
+  <footer>
+    {% block footer %}
+    <div class="footer-container">
+      <div class="footer-content">
 
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/products">Products</a></li>
-          <li><a href="{% url 'profiles:newsletter_signup' %}">Newsletter Signup</a></li>
-        </ul>
-      </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="{% url 'profiles:newsletter_signup' %}">Newsletter Signup</a></li>
+          </ul>
+        </div>
 
-      <div class="footer-section">
-        <h3>Contact</h3>
-        <p>Email: michellescraftroomcontact@gmail.com</p>
-        <p>Phone: (123) 456-7890</p>
-      </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: michellescraftroomcontact@gmail.com</p>
+          <p>Phone: (123) 456-7890</p>
+        </div>
 
-      <div class="footer-section">
-        <h3>Follow Us</h3>
-        <div class="social-links">
-          <a href="https://www.facebook.com/profile.php?id=61584931945505" target="_blank" rel="noopener noreferrer"
-            aria-label="Facebook">Facebook</a>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61584931945505" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook">Facebook</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Michelle's Craft Room. All rights reserved.</p>
         </div>
       </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2025 Michelle's Craft Room. All rights reserved.</p>
-      </div>
     </div>
-  </div>
     {% endblock %}
-</footer>
+  </footer>
 </body>
+
 </html>
