@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container my-5">
+<div class="container mt-2 mb-5">
     {% if search_term %}
     <p class="products-text">Search results for "{{ search_term }}"</p>
     {% endif %}
@@ -60,10 +60,9 @@
                         {% if product.categories.all %}
                         <p class="small mt-1 mb-0">
                             {% for category in product.categories.all %}
-                            <a class="text-muted"
-                                href="{% url 'products:all_products' %}?categories={{ category.name }}">
-                                <i class="fas fa-tag mr-1"></i>{{ category.friendly_name }}
-                            </a>
+                                <a style="color: #FCEBD0;" href="{% url 'products:all_products' %}?categories={{ category.name }}">
+                                    <i class="fas fa-tag mr-1"></i>{{ category.friendly_name }}
+                                </a>
                             {% endfor %}
                         </p>
                         {% endif %}
