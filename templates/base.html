@@ -113,7 +113,7 @@
   {% endif %}
 
   {% if request.resolver_match.url_name != 'home' %}
-  <div class="col-12 col-lg-5 my-auto mx-auto" style="padding-top: 55px; padding-bottom: 0; margin-bottom: 0;">
+  <div class="col-12 col-lg-5 my-auto mx-auto" style="padding-top: 40px; padding-bottom: 0; margin-bottom: 0;">
     <form method="get" action="{% url 'products:all_products' %}">
       <div class="input-group w-100">
         <input class="form-control rounded-pill search" type="text" name="q" placeholder="Search our site">
