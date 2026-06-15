@@ -222,6 +222,10 @@ h2 {
     color: #FCEBD0;
 }
 
+.col-12.col-lg-5 {
+  padding-top: 1rem !important;
+}
+
 .less-important-text {
     color: #FCEBD0;
 }
