@@ -53,8 +53,7 @@
                         <p class="card-text">${{ product.price }}</p>
 
                         {% if product.average_rating %}
-                        <p class="text-warning"><i class="fas fa-star mr-1"></i>{{ product.average_rating }} / 5 {{ 
-                            product.reviews.count }}</p>
+                        <p class="text-warning"><i class="fas fa-star mr-1"></i>{{ product.average_rating }} / 5 ({{ product.reviews.count }})</p>
                         {% else %}
                         <p class="less-important-text">No reviews yet</p>
                         {% endif %}
