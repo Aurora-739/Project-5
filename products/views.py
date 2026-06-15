@@ -54,7 +54,9 @@ def all_products(request):
         'search_term': query,
         'current_categories': current_categories,
         'current_sorting': current_sorting,
+        'all_categories': Category.objects.all(),
     }
+    
 
     return render(request, 'products/products.html', context)
 
