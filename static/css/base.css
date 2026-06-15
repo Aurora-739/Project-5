@@ -96,7 +96,7 @@ h2 {
     object-fit: cover;
 }
 
-/* from Bulma */
+
 .icon {
     align-items: center;
     display: inline-flex;
@@ -215,6 +215,11 @@ h2 {
 .card {
     background-color: #874C62;
     color:#E1CC96;
+}
+
+.card .card-body p,
+.card .card-title {
+    color: #FCEBD0;
 }
 
 .less-important-text {
