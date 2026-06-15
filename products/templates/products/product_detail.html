@@ -144,7 +144,7 @@
         <form method="POST" action="{% url 'products:add_review' product.sku %}">
             {% csrf_token %}
             {{ review_form.as_p }}
-            <button type="submit" class="btn btn-black rounded-0 text-uppercase mt-2">Submit Review</button>
+            <button type="submit" class="btn btn-black rounded-0 text-uppercase mt-2">Post Review</button>
         </form>
         {% endif %}
         {% else %}
