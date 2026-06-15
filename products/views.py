@@ -8,7 +8,7 @@ from .forms import ReviewForm
 
 def all_products(request):
     """Show all products with sorting and searching"""
-    products = Product.objects.annotate(avg_rating=Avg('reviews__rating'))
+    products = Product.objects.annotate(avg_rating=Coalesce(Avg('reviews__rating'), 0.0))
     query = None
     current_categories = None
     sort = None
