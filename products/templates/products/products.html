@@ -27,14 +27,21 @@
     <div class="row mb-3">
         <div class="col-12 col-md-4 order-md-last">
             <select id="sort-select" class="form-control">
-                <option value="none_none" {% if current_sorting == "none_none" %}selected{% endif %}>Default</option>
-                <option value="price_ascending" {% if current_sorting == "price_ascending" %}selected{% endif %}>Price ↑</option>
-                <option value="price_descending" {% if current_sorting == "price_descending" %}selected{% endif %}>Price ↓</option>
-                <option value="rating_descending" {% if current_sorting == "rating_descending" %}selected{% endif %}>Rating</option>
-                <option value="name_ascending" {% if current_sorting == "name_ascending" %}selected{% endif %}>Name A-Z</option>
-                <option value="name_descending" {% if current_sorting == "name_descending" %}selected{% endif %}>Name Z-A</option>
-                <option value="category_ascending" {% if current_sorting == "category_ascending" %}selected{% endif %}>Category ↑</option>
-                <option value="category_descending" {% if current_sorting == "category_descending" %}selected{% endif %}>Category ↓</option>
+                <option value="none_none" {% if current_sorting=="none_none" %}selected{% endif %}>Default</option>
+                <option value="price_ascending" {% if current_sorting=="price_ascending" %}selected{% endif %}>Price ↑
+                </option>
+                <option value="price_descending" {% if current_sorting=="price_descending" %}selected{% endif %}>Price ↓
+                </option>
+                <option value="rating_descending" {% if current_sorting=="rating_descending" %}selected{% endif %}>
+                    Rating</option>
+                <option value="name_ascending" {% if current_sorting=="name_ascending" %}selected{% endif %}>Name A-Z
+                </option>
+                <option value="name_descending" {% if current_sorting=="name_descending" %}selected{% endif %}>Name Z-A
+                </option>
+                <option value="category_ascending" {% if current_sorting=="category_ascending" %}selected{% endif %}>
+                    Category ↑</option>
+                <option value="category_descending" {% if current_sorting=="category_descending" %}selected{% endif %}>
+                    Category ↓</option>
             </select>
         </div>
     </div>
@@ -46,9 +53,9 @@
             <a href="{% url 'products:product_detail' product.sku %}" class="text-decoration-none text-dark">
                 <div class="card h-100">
                     {% if product.image %}
-                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                     {% else %}
-                        <img src="{% static 'images/noimage.png' %}" class="card-img-top" alt="No image">
+                    <img src="{% static 'images/noimage.png' %}" class="card-img-top" alt="No image">
                     {% endif %}
 
                     <div class="card-body">
@@ -56,9 +63,20 @@
                         <p class="card-text">${{ product.price }}</p>
 
                         {% if product.average_rating %}
-                            <p class="text-warning"><i class="fas fa-star mr-1"></i>{{ product.average_rating }} / 5 ({{ product.reviews.count }})</p>
+                        <p class="text-warning"><i class="fas fa-star mr-1"></i>{{ product.average_rating }} / 5 ({{
+                            product.reviews.count }})</p>
                         {% else %}
-                            <p class="less-important-text">No reviews yet</p>
+                        <p class="less-important-text">No reviews yet</p>
+                        {% endif %}
+                        {% if product.categories.all %}
+                        <p class="small mt-1 mb-0">
+                            {% for category in product.categories.all %}
+                            <a class="text-muted"
+                                href="{% url 'products:all_products' %}?categories={{ category.name }}">
+                                <i class="fas fa-tag mr-1"></i>{{ category.friendly_name }}
+                            </a>
+                            {% endfor %}
+                        </p>
                         {% endif %}
                     </div>
                 </div>
@@ -99,13 +117,13 @@
 
             }
 
-window.location.replace(url.toString());
-});
+            window.location.replace(url.toString());
+        });
 
-// Back to top button
-$('#back-to-top').on('click', function () {
-$('html, body').animate({ scrollTop: 0 }, 'slow');
-});
-});
+        // Back to top button
+        $('#back-to-top').on('click', function () {
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
+        });
+    });
 </script>
 {% endblock %}
