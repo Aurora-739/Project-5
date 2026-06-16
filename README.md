@@ -258,7 +258,13 @@ Testing was conducted using Chrome DevTools across multiple viewport sizes to en
 The application uses the following main models:
 
 ### **Product**
-- Stores product information (name, description, price, image).
+- Stores product information (name, description, price, image, SKU).
+- ManyToManyField relationship with Category.
+- Custom `average_rating()` method calculates live rating from related Reviews.
+
+### **Category**
+- Stores product categories (name and friendly_name).
+- ManyToMany relationship with Product allows products to belong to multiple categories.
 
 ### **Order**
 - Stores customer order details (full name, email, delivery address, order total).
@@ -271,6 +277,22 @@ The application uses the following main models:
 ### **UserProfile**
 - Stores user's default delivery information.
 - Links to Django's built-in User model.
+
+### **Review** *(Custom Model)*
+- Stores customer reviews for products.
+- ForeignKey to both Product and User.
+- Rating (1-5), comment, and timestamps.
+- Unique together constraint prevents duplicate reviews per user per product.
+- Powers the `average_rating()` method on Product.
+
+### **Wishlist** *(Custom Model)*
+- One-to-one relationship with User (each user has one wishlist).
+- ManyToManyField to Product allowing multiple saved products.
+- Add/remove functionality with duplicate detection.
+
+### **NewsletterSubscriber** *(Custom Model)*
+- Stores newsletter signups (name, email, date subscribed).
+- Unique email constraint prevents duplicate subscriptions.
 
 ---
 ## SEO Testing
