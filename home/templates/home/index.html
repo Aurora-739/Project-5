@@ -43,7 +43,6 @@
 {% endblock %}
 
 {% block content %}
-<div class=""></div>
 <div class="container py-4">
   <div class="row align-items-center">
 
@@ -53,15 +52,13 @@
         The new collection is in!
       </h1>
       <div class="my-3">
-        <h2>
           <a href="{% url 'products:all_products' %}" class="shop-now-button">Shop Now</a>
-        </h2>
       </div>
     </div>
 
     <!-- RIGHT: IMAGE -->
-    <div class="col-12 col-md-6 text-center">
-      <img class="img-fluid carousel-img" src="{% static 'images_project_5/mordern_green_tree.png' %}"
+    <div class="col-12 col-md-6 text-center d-none d-md-block">
+      <img class="img-fluid" src="{% static 'images_project_5/mordern_green_tree.png' %}"
         alt="Featured product">
     </div>
 
