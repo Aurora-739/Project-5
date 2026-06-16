@@ -60,9 +60,10 @@
                         {% if product.categories.all %}
                         <p class="small mt-1 mb-0">
                             {% for category in product.categories.all %}
-                                <a style="color: #FCEBD0;" href="{% url 'products:all_products' %}?categories={{ category.name }}">
-                                    <i class="fas fa-tag mr-1"></i>{{ category.friendly_name }}
-                                </a>
+                            <a style="color: #FCEBD0;"
+                                href="{% url 'products:all_products' %}?categories={{ category.name }}">
+                                <i class="fas fa-tag mr-1"></i>{{ category.friendly_name }}
+                            </a>
                             {% endfor %}
                         </p>
                         {% endif %}
@@ -78,9 +79,9 @@
     </div>
 
     <!-- Back to top button -->
-    <div id="back-to-top" class="btt-button text-black">
+    <button id="back-to-top" class="btt-button">
         <i class="fas fa-arrow-up"></i> Back to Top
-    </div>
+    </button>
 
 </div>
 {% endblock %}
@@ -101,7 +102,23 @@
             window.location.replace(url.toString());
         });
 
-        // Back to top button
+        // Back to top button - hide/show based on scroll position
+        $(window).scroll(function () {
+            let footerTop = $('footer').offset().top;
+            let scrollBottom = $(window).scrollTop() + $(window).height();
+            let buttonHeight = $('#back-to-top').outerHeight() + 20;
+
+            if ($(window).scrollTop() > 200) {
+                $('#back-to-top').fadeIn();
+            } else {
+                $('#back-to-top').fadeOut();
+            }
+
+            if (scrollBottom + buttonHeight >= footerTop) {
+                $('#back-to-top').fadeOut();
+            }
+        });
+
         $('#back-to-top').on('click', function () {
             $('html, body').animate({ scrollTop: 0 }, 'slow');
         });
