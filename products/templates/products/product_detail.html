@@ -82,18 +82,19 @@
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
                             <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                            {% if request.user.is_authenticated %}
+                            <form method="POST" action="{% url 'products:add_to_wishlist' product.sku %}"
+                                class="d-inline mt-3 ml-2">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-outline-black rounded-0 text-uppercase">
+                                    Add to Wishlist
+                                </button>
+                            </form>
+                            {% endif %}
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
                 </form>
-                {% if request.user.is_authenticated %}
-                <form method="POST" action="{% url 'products:add_to_wishlist' product.sku %}" class="d-inline mt-3 ml-2">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-outline-black rounded-0 text-uppercase">
-                        Add to Wishlist
-                    </button>
-                </form>
-                {% endif %}
             </div>
         </div>
     </div>
@@ -114,7 +115,7 @@
                         {{ review.user.username }} —
                         {% for i in "12345" %}
                         {% if forloop.counter <= review.rating %}⭐{% endif %} {% endfor %} </h6>
-                            <small class="text-muted">{{ review.created_at|date:"d M Y" }}</small>
+                            <small style="color: #E1CC96;">{{ review.created_at|date:"d M Y" }}</small>
                 </div>
                 <p class="card-text">{{ review.comment }}</p>
 
