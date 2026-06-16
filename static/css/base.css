@@ -564,10 +564,6 @@ footer {
     /* Much shorter carousel on mobile */
   }
 
-  .carousel-img {
-    max-height: 200px;
-  }
-
   /* Stack home page content vertically on mobile */
   .container .row .col-6 {
     flex: 0 0 100%;
