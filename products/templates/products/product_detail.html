@@ -86,7 +86,8 @@
                             <form method="POST" action="{% url 'products:add_to_wishlist' product.sku %}"
                                 class="d-inline ml-2">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-outline-black rounded-0 text-uppercase">
+                                <button type="submit"
+                                    class="btn btn-outline-black rounded-0 text-uppercase mt-5 align-middle">
                                     Add to Wishlist
                                 </button>
                             </form>
