@@ -103,6 +103,23 @@
         });
 
         // Back to top button - hide/show based on scroll position
+        let btnVisible = false;
+
+        $(window).scroll(function () {
+            let footerTop = $('footer').offset().top;
+            let scrollBottom = $(window).scrollTop() + $(window).height();
+            let buttonHeight = $('#back-to-top').outerHeight() + 20;
+            let shouldShow = $(window).scrollTop() > 200 && scrollBottom + buttonHeight < footerTop;
+
+            if (shouldShow && !btnVisible) {
+                $('#back-to-top').fadeIn();
+                btnVisible = true;
+            } else if (!shouldShow && btnVisible) {
+                $('#back-to-top').fadeOut();
+                btnVisible = false;
+            }
+        });
+
         $('#back-to-top').on('click', function () {
             $('html, body').animate({ scrollTop: 0 }, 'slow');
         });
