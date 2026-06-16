@@ -72,6 +72,7 @@ h2 {
 .carousel-item img {
     height: 37rem;        /* adjust height */
     object-fit: cover;    /* prevents distortion */
+    opacity: 0.7;
 }
 
 .btn {
@@ -151,12 +152,12 @@ h2 {
     transform: translateX(-50%);
     z-index: 10;                 /* above images */
     font-size: 6rem;             /* independent size */
-    color: #874C62;             /* independent color */
-    text-shadow: 3px 3px 8px rgba(0,0,0,0.6); /* for readability */
+    color: #BA9F38;             /* independent color */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5); /* for readability */
 }
 
 #hero-title:hover {
-    color: #BA9F38;
+    color: #874C62;
     text-decoration: none;
 }
 
