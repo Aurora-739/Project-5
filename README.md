@@ -19,6 +19,8 @@ Live Site: https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/
 
 ## User Stories
 I chose to write mine out on a google sheet document laid out as a kanban board. Although this is not acceptable for larger groups as it can easily get confusing and messy. For a simple one man operation I find it best as it keeps the user stories simple and easy to follow.
+[View User Stories Google Sheet](https://docs.google.com/spreadsheets/d/1tD8bA1ClfzmBbyvkxD35EFTUJaqyDd4cXXsyrhJOCPY/edit?usp=sharing)
+
 
 <img width="1241" height="819" alt="image" src="https://github.com/user-attachments/assets/12f3aaca-78dd-4184-bbb2-3d1e6597063e" />
 
