@@ -18,7 +18,9 @@ Live Site: https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/
 - [Credits](#credits)
 
 ## User Stories
-I chose to write mine out on a google sheet document laid out as a kanban board. Although this is not acceptable for larger groups as it can easily get confusing and messy. For a simple one man operation I find it best as it keeps the user stories simple and easy to follow.
+I chose to document my user stories using two Agile tools. The user stories themselves are written out on a Google Sheet laid out as a kanban-style board, which works well for a solo developer as it keeps things simple and easy to follow. I also used GitHub Projects to track progress throughout development, moving issues through columns as they were worked on and completed.
+[View User Stories Google Sheet](https://docs.google.com/spreadsheets/d/1tD8bA1ClfzmBbyvkxD35EFTUJaqyDd4cXXsyrhJOCPY/edit?usp=sharing)
+[View GitHub Project Board](https://github.com/users/Aurora-739/projects/14/views/1)
 
 <img width="1241" height="819" alt="image" src="https://github.com/user-attachments/assets/12f3aaca-78dd-4184-bbb2-3d1e6597063e" />
 
@@ -256,7 +258,13 @@ Testing was conducted using Chrome DevTools across multiple viewport sizes to en
 The application uses the following main models:
 
 ### **Product**
-- Stores product information (name, description, price, image).
+- Stores product information (name, description, price, image, SKU).
+- ManyToManyField relationship with Category.
+- Custom `average_rating()` method calculates live rating from related Reviews.
+
+### **Category**
+- Stores product categories (name and friendly_name).
+- ManyToMany relationship with Product allows products to belong to multiple categories.
 
 ### **Order**
 - Stores customer order details (full name, email, delivery address, order total).
@@ -269,6 +277,22 @@ The application uses the following main models:
 ### **UserProfile**
 - Stores user's default delivery information.
 - Links to Django's built-in User model.
+
+### **Review** *(Custom Model)*
+- Stores customer reviews for products.
+- ForeignKey to both Product and User.
+- Rating (1-5), comment, and timestamps.
+- Unique together constraint prevents duplicate reviews per user per product.
+- Powers the `average_rating()` method on Product.
+
+### **Wishlist** *(Custom Model)*
+- One-to-one relationship with User (each user has one wishlist).
+- ManyToManyField to Product allowing multiple saved products.
+- Add/remove functionality with duplicate detection.
+
+### **NewsletterSubscriber** *(Custom Model)*
+- Stores newsletter signups (name, email, date subscribed).
+- Unique email constraint prevents duplicate subscriptions.
 
 ---
 ## SEO Testing
