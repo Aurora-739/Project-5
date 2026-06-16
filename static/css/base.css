@@ -264,6 +264,25 @@ placeholder {
     color: #874C62;
 }
 
+/* Back to top button styles */
+.btt-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #874C62;
+  color: #FCEBD0;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.btt-button:hover {
+  background-color: #BA9F38;
+  color: #874C62;
+}
+
 /* Center authentication forms */
 .auth-container {
   display: flex;
