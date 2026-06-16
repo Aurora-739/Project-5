@@ -109,19 +109,30 @@
             let footerTop = $('footer').offset().top;
             let scrollBottom = $(window).scrollTop() + $(window).height();
             let buttonHeight = $('#back-to-top').outerHeight() + 20;
-            let shouldShow = $(window).scrollTop() > 200 && scrollBottom + buttonHeight < footerTop;
+            let nearFooter = scrollBottom + buttonHeight >= footerTop;
 
-            if (shouldShow && !btnVisible) {
-                $('#back-to-top').fadeIn();
-                btnVisible = true;
-            } else if (!shouldShow && btnVisible) {
-                $('#back-to-top').fadeOut();
-                btnVisible = false;
+            if ($(window).scrollTop() > 200) {
+                if (!btnVisible) {
+                    $('#back-to-top').fadeIn();
+                    btnVisible = true;
+                }
+                if (nearFooter) {
+                    $('#back-to-top').css({
+                        'background-color': '#FCEBD0',
+                        'color': '#874C62'
+                    });
+                } else {
+                    $('#back-to-top').css({
+                        'background-color': '#874C62',
+                        'color': '#FCEBD0'
+                    });
+                }
+            } else {
+                if (btnVisible) {
+                    $('#back-to-top').fadeOut();
+                    btnVisible = false;
+                }
             }
-        });
-
-        $('#back-to-top').on('click', function () {
-            $('html, body').animate({ scrollTop: 0 }, 'slow');
         });
     });
 </script>
