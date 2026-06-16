@@ -103,22 +103,6 @@
         });
 
         // Back to top button - hide/show based on scroll position
-        $(window).scroll(function () {
-            let footerTop = $('footer').offset().top;
-            let scrollBottom = $(window).scrollTop() + $(window).height();
-            let buttonHeight = $('#back-to-top').outerHeight() + 20;
-
-            if ($(window).scrollTop() > 200) {
-                $('#back-to-top').fadeIn();
-            } else {
-                $('#back-to-top').fadeOut();
-            }
-
-            if (scrollBottom + buttonHeight >= footerTop) {
-                $('#back-to-top').fadeOut();
-            }
-        });
-
         $('#back-to-top').on('click', function () {
             $('html, body').animate({ scrollTop: 0 }, 'slow');
         });
