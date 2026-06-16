@@ -26,9 +26,9 @@
                     {% endif %}
                     <div class="card-body">
                         <p class="mb-1 font-weight-bold">{{ product.name }}</p>
-                        <p class="mb-0 text-muted">£{{ product.price }}</p>
+                        <p class="mb-0" style="color: #FCEBD0;">£{{ product.price }}</p>
                     </div>
-                    <div class="card-footer bg-white border-0">
+                    <div class="card-footer border-0" style="background-color: #874C62;">
                         <a href="{% url 'products:product_detail' product.sku %}" class="btn btn-black rounded-0 btn-sm text-uppercase">View Product</a>
                         <form method="POST" action="{% url 'products:remove_from_wishlist' product.sku %}" class="d-inline">
                             {% csrf_token %}

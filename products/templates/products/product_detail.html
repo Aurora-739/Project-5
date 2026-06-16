@@ -87,7 +87,7 @@
                     </div>
                 </form>
                 {% if request.user.is_authenticated %}
-                <form method="POST" action="{% url 'products:add_to_wishlist' product.sku %}" class="d-inline mt-2">
+                <form method="POST" action="{% url 'products:add_to_wishlist' product.sku %}" class="d-inline mt-3 ml-2">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-black rounded-0 text-uppercase">
                         Add to Wishlist
@@ -110,7 +110,7 @@
         <div class="card mb-3">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
-                    <h6 class="card-subtitle mb-2 text-muted">
+                    <h6 class="card-subtitle mb-2" style="color: #BA9F38;">
                         {{ review.user.username }} —
                         {% for i in "12345" %}
                         {% if forloop.counter <= review.rating %}⭐{% endif %} {% endfor %} </h6>
