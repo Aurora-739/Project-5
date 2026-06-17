@@ -192,7 +192,7 @@ h2 {
 }
 
 #topnav a.nav-link {
-  color: #874C62;
+  color: #FCEBD0;
   /* initial link color */
   text-decoration: none;
   margin-left: 15px;
@@ -200,13 +200,13 @@ h2 {
 }
 
 #topnav i {
-  color: #874C62 !important;
+  color: #FCEBD0 !important;
   /* initial icon color */
   transition: color 1s;
 }
 
 #topnav p {
-  color: #874C62;
+  color: #FCEBD0;
   /* initial paragraph color */
   transition: color 1s;
 }
@@ -271,15 +271,15 @@ placeholder {
 }
 
 .categories {
-  color: #E1CC96;
+  color: #BA9F38;
 }
 
 .categories:hover {
-  color: #BA9F38;
+  color: #E1CC96;
 }
 
 .nav-link:hover {
-  color: #BA9F38;
+  color: #E1CC96;
 }
 
 .products-text {
