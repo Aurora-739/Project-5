@@ -1,9 +1,10 @@
 # Michelle's Craft Room
-Michelle's Craft Room is a full-stack e-commerce website built with Django that sells digital PNG cards and art prints. The site provides a complete online shopping experience with user authentication, shopping cart functionality, secure payment processing via Stripe, and order management.
+Michelle's Craft Room is a full-stack e-commerce website built with Django that sells digital PNG cards and art prints. The site provides a complete online shopping experience with user authentication, shopping cart functionality, secure payment processing via Stripe, order management, product reviews, a wishlist system, and category-based browsing.
 
-<img width="1886" height="778" alt="image" src="https://github.com/user-attachments/assets/b62464ce-a3eb-46e0-901f-530f9a76b349" />
+<img width="1920" height="877" alt="image" src="https://github.com/user-attachments/assets/fa8beeb3-f0e7-43e2-bb17-ca5a92b3757a" />
+<img width="1920" height="868" alt="image" src="https://github.com/user-attachments/assets/00efb5a8-5196-4898-b39d-f1edbc7223a1" />
 
-Live Site: https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/
+[Live Site](https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/)
 
 ## Table of Contents
 - [User Stories](#user-stories)
@@ -172,14 +173,28 @@ Testing was conducted using Chrome DevTools across multiple viewport sizes to en
 <img width="544" height="511" alt="image" src="https://github.com/user-attachments/assets/a8d8086d-7910-45eb-bc75-9830094b861d" />
 <img width="1892" height="379" alt="image" src="https://github.com/user-attachments/assets/7eb040b3-8417-49da-abbc-d7d2e0426021" />
 
-#### **Product Catalog**
+#### **Product Catalogue**
 - Browse all available PNG cards and art prints.
 - Product details pages with images, descriptions, and pricing.
-- Products organized and easily searchable.
+- Filter products by category using the Collections dropdown or category filter on the products page.
+- Search by product name, description or category.
+- Sort by price, rating or name.
+- Products display live average rating calculated from customer reviews.
 
-<img width="1881" height="793" alt="image" src="https://github.com/user-attachments/assets/14ae8505-7490-43cb-936d-866eccd6aebe" />
-<img width="1670" height="825" alt="image" src="https://github.com/user-attachments/assets/b8c8101f-c0d6-4c2d-9983-c71e5c9c729c" />
-<img width="1810" height="734" alt="image" src="https://github.com/user-attachments/assets/73e6d1eb-4c3c-4f08-80e7-ef531f881eac" />
+<img width="1920" height="874" alt="image" src="https://github.com/user-attachments/assets/2fef0cf4-3624-4c14-bd61-69e3f821347e" />
+<img width="1920" height="857" alt="image" src="https://github.com/user-attachments/assets/04075112-30f0-447a-8d39-a9e548cd9e15" />
+<img width="1920" height="870" alt="image" src="https://github.com/user-attachments/assets/b83abdea-1c81-4be1-ab5e-743df88c64dd" />
+<img width="1920" height="870" alt="image" src="https://github.com/user-attachments/assets/01d1fd01-ec17-43cc-82b8-c0aa6ad4b685" />
+
+#### **Product Reviews**
+- Authenticated users can post a review with a star rating (1-5) and written comment.
+- Reviews display on the product detail page with username, star rating and date.
+- Users can edit or delete only their own reviews.
+- Defensive design prevents users from editing other users' reviews via URL manipulation.
+- Products display a live calculated average rating based on submitted reviews.
+- Users who have not yet reviewed a product see the review form; existing reviewers see their review with edit/delete options.
+
+<img width="1920" height="855" alt="image" src="https://github.com/user-attachments/assets/3afd0963-5158-4b58-bace-575b8ef4dace" />
 
 
 #### **Shopping Bag**
