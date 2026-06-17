@@ -181,10 +181,10 @@ Testing was conducted using Chrome DevTools across multiple viewport sizes to en
 - Sort by price, rating or name.
 - Products display live average rating calculated from customer reviews.
 
-<img width="1920" height="874" alt="image" src="https://github.com/user-attachments/assets/2fef0cf4-3624-4c14-bd61-69e3f821347e" />
-<img width="1920" height="857" alt="image" src="https://github.com/user-attachments/assets/04075112-30f0-447a-8d39-a9e548cd9e15" />
-<img width="1920" height="870" alt="image" src="https://github.com/user-attachments/assets/b83abdea-1c81-4be1-ab5e-743df88c64dd" />
-<img width="1920" height="870" alt="image" src="https://github.com/user-attachments/assets/01d1fd01-ec17-43cc-82b8-c0aa6ad4b685" />
+<img width="1920" height="877" alt="image" src="https://github.com/user-attachments/assets/b6388476-af2c-407c-aafb-c3eedcc64b1b" />
+<img width="1920" height="874" alt="image" src="https://github.com/user-attachments/assets/fa1369e0-98fd-4480-ae75-7f7e18931151" />
+<img width="1920" height="871" alt="image" src="https://github.com/user-attachments/assets/acb0e8b3-cd27-475e-80a1-70a3795e9af9" />
+<img width="1920" height="877" alt="image" src="https://github.com/user-attachments/assets/db60e302-20ae-42c4-ad09-45e5c7f2044f" />
 
 #### **Product Reviews**
 - Authenticated users can post a review with a star rating (1-5) and written comment.
