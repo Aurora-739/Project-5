@@ -261,8 +261,17 @@ h2 {
   color: #E1CC96;
 }
 
-placeholder {
+.col-12.col-lg-5 .nav-link {
+  color: #BA9F38;
+}
+
+.col-12.col-lg-5 .nav-link:hover {
   color: #874C62;
+}
+
+.search::placeholder {
+  color: #E1CC96;
+  opacity: 1;
 }
 
 .category-badge:hover {
