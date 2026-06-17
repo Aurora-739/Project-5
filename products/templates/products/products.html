@@ -139,7 +139,7 @@
 
             //Back to top button - scroll to top on click
             $('#back-to-top').on('click', function () {
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
     });
