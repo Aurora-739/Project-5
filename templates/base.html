@@ -51,36 +51,37 @@
   {% endblock %}
   <header class="container-fluid fixed-top">
     <div id="topnav" class="row pt-lg-2 d-none d-lg-flex justify-content-between align-items-center">
-    
-    <!-- LEFT: Category navigation -->
-    <div class="col-12 col-lg-8 my-auto py-1 py-lg-0">
-      <ul class="list-inline list-unstyled text-left my-0 ml-3">
-          <li class="list-inline-item">
-              <a class="nav-link" href="{% url 'products:all_products' %}">All</a>
-          </li>
-          <li class="list-inline-item">
-              <a class="nav-link" href="{% url 'products:all_products' %}?categories=cards">Cards</a>
-          </li>
-          <li class="list-inline-item">
-              <a class="nav-link" href="{% url 'products:all_products' %}?categories=christmas_cards">Christmas</a>
-          </li>
-          <li class="list-inline-item">
-              <a class="nav-link" href="{% url 'products:all_products' %}?categories=Floral">Floral</a>
-          </li>
-          <li class="list-inline-item">
-              <a class="nav-link" href="{% url 'products:all_products' %}?categories=blue">Blue</a>
-          </li>
-          <li class="list-inline-item">
-              <a class="nav-link" href="{% url 'products:all_products' %}?categories=pink">Pink</a>
-          </li>
-          <li class="list-inline-item">
-              <a class="nav-link" href="{% url 'products:all_products' %}?categories=gold">Gold</a>
-          </li>
-      </ul>
-  </div>
 
-  <!-- RIGHT: Account and bag -->
-  <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+      <!-- LEFT: Collections dropdown -->
+      <div class="col-12 col-lg-8 my-auto py-1 py-lg-0">
+        <ul class="list-inline list-unstyled text-left my-0 ml-3">
+          <li class="list-inline-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="collections-dropdown" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Collections
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="collections-dropdown">
+              <a class="dropdown-item" href="{% url 'products:all_products' %}">All Products</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'products:all_products' %}?categories=cards">Cards</a>
+              <a class="dropdown-item" href="{% url 'products:all_products' %}?categories=christmas_cards">Christmas
+                Cards</a>
+              <a class="dropdown-item" href="{% url 'products:all_products' %}?categories=Floral">Floral</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'products:all_products' %}?categories=blue">Blue</a>
+              <a class="dropdown-item" href="{% url 'products:all_products' %}?categories=pink">Pink</a>
+              <a class="dropdown-item" href="{% url 'products:all_products' %}?categories=gold">Gold</a>
+              <a class="dropdown-item" href="{% url 'products:all_products' %}?categories=red">Red</a>
+              <a class="dropdown-item" href="{% url 'products:all_products' %}?categories=purple">Purple</a>
+              <a class="dropdown-item" href="{% url 'products:all_products' %}?categories=green">Green</a>
+              <a class="dropdown-item" href="{% url 'products:all_products' %}?categories=yellow">Yellow</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- RIGHT: Account and bag -->
+      <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
         <ul class="list-inline list-unstyled text-center text-lg-right my-0">
           <li class="list-inline-item dropdown">
             <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
