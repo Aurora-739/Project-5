@@ -1,9 +1,10 @@
 # Michelle's Craft Room
-Michelle's Craft Room is a full-stack e-commerce website built with Django that sells digital PNG cards and art prints. The site provides a complete online shopping experience with user authentication, shopping cart functionality, secure payment processing via Stripe, and order management.
+Michelle's Craft Room is a full-stack e-commerce website built with Django that sells digital PNG cards and art prints. The site provides a complete online shopping experience with user authentication, shopping cart functionality, secure payment processing via Stripe, order management, product reviews, a wishlist system, and category-based browsing.
 
-<img width="1886" height="778" alt="image" src="https://github.com/user-attachments/assets/b62464ce-a3eb-46e0-901f-530f9a76b349" />
+<img width="1920" height="877" alt="image" src="https://github.com/user-attachments/assets/fa8beeb3-f0e7-43e2-bb17-ca5a92b3757a" />
+<img width="1920" height="868" alt="image" src="https://github.com/user-attachments/assets/00efb5a8-5196-4898-b39d-f1edbc7223a1" />
 
-Live Site: https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/
+[Live Site](https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/)
 
 ## Table of Contents
 - [User Stories](#user-stories)
