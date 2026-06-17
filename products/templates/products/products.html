@@ -50,7 +50,7 @@
 
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-text">${{ product.price }}</p>
+                        <p class="card-text">£{{ product.price }}</p>
 
                         {% if product.average_rating %}
                         <p class="text-warning"><i class="fas fa-star mr-1"></i>{{ product.average_rating }} / 5 ({{ product.reviews.count }})</p>
@@ -135,12 +135,12 @@
                     btnVisible = false;
                 }
             }
-
-            //Back to top button - scroll to top on click
-            $('#back-to-top').on('click', function () {
+            
+        });
+        //Back to top button - scroll to top on click
+        $('#back-to-top').on('click', function () {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
-        });
     });
 </script>
 {% endblock %}
