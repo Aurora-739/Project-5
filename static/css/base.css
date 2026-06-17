@@ -63,7 +63,7 @@ h2 {
   /* adjust height */
   object-fit: cover;
   /* prevents distortion */
-  opacity: 0.7;
+  opacity: 0.45;
 }
 
 .btn {
@@ -84,7 +84,8 @@ h2 {
 }
 
 #collections-dropdown {
-  color: #1D3B28  !important;
+  color: #874C62  !important;
+  font-size: larger;
 }
 
 #topnav.scrolled #collections-dropdown {
@@ -116,19 +117,19 @@ h2 {
 }
 
 #topnav a.nav-link {
-  color: #1D3B28;
+  color: #874C62;
   text-decoration: none;
   margin-left: 15px;
   transition: color 1s;
 }
 
 #topnav i {
-  color: #1D3B28  !important;
+  color: #874C62  !important;
   transition: color 1s;
 }
 
 #topnav p {
-  color: #1D3B28;
+  color: #874C62;
   transition: color 1s;
 }
 
@@ -166,7 +167,7 @@ h2 {
   /* above images */
   font-size: 6rem;
   /* independent size */
-  color: #BA9F38;
+  color: #874C62;
   /* independent color */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
   /* for readability */
@@ -503,7 +504,7 @@ footer {
 /* Force icon color changes on scroll - MUST BE AT BOTTOM */
 #topnav .fa-user,
 #topnav .fa-shopping-bag {
-  color: #1D3B28 !important;
+  color: #874C62 !important;
   transition: color 0.3s !important;
 }
 
@@ -514,8 +515,9 @@ footer {
 }
 
 #topnav .my-0 {
-  color: #1D3B28 !important;
+  color: #874C62 !important;
   transition: color 0.3s !important;
+  font-size: larger;
 }
 
 #topnav.scrolled .my-0 {
