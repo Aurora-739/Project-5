@@ -8,7 +8,7 @@ html {
 Emerald = #1D3B28
 Mauve = #874C62
 Prussian Blue = #003152
-Chartreuse = #BA9F38
+Gold = #BA9F38
 Pale Lime = #E1CC96
 Butter Base = #FCEBD0
 */
@@ -84,7 +84,7 @@ h2 {
 }
 
 #collections-dropdown {
-  color: #BA9F38  !important;
+  color: #1D3B28  !important;
 }
 
 #topnav.scrolled #collections-dropdown {
@@ -116,19 +116,19 @@ h2 {
 }
 
 #topnav a.nav-link {
-  color: #BA9F38;
+  color: #1D3B28;
   text-decoration: none;
   margin-left: 15px;
   transition: color 1s;
 }
 
 #topnav i {
-  color: #BA9F38  !important;
+  color: #1D3B28  !important;
   transition: color 1s;
 }
 
 #topnav p {
-  color: #BA9F38;
+  color: #1D3B28;
   transition: color 1s;
 }
 
@@ -503,7 +503,7 @@ footer {
 /* Force icon color changes on scroll - MUST BE AT BOTTOM */
 #topnav .fa-user,
 #topnav .fa-shopping-bag {
-  color: #BA9F38 !important;
+  color: #1D3B28 !important;
   transition: color 0.3s !important;
 }
 
@@ -514,7 +514,7 @@ footer {
 }
 
 #topnav .my-0 {
-  color: #BA9F38 !important;
+  color: #1D3B28 !important;
   transition: color 0.3s !important;
 }
 
