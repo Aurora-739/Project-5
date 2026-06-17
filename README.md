@@ -228,7 +228,7 @@ Testing was conducted using Chrome DevTools across multiple viewport sizes to en
 
 #### **Order Management**
 - Order confirmation page with order number.
-- Email confirmations sent to terminal (development) showing order details.
+- Confirmation emails sent to the customer's email address after a successful payment, including product download links via Cloudinary URLs.
 - Order history stored in user profiles.
 - Webhook handlers ensure orders are created even if user closes browser.
 
