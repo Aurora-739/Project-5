@@ -43,13 +43,17 @@ h2 {
 }
 
 .shop-now-button {
-  padding: 10px 20px;
+  padding: 15px 40px;
   background-color: #BA9F38;
   color: #FCEBD0;
   border: none;
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-size: 1.5rem;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Playwrite NZ Guides', sans-serif;
 }
 
 .shop-now-button:hover {
@@ -84,13 +88,14 @@ h2 {
 }
 
 #collections-dropdown {
-  color: #874C62  !important;
+  color: #874C62 !important;
   font-size: larger;
 }
 
 #topnav.scrolled #collections-dropdown {
   color: #FCEBD0 !important;
 }
+
 .carousel-img {
   max-height: 400px;
   object-fit: cover;
@@ -124,7 +129,7 @@ h2 {
 }
 
 #topnav i {
-  color: #874C62  !important;
+  color: #874C62 !important;
   transition: color 1s;
 }
 

@@ -8,7 +8,8 @@
   <!-- Header on top of carousel -->
   <div class="carousel-header position-absolute w-100 text-center">
     <a href="{% url 'home' %}" class="main-logo-link">
-      <h1 id="hero-title"><em>Michelle's_Craft_Room</em></h1>
+      <h1 id="hero-title"><em>    <a href="{% url 'products:all_products' %}" class="shop-now-button" style="font-size: 1.5rem; padding: 15px 40px;">Shop Now</a>
+        Craft_Room</em></h1>
     </a>
   </div>
 
@@ -51,8 +52,8 @@
       <h1 class="sub-header">
         The new collection is in!
       </h1>
-      <div class="my-3">
-          <a href="{% url 'products:all_products' %}" class="shop-now-button">Shop Now</a>
+      <div class="my-3 text-center text-md-left">
+          <a href="{% url 'products:all_products' %}" class="shop-now-button" style="font-size: 1.5rem; padding: 15px 40px;">Shop Now</a>
       </div>
     </div>
 
