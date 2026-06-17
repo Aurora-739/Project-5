@@ -428,6 +428,16 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 | Subscribe to newsletter | 1. Navigate to profile 2. Enter name and email 3. Click Subscribe | Success message displayed, email saved to database | Works as expected | ✅ Pass |
 | Duplicate email blocked | 1. Subscribe with an email 2. Try to subscribe again with the same email | Error message displayed, duplicate not created | Works as expected | ✅ Pass |
 
+**Product Reviews**
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
+|------|-------|-----------------|----------------|-----------|
+| Post a review | 1. Log in 2. Navigate to a product 3. Fill in rating and comment 4. Click Post Review | Review appears on product page with username, stars and date | Works as expected | ✅ Pass |
+| Edit own review | 1. Log in 2. Navigate to a product with your review 3. Update the form 4. Click Update Review | Review updated with new content | Works as expected | ✅ Pass |
+| Delete own review | 1. Log in 2. Navigate to a product with your review 3. Click Delete Review 4. Confirm deletion | Review removed from product page | Works as expected | ✅ Pass |
+| Cannot edit another user's review | 1. Log in as a different user 2. Manually type the edit URL for another user's review | Redirected or 404 error, review not editable | Works as expected | ✅ Pass |
+| Average rating updates after review | 1. Post a review with a rating 2. Return to products page | Product card shows updated average rating | Works as expected | ✅ Pass |
+| Duplicate review blocked | 1. Post a review 2. Try to post another review on the same product | Error message shown, duplicate not created | Works as expected | ✅ Pass |
+
 **Admin**
 | Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
 |------|-------|-----------------|----------------|-----------|
