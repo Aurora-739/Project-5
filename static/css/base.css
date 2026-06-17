@@ -84,7 +84,7 @@ h2 {
 }
 
 #collections-dropdown {
-  color: #FCEBD0  !important;
+  color: #BA9F38  !important;
 }
 
 #topnav.scrolled #collections-dropdown {
@@ -116,19 +116,19 @@ h2 {
 }
 
 #topnav a.nav-link {
-  color: #FCEBD0;
+  color: #BA9F38;
   text-decoration: none;
   margin-left: 15px;
   transition: color 1s;
 }
 
 #topnav i {
-  color: #FCEBD0 !important;
+  color: #BA9F38  !important;
   transition: color 1s;
 }
 
 #topnav p {
-  color: #FCEBD0;
+  color: #BA9F38;
   transition: color 1s;
 }
 
@@ -503,7 +503,7 @@ footer {
 /* Force icon color changes on scroll - MUST BE AT BOTTOM */
 #topnav .fa-user,
 #topnav .fa-shopping-bag {
-  color: #FCEBD0  !important;
+  color: #BA9F38 !important;
   transition: color 0.3s !important;
 }
 
@@ -514,7 +514,7 @@ footer {
 }
 
 #topnav .my-0 {
-  color: #874C62 !important;
+  color: #BA9F38 !important;
   transition: color 0.3s !important;
 }
 
