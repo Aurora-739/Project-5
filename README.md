@@ -394,8 +394,11 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 | Add product to bag | 1. Click on a product 2. Click Add to Bag | Product added to bag, success toast appears, bag total updates | Works as expected | ✅ Pass |
 | Update quantity in bag | 1. Navigate to bag 2. Change quantity 3. Click Update | Bag total recalculates correctly | Works as expected | ✅ Pass |
 | Remove item from bag | 1. Navigate to bag 2. Click Remove on an item | Item removed, bag total updates | Works as expected | ✅ Pass |
-<img width="1829" height="825" alt="image" src="https://github.com/user-attachments/assets/dbf56d6b-4941-445f-b3f8-527e70bcd270" />
-<img width="1736" height="527" alt="image" src="https://github.com/user-attachments/assets/7849a352-101c-45dd-b49c-1710b4a2d6d2" />
+| Filter by category via nav | 1. Click Collections in nav 2. Select a category | Only products in that category displayed | Works as expected | ✅ Pass |
+| Search by category name | 1. Type a category name e.g. "floral" in the search bar 2. Click search | Products in that category displayed in results | Works as expected | ✅ Pass |
+| Category filter dropdown | 1. Navigate to /products/ 2. Select a category from the All Categories dropdown | Products filtered to selected category | Works as expected | ✅ Pass |
+<img width="1920" height="806" alt="image" src="https://github.com/user-attachments/assets/a9731ae9-7289-440f-8b79-10b4ac42bb24" />
+<img width="1920" height="873" alt="image" src="https://github.com/user-attachments/assets/d7020cc5-9330-474f-bb0a-5e4a8474dfbc" />
 
 **Checkout Process**
 
