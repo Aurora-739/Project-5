@@ -176,12 +176,15 @@ Testing was conducted using Chrome DevTools across multiple viewport sizes to en
 #### **Product Catalog**
 - Browse all available PNG cards and art prints.
 - Product details pages with images, descriptions, and pricing.
-- Products organized and easily searchable.
+- Filter products by category using the Collections dropdown or category filter on the products page.
+- Search by product name, description or category.
+- Sort by price, rating or name.
+- Products display live average rating calculated from customer reviews.
 
-<img width="1881" height="793" alt="image" src="https://github.com/user-attachments/assets/14ae8505-7490-43cb-936d-866eccd6aebe" />
-<img width="1670" height="825" alt="image" src="https://github.com/user-attachments/assets/b8c8101f-c0d6-4c2d-9983-c71e5c9c729c" />
-<img width="1810" height="734" alt="image" src="https://github.com/user-attachments/assets/73e6d1eb-4c3c-4f08-80e7-ef531f881eac" />
-
+<img width="1920" height="874" alt="image" src="https://github.com/user-attachments/assets/2fef0cf4-3624-4c14-bd61-69e3f821347e" />
+<img width="1920" height="857" alt="image" src="https://github.com/user-attachments/assets/04075112-30f0-447a-8d39-a9e548cd9e15" />
+<img width="1920" height="870" alt="image" src="https://github.com/user-attachments/assets/b83abdea-1c81-4be1-ab5e-743df88c64dd" />
+<img width="1920" height="870" alt="image" src="https://github.com/user-attachments/assets/01d1fd01-ec17-43cc-82b8-c0aa6ad4b685" />
 
 #### **Shopping Bag**
 - Add products to shopping bag
