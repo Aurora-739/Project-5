@@ -83,6 +83,13 @@ h2 {
   color: #E1CC96;
 }
 
+#collections-dropdown {
+  color: #FCEBD0  !important;
+}
+
+#topnav.scrolled #collections-dropdown {
+  color: #FCEBD0 !important;
+}
 .carousel-img {
   max-height: 400px;
   object-fit: cover;
@@ -109,16 +116,19 @@ h2 {
 }
 
 #topnav a.nav-link {
-  color: #874C62;
-  /* initial link color */
+  color: #FCEBD0;
   text-decoration: none;
   margin-left: 15px;
   transition: color 1s;
 }
 
 #topnav i {
-  color: #874C62;
-  /* initial icon color */
+  color: #FCEBD0 !important;
+  transition: color 1s;
+}
+
+#topnav p {
+  color: #FCEBD0;
   transition: color 1s;
 }
 
@@ -493,7 +503,7 @@ footer {
 /* Force icon color changes on scroll - MUST BE AT BOTTOM */
 #topnav .fa-user,
 #topnav .fa-shopping-bag {
-  color: #874C62 !important;
+  color: #FCEBD0  !important;
   transition: color 0.3s !important;
 }
 
