@@ -173,7 +173,7 @@ Testing was conducted using Chrome DevTools across multiple viewport sizes to en
 <img width="544" height="511" alt="image" src="https://github.com/user-attachments/assets/a8d8086d-7910-45eb-bc75-9830094b861d" />
 <img width="1892" height="379" alt="image" src="https://github.com/user-attachments/assets/7eb040b3-8417-49da-abbc-d7d2e0426021" />
 
-#### **Product Catalog**
+#### **Product Catalogue**
 - Browse all available PNG cards and art prints.
 - Product details pages with images, descriptions, and pricing.
 - Filter products by category using the Collections dropdown or category filter on the products page.
@@ -185,6 +185,17 @@ Testing was conducted using Chrome DevTools across multiple viewport sizes to en
 <img width="1920" height="857" alt="image" src="https://github.com/user-attachments/assets/04075112-30f0-447a-8d39-a9e548cd9e15" />
 <img width="1920" height="870" alt="image" src="https://github.com/user-attachments/assets/b83abdea-1c81-4be1-ab5e-743df88c64dd" />
 <img width="1920" height="870" alt="image" src="https://github.com/user-attachments/assets/01d1fd01-ec17-43cc-82b8-c0aa6ad4b685" />
+
+#### **Product Reviews**
+- Authenticated users can post a review with a star rating (1-5) and written comment.
+- Reviews display on the product detail page with username, star rating and date.
+- Users can edit or delete only their own reviews.
+- Defensive design prevents users from editing other users' reviews via URL manipulation.
+- Products display a live calculated average rating based on submitted reviews.
+- Users who have not yet reviewed a product see the review form; existing reviewers see their review with edit/delete options.
+
+<img width="1920" height="855" alt="image" src="https://github.com/user-attachments/assets/3afd0963-5158-4b58-bace-575b8ef4dace" />
+
 
 #### **Shopping Bag**
 - Add products to shopping bag
