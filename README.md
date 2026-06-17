@@ -196,6 +196,16 @@ Testing was conducted using Chrome DevTools across multiple viewport sizes to en
 
 <img width="1920" height="855" alt="image" src="https://github.com/user-attachments/assets/3afd0963-5158-4b58-bace-575b8ef4dace" />
 
+#### **Wishlist**
+- Authenticated users can add products to a personal wishlist from the product detail page.
+- The wishlist is accessible via My Account → My Wishlist in the navigation.
+- Users can remove products from their wishlist.
+- Duplicate detection prevents the same product being added twice, with an informative message displayed instead.
+- Unauthenticated users are redirected to the login page if they attempt to access wishlist functionality.
+
+<img width="1905" height="241" alt="image" src="https://github.com/user-attachments/assets/632793e4-2531-417a-b249-68331a87e474" />
+<img width="1920" height="860" alt="image" src="https://github.com/user-attachments/assets/a727ee50-c8d2-4b9a-8e86-aab9327460b0" />
+<img width="1920" height="870" alt="image" src="https://github.com/user-attachments/assets/3a07b080-ddd9-40da-ba3f-8a0aa51aae61" />
 
 #### **Shopping Bag**
 - Add products to shopping bag
