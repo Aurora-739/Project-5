@@ -131,10 +131,11 @@ home page: ![IMG_0308](https://github.com/user-attachments/assets/94939dd7-4112-
 ### User Experience Considerations
 
 **Navigation:**
-- Simple, intuitive menu structure.
-- Search functionality for quick product finding.
+- Collections dropdown in the top navigation for quick category browsing.
+- Search functionality supporting product name, description and category name.
 - Sorting options (price, rating, name) for product browsing.
 - Shopping bag always visible with running total.
+- My Account dropdown with links to profile, wishlist and logout.
 
 **Accessibility:**
 - Semantic HTML structure.
