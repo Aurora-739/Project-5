@@ -515,6 +515,14 @@ footer {
   }
 }
 
+.error-page {
+  min-height: calc(100vh - 300px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Force icon color changes on scroll - MUST BE AT BOTTOM */
 #topnav .fa-user,
 #topnav .fa-shopping-bag {
