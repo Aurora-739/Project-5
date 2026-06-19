@@ -1,7 +1,9 @@
+# bag/views.py
 from django.shortcuts import render, redirect, get_object_or_404
 from products.models import Product
 from django.contrib import messages
 from django.http import JsonResponse
+
 
 def bag_contents(request):
     """Return bag items and totals"""
@@ -93,7 +95,7 @@ def update_bag(request, sku):
 
         request.session['bag'] = bag
         return redirect('view_bag')
-    
+
 
 def view_bag(request):
     return render(request, 'bag/bag.html')

@@ -1,3 +1,4 @@
+# bag/contexts.py
 from django.conf import settings
 from decimal import Decimal
 from products.models import Product
@@ -25,4 +26,3 @@ def bag_contents(request):
         'bag_items': bag_items,
         'grand_total': grand_total
     }
-    

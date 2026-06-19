@@ -1,4 +1,4 @@
-# products/urls.py
+# bag/urls.py
 from django.urls import path
 from . import views
 
