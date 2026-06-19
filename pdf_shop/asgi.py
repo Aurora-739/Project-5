@@ -1,3 +1,4 @@
+# pdf_shop/asgi.py
 """
 ASGI config for pdf_shop project.
 
