@@ -1,3 +1,4 @@
+# products/views.py
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -5,6 +6,7 @@ from django.db.models import Q, Avg
 from django.db.models.functions import Lower, Coalesce
 from .models import Product, Category, Review, Wishlist
 from .forms import ReviewForm
+
 
 def all_products(request):
     """Show all products with sorting and searching"""
@@ -56,7 +58,6 @@ def all_products(request):
         'current_sorting': current_sorting,
         'all_categories': Category.objects.all(),
     }
-    
 
     return render(request, 'products/products.html', context)
 
@@ -130,6 +131,7 @@ def delete_review(request, sku, review_id):
     review.delete()
     messages.success(request, 'Your review has been deleted!')
     return redirect(reverse('products:product_detail', args=[sku]))
+
 
 @login_required
 def wishlist(request):
