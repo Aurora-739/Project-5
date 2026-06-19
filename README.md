@@ -214,8 +214,8 @@ Testing was conducted using Chrome DevTools across multiple viewport sizes to en
 - Update-able total calculation
 - Bag contents persist across sessions
 
-<img width="1885" height="863" alt="image" src="https://github.com/user-attachments/assets/b79a8e33-ff51-4eb5-9b92-f0cdd07c0712" />
-<img width="1846" height="844" alt="image" src="https://github.com/user-attachments/assets/6e5a9890-8f4e-4553-a53c-544b413ef567" />
+<img width="1898" height="884" alt="image" src="https://github.com/user-attachments/assets/c908de6a-39a6-4dc7-9941-6db125630bca" />
+<img width="1893" height="681" alt="image" src="https://github.com/user-attachments/assets/dbd9e15e-8c32-400d-bc84-9e1bfa24a68d" />
 
 
 #### **Secure Checkout**
