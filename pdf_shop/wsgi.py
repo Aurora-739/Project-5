@@ -1,3 +1,4 @@
+# pdf_shop/wsgi.py
 """
 WSGI config for pdf_shop project.
 

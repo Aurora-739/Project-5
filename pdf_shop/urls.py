@@ -1,3 +1,4 @@
+# pdf_shop/urls.py
 """pdf_shop URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -24,14 +25,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_views.index, name='home'),  # home page
     path('accounts/', include('allauth.urls')),  # allauth
-    path('products/', include('products.urls', namespace='products')), # products
-    path('profiles/', include('profiles.urls', namespace='profiles')), # profiles
-    path('bag/', include('bag.urls', namespace='bag')), #bag
-    path('checkout/', include('checkout.urls', namespace='checkout')), #checkout
+    path('products/', include('products.urls', namespace='products')),  # products
+    path('profiles/', include('profiles.urls', namespace='profiles')),  # profiles
+    path('bag/', include('bag.urls', namespace='bag')),  # bag
+    path('checkout/', include('checkout.urls', namespace='checkout')),  # checkout
     path('accounts/', include('django.contrib.auth.urls')),  # default auth
     path('mypage/', views.mypage, name='mypage'),  # mypage
     path('signup2/', views.signup2, name='signup2'),  # signup2
-    path('login2/', views.login2, name='login2'),  #login2
+    path('login2/', views.login2, name='login2'),  # login2
     path('logout2/', views.logout2, name='logout2'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

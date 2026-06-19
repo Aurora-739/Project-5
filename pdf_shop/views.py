@@ -1,12 +1,16 @@
+# pdf_shop/views.py
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 
+
 def custom_404(request, exception):
     return render(request, '404.html', status=404)
 
+
 def mypage(request):
     return render(request, 'mypage.html')
+
 
 def signup2(request):
     if request.method == 'POST':
@@ -18,6 +22,7 @@ def signup2(request):
     else:
         form = UserCreationForm()
     return render(request, 'signup2.html', {'form': form})
+
 
 def login2(request):
     if request.method == 'POST':

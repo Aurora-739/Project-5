@@ -1,3 +1,4 @@
+# pdf_shop/settings.py
 import os
 from pathlib import Path
 from dotenv import load_dotenv
@@ -25,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret-key')
 # Optional: check immediately
 print("DEBUG =", DEBUG)
 print("ENVIRONMENT =", ENVIRONMENT)
-#print("SECRET_KEY =", SECRET_KEY)
+# print("SECRET_KEY =", SECRET_KEY)
 
 # ----------------------
 # Allowed Hosts
@@ -60,7 +61,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'django_countries',
     'mathfilters',
-    
+
     # Internal apps
     'store',
     'home',
