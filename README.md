@@ -501,7 +501,9 @@ Tested on multiple screen sizes using Chrome DevTools. Mobile-first design ensur
   
 **Python**
 - All Python code follows PEP8 standards
+
 Bag:
+
 admin.py (no errors found):
 <img width="1535" height="656" alt="image" src="https://github.com/user-attachments/assets/d29a876b-bb58-4910-b960-8eef60f59d03" />
 apps.py (no errors found);
@@ -518,6 +520,7 @@ views.py (1 issue found: E501 line too long (109 > 79 characters) on line 63. Th
 <img width="1432" height="680" alt="image" src="https://github.com/user-attachments/assets/1bdb0ecd-f06d-4e7d-b41b-cb60eb618934" />
 
 Checkout:
+
 views.py (no errors found):
 <img width="1772" height="831" alt="image" src="https://github.com/user-attachments/assets/8370d730-f6b0-4cc1-9f42-7e8e53a2be36" />
 apps.py (no errors found):
@@ -537,13 +540,17 @@ views.py ( 8 issues found, all E501 line too long errors on lines 2, 7, 83, 110,
 
 
 Home:
-admin.py (no errors present):
-<img width="1386" height="666" alt="image" src="https://github.com/user-attachments/assets/f949d5fe-e61a-4b4b-8819-62c2c06396d3" />
 
-views.py:
-<img width="1682" height="826" alt="image" src="https://github.com/user-attachments/assets/bd46b798-efef-4a48-8e05-c2fe168093fb" />
-models.py:
-<img width="1706" height="847" alt="image" src="https://github.com/user-attachments/assets/9253c046-5d23-4aff-b1dd-25cbd5c50858" />
+admin.py (no errors found):
+<img width="1368" height="651" alt="image" src="https://github.com/user-attachments/assets/18a06b82-3e9e-4e3a-bcb7-8a4c578a334b" />
+apps.py (no errors found):
+<img width="1404" height="663" alt="image" src="https://github.com/user-attachments/assets/8098066e-3964-42a7-9c5b-4f846f604e91" />
+models.py (no errors found):
+<img width="1417" height="652" alt="image" src="https://github.com/user-attachments/assets/9e347492-0226-431c-abe6-146fa23ed5f5" />
+tests.py (no errors found):
+<img width="1420" height="659" alt="image" src="https://github.com/user-attachments/assets/32796a9a-705d-4536-809c-a0ae64491865" />
+views.py (no errors found):
+<img width="1430" height="643" alt="image" src="https://github.com/user-attachments/assets/4f773cdd-eec0-4a57-b359-ae9f78352023" />
 
 Store:
 views.py:
