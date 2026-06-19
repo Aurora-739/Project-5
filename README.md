@@ -584,13 +584,17 @@ views.py (4 issues found, all E501 line too long errors on lines 13, 22, 30 and 
 
 
 Store:
-views.py:
-<img width="1742" height="817" alt="image" src="https://github.com/user-attachments/assets/69fb1467-9e5d-4142-91f3-8c798d53daa2" />
-models.py:
-<img width="1677" height="820" alt="image" src="https://github.com/user-attachments/assets/81c6a404-93a8-4a9e-9b89-0f8212690fb2" />
 
-
-
+admin.py (no errors found):
+<img width="1336" height="649" alt="image" src="https://github.com/user-attachments/assets/d6f1da4a-1a42-4a69-ab89-c4691a0b3379" />
+apps.py (no errors found):
+<img width="1374" height="630" alt="image" src="https://github.com/user-attachments/assets/6ca7520e-6d25-4842-b3c1-416d8bdd8483" />
+models.py (no errors found):
+<img width="1359" height="625" alt="image" src="https://github.com/user-attachments/assets/68b9fd5b-6685-4244-a916-a961a8f51d67" />
+tests.py (no errors found):
+<img width="1327" height="637" alt="image" src="https://github.com/user-attachments/assets/52332797-29d5-47be-9bba-260547aa6889" />
+views.py (no errors found):
+<img width="1313" height="622" alt="image" src="https://github.com/user-attachments/assets/556190fc-b3ec-4155-af42-19642b2cca36" />
 
 Profiles:
 views.py:
