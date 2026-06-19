@@ -2,6 +2,7 @@
 from django import forms
 from .models import Order
 
+
 class OrderForm(forms.ModelForm):
     save_info = forms.BooleanField(required=False, label='Save this information to my profile')
 

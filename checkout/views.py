@@ -1,9 +1,10 @@
+# checkout/views.py
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-from django.core.mail import send_mail #for sending confirmation emails
-from django.template.loader import render_to_string #for sending confirmation emails
+from django.core.mail import send_mail  # for sending confirmation emails
+from django.template.loader import render_to_string  # for sending confirmation emails
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
@@ -14,6 +15,7 @@ import stripe
 import json
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -30,6 +32,7 @@ def cache_checkout_data(request):
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
+
 
 def send_confirmation_email(order):
     """Send the user a confirmation email after successful checkout"""
@@ -52,6 +55,7 @@ def send_confirmation_email(order):
     except Exception as e:
         print(f"Email sending failed: {e}")
 
+
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -68,27 +72,27 @@ def checkout(request):
             'city': request.POST['city'],
             'country': request.POST['country'],
         }
-        
+
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
-            
+
             # Check for client_secret
             client_secret = request.POST.get('client_secret')
             if not client_secret:
                 messages.error(request, 'Payment verification failed. Please try again.')
                 return redirect(reverse('checkout:checkout'))
-            
+
             pid = client_secret.split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
-            
+
             # Link order to user profile if authenticated
             if request.user.is_authenticated:
                 from profiles.models import UserProfile
                 profile = UserProfile.objects.get(user=request.user)
                 order.user_profile = profile
-            
+
             order.save()
 
             for item_id, item_data in bag.items():
@@ -122,9 +126,9 @@ def checkout(request):
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
-        
+
         stripe.api_key = stripe_secret_key
-        
+
         try:
             intent = stripe.PaymentIntent.create(
                 amount=stripe_total,
@@ -150,7 +154,7 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-    
+
     template = 'checkout/checkout.html'
     context = {
         'form': order_form,
@@ -189,14 +193,14 @@ def checkout_failure(request):
     Handle failed checkouts
     """
     error_message = request.session.get('checkout_error', None)
-    
+
     # Clear the error from session after displaying it
     if 'checkout_error' in request.session:
         del request.session['checkout_error']
-    
+
     template = 'checkout/checkout_failure.html'
     context = {
         'error_message': error_message,
     }
-    
+
     return render(request, template, context)
