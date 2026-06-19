@@ -563,6 +563,12 @@ All Python files were passed through the CI Python Linter. Some E501 line too lo
 - ✅ Fixed media files not displaying on Heroku by implementing Cloudinary storage with Django 6.0's `STORAGES` configuration.
 - ✅ Fixed missing comma in `INSTALLED_APPS` causing module import errors.
 - ✅ Fixed empty profile URLs in navigation causing app crashes.
+- ✅ Fixed site-wide 500 error caused by `CompressedManifestStaticFilesStorage` missing manifest file — switched to `CompressedStaticFilesStorage`.
+- ✅ Fixed `NoReverseMatch` error in `checkout_success.html` caused by deprecated `products:products` URL name — updated to `products:all_products`.
+- ✅ Fixed profile page 500 error caused by incorrect `order.grand_total` field reference — updated to `order.order_total`.
+- ✅ Fixed newsletter redirect loop — corrected success redirect in the `newsletter_signup` view.
+- ✅ Fixed duplicate `products.html` template in the `home` app being loaded instead of the correct `products` app template.
+- ✅ Fixed wishlist add URL routing conflict with product detail URL pattern — moved `wishlist/` path above `<str:sku>/` in `products/urls.py`.
 
 **Unfixed Bugs**
 - None currently identified
