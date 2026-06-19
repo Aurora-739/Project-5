@@ -236,7 +236,7 @@ Testing was conducted using Chrome DevTools across multiple viewport sizes to en
 <img width="550" height="678" alt="image" src="https://github.com/user-attachments/assets/2078f2c9-435a-41ed-99ca-7e33129c5319" />
 
 #### **Newsletter Subscription**
-- Users can subscribe to the newsletter from their profile page.
+- Users can subscribe to the newsletter via the Newsletter Signup link in the footer or from their profile page.
 - Email addresses stored in database with name and subscription date.
 - Duplicate email protection.
 - Admin interface to manage subscribers.
