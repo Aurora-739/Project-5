@@ -36,6 +36,7 @@ def profile(request):
 
     return render(request, 'profiles/profile.html', context)
 
+
 def order_history(request, order_number):
     """ Display a past order """
     order = get_object_or_404(Order, order_number=order_number)
@@ -49,6 +50,7 @@ def order_history(request, order_number):
 
     return render(request, 'checkout/checkout_success.html', context)
 
+
 def newsletter_signup(request):
     if request.method == 'POST':
         form = NewsletterForm(request.POST)
@@ -57,7 +59,7 @@ def newsletter_signup(request):
                 form.save()
                 messages.success(request, 'Thank you for subscribing to our newsletter!')
                 return redirect('profiles:newsletter_signup')
-            except:
+            except Exception:
                 messages.error(request, 'This email is already subscribed!')
         else:
             messages.error(request, 'Please correct the errors below.')
@@ -70,8 +72,9 @@ def newsletter_signup(request):
                 'email': request.user.email,
             }
         form = NewsletterForm(initial=initial_data)
-    
+
     return render(request, 'profiles/newsletter_signup.html', {'form': form})
+
 
 def signup(request):
     if request.method == 'POST':
@@ -79,7 +82,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)  # Automatically log the user in after signup
-            return redirect('/')  
+            return redirect('/')
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})

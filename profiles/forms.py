@@ -1,4 +1,4 @@
-#profiles/forms.py
+# profiles/forms.py
 from django import forms
 from .models import UserProfile
 from .models import NewsletterSubscriber
@@ -34,6 +34,7 @@ class UserProfileForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
             self.fields[field].label = False
+
 
 class NewsletterForm(forms.ModelForm):
     class Meta:
