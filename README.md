@@ -363,7 +363,7 @@ rel="noopener noreferrer" is used on all external links, including the Facebook 
 
 **404 Page**
 A custom 404 page is in place and will appear whenever a user navigates to a URL that doesn't exist. It includes navigation links back to the homepage and products page so users aren't left stranded.
-<img width="1845" height="844" alt="image" src="https://github.com/user-attachments/assets/60eae8ca-d91c-4250-92f7-f70a74fb94a2" />
+<img width="1890" height="894" alt="image" src="https://github.com/user-attachments/assets/ecad65ae-02be-42d7-811a-8a96390d484c" />
 
 ---
 
