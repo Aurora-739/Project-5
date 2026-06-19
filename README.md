@@ -502,12 +502,20 @@ Tested on multiple screen sizes using Chrome DevTools. Mobile-first design ensur
 **Python**
 - All Python code follows PEP8 standards
 Bag:
-views.py (no significant errors found):
-<img width="1591" height="830" alt="image" src="https://github.com/user-attachments/assets/c724f8a9-3d07-4866-a075-5ac5fc8723d3" />
-models.py:
-<img width="1590" height="813" alt="image" src="https://github.com/user-attachments/assets/d2827c08-daca-4f7a-8c93-94d37cab1f28" />
-urls.py:
-<img width="1616" height="814" alt="image" src="https://github.com/user-attachments/assets/b157d5fa-ca70-405a-925c-1320e812a10d" />
+admin.py (no errors found):
+<img width="1535" height="656" alt="image" src="https://github.com/user-attachments/assets/d29a876b-bb58-4910-b960-8eef60f59d03" />
+apps.py (no errors found);
+<img width="1464" height="690" alt="image" src="https://github.com/user-attachments/assets/4f792414-5d61-4697-9956-0bee62244b52" />
+contexts.py (no errors found):
+<img width="1498" height="670" alt="image" src="https://github.com/user-attachments/assets/7c077b16-68a2-4de1-83d3-7b8bb8c69a56" />
+models.py (no errors found):
+<img width="1514" height="697" alt="image" src="https://github.com/user-attachments/assets/46f7acb6-11c5-4e7c-82a7-ddcd7d23acd9" />
+tests.py (no errors found):
+<img width="1377" height="655" alt="image" src="https://github.com/user-attachments/assets/7b2e38c7-721a-4687-8039-ace6015f2f3c" />
+urls.py (no errors found):
+<img width="1392" height="657" alt="image" src="https://github.com/user-attachments/assets/c690d2bd-a5d0-48dd-ad32-eba221abf292" />
+views.py (1 issue found: E501 line too long (109 > 79 characters) on line 63. This is due to long string expressions, complex function calls, or Stripe API calls which have been left as single lines for readability.):
+<img width="1432" height="680" alt="image" src="https://github.com/user-attachments/assets/1bdb0ecd-f06d-4e7d-b41b-cb60eb618934" />
 
 Home:
 views.py:
