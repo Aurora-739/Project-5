@@ -552,19 +552,25 @@ tests.py (no errors found):
 views.py (no errors found):
 <img width="1430" height="643" alt="image" src="https://github.com/user-attachments/assets/4f773cdd-eec0-4a57-b359-ae9f78352023" />
 
+Pdf_shop:
+asgi.py (no errors found):
+<img width="1408" height="673" alt="image" src="https://github.com/user-attachments/assets/dcf0abcc-8178-4284-8c1e-9ae27c7b20fa" />
+settings.py (8 issues found, all E501 line too long errors on lines 37, 107, 142, 144, 145, 197, 199 and 213. These are due to long configuration strings and environment variable definitions which have been left as single lines for readability.):
+<img width="1402" height="643" alt="image" src="https://github.com/user-attachments/assets/44507094-786c-4cc1-b815-5d13726b040f" />
+urls.py (4 issues found, all E501 line too long errors on lines 28, 29, 31 and 41. These are due to long URL path definitions and inline comments which have been left as single lines for readability.):
+<img width="1374" height="652" alt="image" src="https://github.com/user-attachments/assets/bd3426f7-a60d-434e-acf7-8f65262c1e49" />
+views.py (2 issues found, both E501 line too long errors on lines 20 and 36. These are due to long authentication function calls which have been left as single lines for readability.):
+<img width="1420" height="653" alt="image" src="https://github.com/user-attachments/assets/8029a50a-0553-40a6-b4ff-e5e47fae0f45" />
+wsgi.py (no errors found):
+<img width="1357" height="639" alt="image" src="https://github.com/user-attachments/assets/b2fdd2fb-75c9-4fd6-9b14-31f6dc86b13d" />
+
 Store:
 views.py:
 <img width="1742" height="817" alt="image" src="https://github.com/user-attachments/assets/69fb1467-9e5d-4142-91f3-8c798d53daa2" />
 models.py:
 <img width="1677" height="820" alt="image" src="https://github.com/user-attachments/assets/81c6a404-93a8-4a9e-9b89-0f8212690fb2" />
 
-Pdf_shop:
-views.py:
-<img width="1701" height="808" alt="image" src="https://github.com/user-attachments/assets/7446989c-f471-471a-ab34-4e132ee5ea17" />
-urls.py:
-<img width="1665" height="810" alt="image" src="https://github.com/user-attachments/assets/5ce71208-e5a2-41c9-a1b6-6f751eddc8ab" />
-settings.py:
-<img width="1742" height="831" alt="image" src="https://github.com/user-attachments/assets/ab33af17-2fec-4f73-823f-a547b99be8b5" />
+
 
 Products:
 views.py:
