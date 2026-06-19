@@ -189,7 +189,7 @@
                                 grandTotalEl.textContent = `Bag Total: £${data.grand_total}`;
                             }
                             // Update nav bar total
-                            const navTotalEl = document.querySelector('.nav-link .my-0');
+                            const navTotalEl = document.querySelector('.fa-shopping-bag')?.closest('a')?.querySelector('.my-0');
                             if (navTotalEl) {
                                 navTotalEl.textContent = `£${data.grand_total}`;
                             }
