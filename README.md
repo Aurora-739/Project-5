@@ -410,8 +410,10 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 | Order confirmation displayed | 1. Complete a successful payment | Order confirmation page shows correct order number, items and delivery details | Works as expected | ✅ Pass |
 | Webhook creates order | 1. Complete payment 2. Check Stripe dashboard webhook logs | Order created in database via webhook | Works as expected | ✅ Pass |
 | Save delivery info to profile | 1. Check Save delivery info box at checkout 2. Complete order 3. Navigate to profile | Delivery information pre-filled in profile | Works as expected | ✅ Pass |
-<img width="1819" height="809" alt="image" src="https://github.com/user-attachments/assets/078df0b5-442f-450c-ad52-11c2df3dee97" />
-<img width="1682" height="765" alt="image" src="https://github.com/user-attachments/assets/9d6de5a5-388b-44fa-b217-72ec007976d8" />
+| Confirmation email sent | 1. Complete a successful payment 2. Check email inbox | Email received containing order details and product download links | Works as expected | ✅ Pass |
+<img width="1905" height="641" alt="image" src="https://github.com/user-attachments/assets/5b598d85-d987-481c-899a-3aa381976ffe" />
+<img width="1894" height="710" alt="image" src="https://github.com/user-attachments/assets/ba988b76-01f7-4ef1-b7bb-be9c9bad1ead" />
+
 
 **User Profiles**
 | Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
@@ -437,6 +439,20 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 | Cannot edit another user's review | 1. Log in as a different user 2. Manually type the edit URL for another user's review | Redirected or 404 error, review not editable | Works as expected | ✅ Pass |
 | Average rating updates after review | 1. Post a review with a rating 2. Return to products page | Product card shows updated average rating | Works as expected | ✅ Pass |
 | Duplicate review blocked | 1. Post a review 2. Try to post another review on the same product | Error message shown, duplicate not created | Works as expected | ✅ Pass |
+
+<img width="1325" height="380" alt="image" src="https://github.com/user-attachments/assets/8aa7aaf0-9e96-4f34-9974-d4a50e53322a" />
+
+
+**Wishlist**
+| Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
+|------|-------|-----------------|----------------|-----------|
+| Add to wishlist | 1. Log in 2. Navigate to a product 3. Click Add to Wishlist | Product added to wishlist, success message shown | Works as expected | ✅ Pass |
+| View wishlist | 1. Log in 2. Click My Account → My Wishlist | Wishlist page displays all saved products | Works as expected | ✅ Pass |
+| Remove from wishlist | 1. Navigate to wishlist 2. Click Remove on a product | Product removed, wishlist updates | Works as expected | ✅ Pass |
+| Duplicate detection | 1. Add a product to wishlist 2. Try to add the same product again | "Already in your wishlist" message shown, no duplicate added | Works as expected | ✅ Pass |
+| Wishlist requires login | 1. Log out 2. Try to access /products/wishlist/ | Redirected to login page | Works as expected | ✅ Pass |
+
+<img width="1925" height="911" alt="image" src="https://github.com/user-attachments/assets/e36e718a-af48-4aed-95af-3a570b83eaae" />
 
 **Admin**
 | Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
