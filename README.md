@@ -171,8 +171,8 @@ Testing was conducted using Chrome DevTools across multiple viewport sizes to en
 - Email verification for new accounts.
 - User profiles to store delivery information and view order history.
 
-<img width="544" height="511" alt="image" src="https://github.com/user-attachments/assets/a8d8086d-7910-45eb-bc75-9830094b861d" />
-<img width="1892" height="379" alt="image" src="https://github.com/user-attachments/assets/7eb040b3-8417-49da-abbc-d7d2e0426021" />
+<img width="1875" height="861" alt="image" src="https://github.com/user-attachments/assets/f703d2ed-3e92-487c-b9ec-2d4790abd649" />
+<img width="1883" height="216" alt="image" src="https://github.com/user-attachments/assets/ac748a95-b591-4afd-bf14-ca847802d756" />
 
 #### **Product Catalogue**
 - Browse all available PNG cards and art prints.
