@@ -553,6 +553,7 @@ views.py (no errors found):
 <img width="1430" height="643" alt="image" src="https://github.com/user-attachments/assets/4f773cdd-eec0-4a57-b359-ae9f78352023" />
 
 Pdf_shop:
+
 asgi.py (no errors found):
 <img width="1408" height="673" alt="image" src="https://github.com/user-attachments/assets/dcf0abcc-8178-4284-8c1e-9ae27c7b20fa" />
 settings.py (8 issues found, all E501 line too long errors on lines 37, 107, 142, 144, 145, 197, 199 and 213. These are due to long configuration strings and environment variable definitions which have been left as single lines for readability.):
@@ -564,6 +565,24 @@ views.py (2 issues found, both E501 line too long errors on lines 20 and 36. The
 wsgi.py (no errors found):
 <img width="1357" height="639" alt="image" src="https://github.com/user-attachments/assets/b2fdd2fb-75c9-4fd6-9b14-31f6dc86b13d" />
 
+Products:
+
+admin.py (no errors found):
+<img width="1393" height="651" alt="image" src="https://github.com/user-attachments/assets/6d340aa0-8609-46f7-8f92-52dd0d74d670" />
+apps.py (no errors found):
+<img width="1417" height="639" alt="image" src="https://github.com/user-attachments/assets/a5f5b4eb-d0a9-4f5a-8cee-3fdc407a2013" />
+forms.py (2 issues found, both E501 line too long errors on lines 13 and 16. These are due to a long widget choice definition with an inline comment which have been left as single lines for readability.):
+<img width="1358" height="646" alt="image" src="https://github.com/user-attachments/assets/0c06b238-5445-4f4c-8806-cf3134b15009" />
+models.py (6 issues found, all E501 line too long errors on lines 28, 39, 47, 48, 63 and 64. These are due to long model field definitions which have been left as single lines for readability.):
+<img width="1383" height="653" alt="image" src="https://github.com/user-attachments/assets/836ab0ec-2a8c-4ad9-abb9-2197a9e51748" />
+tests.py (no errors found):
+<img width="1366" height="622" alt="image" src="https://github.com/user-attachments/assets/50a81692-1b53-4857-a0b9-d5359f7dacde" />
+urls.py (4 issues found, all E501 line too long errors on lines 12, 13, 14 and 15. These are due to long URL path definitions with view names which have been left as single lines for readability.):
+<img width="1330" height="648" alt="image" src="https://github.com/user-attachments/assets/0fa5dbe4-c575-42c9-b838-0d7cf23bd0e3" />
+views.py (4 issues found, all E501 line too long errors on lines 13, 22, 30 and 52. These are due to long database query annotations, complex Q object filter expressions and category filter queries which have been left as single lines for readability.):
+<img width="1342" height="632" alt="image" src="https://github.com/user-attachments/assets/8f7aaef2-bd2b-41f2-b0ed-b4ab7d25c6cb" />
+
+
 Store:
 views.py:
 <img width="1742" height="817" alt="image" src="https://github.com/user-attachments/assets/69fb1467-9e5d-4142-91f3-8c798d53daa2" />
@@ -572,13 +591,6 @@ models.py:
 
 
 
-Products:
-views.py:
-<img width="1762" height="822" alt="image" src="https://github.com/user-attachments/assets/d60ab3be-66eb-4c7e-bb91-fa16f9910bd0" />
-urls.py:
-<img width="1703" height="821" alt="image" src="https://github.com/user-attachments/assets/e68af6d9-64f1-44e4-b994-1bb166bae1c7" />
-models.py:
-<img width="1718" height="821" alt="image" src="https://github.com/user-attachments/assets/08c41821-b4fc-4e6e-baeb-7f27f343b220" />
 
 Profiles:
 views.py:
