@@ -224,8 +224,10 @@ Testing was conducted using Chrome DevTools across multiple viewport sizes to en
 - Option to save delivery details to user profile for faster future checkouts.
 - Real-time payment validation.
 
-<img width="544" height="464" alt="image" src="https://github.com/user-attachments/assets/222b2cea-52bf-4d85-9e67-132b247399ab" />
-<img width="1718" height="452" alt="image" src="https://github.com/user-attachments/assets/fe3e4bab-6b37-41bd-96bb-7e4495e4fee5" />
+<img width="1883" height="878" alt="image" src="https://github.com/user-attachments/assets/8d389acd-c638-44b8-af1b-e91aba71614e" />
+<img width="1874" height="740" alt="image" src="https://github.com/user-attachments/assets/c522d992-c9a1-4c08-973f-debc68a6b9a4" />
+<img width="1751" height="702" alt="image" src="https://github.com/user-attachments/assets/a5fbba90-fc7f-4f75-9d49-7c3d2a647dce" />
+<img width="1903" height="645" alt="image" src="https://github.com/user-attachments/assets/995eb84e-f201-486e-90d6-6eea76f817df" />
 
 #### **Order Management**
 - Order confirmation page with order number.
