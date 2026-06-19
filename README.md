@@ -517,7 +517,29 @@ urls.py (no errors found):
 views.py (1 issue found: E501 line too long (109 > 79 characters) on line 63. This is due to long string expressions, complex function calls, or Stripe API calls which have been left as single lines for readability.):
 <img width="1432" height="680" alt="image" src="https://github.com/user-attachments/assets/1bdb0ecd-f06d-4e7d-b41b-cb60eb618934" />
 
+Checkout:
+views.py (no errors found):
+<img width="1772" height="831" alt="image" src="https://github.com/user-attachments/assets/8370d730-f6b0-4cc1-9f42-7e8e53a2be36" />
+apps.py (no errors found):
+<img width="1364" height="641" alt="image" src="https://github.com/user-attachments/assets/fd48fa5b-99c1-4462-b6da-614b49034bcf" />
+forms.py (1 issue found: E501 line too long (95 > 79 characters) on line 7. This is due to long string expressions, complex function calls, or Stripe API calls which have been left as single lines for readability.):
+<img width="1343" height="654" alt="image" src="https://github.com/user-attachments/assets/d3128de2-789d-4d45-9fd8-ddd54bf8d991" />
+models.py (6 issues found: all E501 line too long errors on lines 10, 21, 32, 45, 46 and 48. These are due to long model field definitions which have been left as single lines for readability.):
+<img width="1454" height="653" alt="image" src="https://github.com/user-attachments/assets/9ebf61b5-09be-4e4e-8eb6-76e6f7772421" />
+signals.py (no errors found):
+<img width="1364" height="652" alt="image" src="https://github.com/user-attachments/assets/285daad2-4fc5-43ff-99ac-4011cd6b692f" />
+tests.py (no errors found):
+<img width="1389" height="675" alt="image" src="https://github.com/user-attachments/assets/f0710ad0-7d13-4e4f-b983-8b2ac983fe2f" />
+urls.py (2 issues found: E501 line too long errors on lines 10 and 12. These are due to long URL path definitions which have been left as single lines for readability.):
+<img width="1443" height="653" alt="image" src="https://github.com/user-attachments/assets/b916c765-84fd-467f-80b4-7e7ab6ea7eea" />
+views.py ( 8 issues found, all E501 line too long errors on lines 2, 7, 83, 110, 117, 119, 123 and 138. These are due to long import statements, Stripe API calls and string expressions which have been left as single lines for readability.):
+<img width="1323" height="630" alt="image" src="https://github.com/user-attachments/assets/887fe20e-556a-4aa3-b3e0-e6c54d82d62f" />
+
+
 Home:
+admin.py (no errors present):
+<img width="1386" height="666" alt="image" src="https://github.com/user-attachments/assets/f949d5fe-e61a-4b4b-8819-62c2c06396d3" />
+
 views.py:
 <img width="1682" height="826" alt="image" src="https://github.com/user-attachments/assets/bd46b798-efef-4a48-8e05-c2fe168093fb" />
 models.py:
@@ -528,14 +550,6 @@ views.py:
 <img width="1742" height="817" alt="image" src="https://github.com/user-attachments/assets/69fb1467-9e5d-4142-91f3-8c798d53daa2" />
 models.py:
 <img width="1677" height="820" alt="image" src="https://github.com/user-attachments/assets/81c6a404-93a8-4a9e-9b89-0f8212690fb2" />
-
-Checkout:
-views.py:
-<img width="1772" height="831" alt="image" src="https://github.com/user-attachments/assets/8370d730-f6b0-4cc1-9f42-7e8e53a2be36" />
-urls.py:
-<img width="1774" height="817" alt="image" src="https://github.com/user-attachments/assets/504a9007-5dad-4618-9b8e-1e233b060110" />
-models.py:
-<img width="1702" height="822" alt="image" src="https://github.com/user-attachments/assets/b0578a86-3221-4c8b-980a-c22b35c92d87" />
 
 Pdf_shop:
 views.py:
