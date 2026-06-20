@@ -138,7 +138,23 @@ def checkout(request):
             messages.error(request, 'There was an error processing your payment.')
             return redirect(reverse('checkout:checkout'))
 
-        order_form = OrderForm()
+        if request.user.is_authenticated:
+            try:
+                from profiles.models import UserProfile
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': request.user.get_full_name() or request.user.username,
+                    'email': request.user.email,
+                    'address_line1': profile.default_street_address1,
+                    'address_line2': profile.default_street_address2,
+                    'postcode': profile.default_postcode,
+                    'city': profile.default_town_or_city,
+                    'country': profile.default_country,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \

@@ -2,10 +2,12 @@
 from django.contrib import admin
 from .models import Order, OrderLineItem
 
+
 class OrderLineItemInline(admin.TabularInline):
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
     extra = 0
+
 
 class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderLineItemInline,)
@@ -23,5 +25,6 @@ class OrderAdmin(admin.ModelAdmin):
         'order_total',
     )
     list_display = ('order_number', 'date', 'full_name', 'order_total')
+
 
 admin.site.register(Order, OrderAdmin)
