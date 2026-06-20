@@ -439,7 +439,6 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 
 <img width="1325" height="380" alt="image" src="https://github.com/user-attachments/assets/8aa7aaf0-9e96-4f34-9974-d4a50e53322a" />
 
-
 **Wishlist**
 | Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
 |------|-------|-----------------|----------------|-----------|
@@ -532,7 +531,7 @@ tests.py (no errors found):
 <img width="1389" height="675" alt="image" src="https://github.com/user-attachments/assets/f0710ad0-7d13-4e4f-b983-8b2ac983fe2f" />
 urls.py (2 issues found: E501 line too long errors on lines 10 and 12. These are due to long URL path definitions which have been left as single lines for readability.):
 <img width="1443" height="653" alt="image" src="https://github.com/user-attachments/assets/b916c765-84fd-467f-80b4-7e7ab6ea7eea" />
-views.py ( 8 issues found, all E501 line too long errors on lines 2, 7, 83, 110, 117, 119, 123 and 138. These are due to long import statements, Stripe API calls and string expressions which have been left as single lines for readability.):
+views.py (8 issues found, all E501 line too long errors on lines 2, 7, 80, 107, 114, 116, 120 and 135. These are due to long import statements, Stripe API calls and string expressions which have been left as single lines for readability.):
 <img width="1323" height="630" alt="image" src="https://github.com/user-attachments/assets/887fe20e-556a-4aa3-b3e0-e6c54d82d62f" />
 
 
@@ -603,7 +602,7 @@ models.py (5 issues found, all E501 line too long errors on lines 11, 12, 13, 14
 <img width="1347" height="636" alt="image" src="https://github.com/user-attachments/assets/2cc44ead-34a8-4b2b-a1e7-3bd2f0f80313" />
 urls.py (1  issue found: E501 line too long (89 > 79 characters) on line 11. This is due to a long URL path definition which has been left as a single line for readability.):
 <img width="1347" height="637" alt="image" src="https://github.com/user-attachments/assets/faecdc4d-64eb-4690-a922-07f026d7b3a6" />
-views.py (3 issues found, all E501 line too long errors on lines 27, 44 and 60. These are due to long string expressions and function calls which have been left as single lines for readability.):
+views.py (3 issues found, all E501 line too long errors on lines 25, 42 and 58. These are due to long string expressions and function calls which have been left as single lines for readability.):
 <img width="1352" height="621" alt="image" src="https://github.com/user-attachments/assets/eb45dde6-e088-4ba9-96ee-c247c5dc59f9" />
 
 All Python files were passed through the CI Python Linter. Some E501 line too long warnings are present due to long string expressions and Stripe API calls that cannot be shortened without breaking functionality.
@@ -622,6 +621,11 @@ All Python files were passed through the CI Python Linter. Some E501 line too lo
 - ✅ Fixed newsletter redirect loop — corrected success redirect in the `newsletter_signup` view.
 - ✅ Fixed duplicate `products.html` template in the `home` app being loaded instead of the correct `products` app template.
 - ✅ Fixed wishlist add URL routing conflict with product detail URL pattern — moved `wishlist/` path above `<str:sku>/` in `products/urls.py`.
+- ✅ Fixed profile page 500 error for new users — updated `profile` view to use `get_or_create` so a `UserProfile` is always available even if one wasn't created by the signal.
+- ✅ Fixed duplicate `render` import in `profiles/views.py` — consolidated both `django.shortcuts` import lines into one, resolving a PEP8 E811 redefinition warning.
+- ✅ Fixed silent email failure on checkout — removed bare `except Exception: pass` from `send_confirmation_email` so errors surface rather than being swallowed.
+- ✅ Fixed checkout search bar and Home nav link being hidden behind the fixed navbar — added a `{% block page_header %}` spacer to `checkout.html`.
+- ✅ Fixed footer covering content on some screen sizes — corrected misplaced `{% endif %}` in `base.html` and removed `height: 100%` constraint from `html, body` in `base.css`.
 
 **Unfixed Bugs**
 - None currently identified

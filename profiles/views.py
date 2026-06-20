@@ -1,14 +1,12 @@
 # profiles/views.py
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import UserProfile
-from .forms import UserProfileForm
-from checkout.models import Order
-from django.shortcuts import render, get_object_or_404
-from .forms import NewsletterForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from checkout.models import Order
+from .models import UserProfile
+from .forms import UserProfileForm, NewsletterForm
 
 
 @login_required
