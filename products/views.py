@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Avg
 from django.db.models.functions import Lower, Coalesce
 from .models import Product, Category, Review, Wishlist
-from .forms import ReviewForm
+from .forms import ReviewForm, ProductForm
 
 
 def all_products(request):
@@ -168,3 +168,60 @@ def remove_from_wishlist(request, sku):
     wishlist.products.remove(product)
     messages.success(request, f'{product.name} removed from your wishlist!')
     return redirect(reverse('products:wishlist'))
+
+
+@login_required
+def add_product(request):
+    """Superuser-only view to add a new product"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('products:all_products'))
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            product = form.save()
+            messages.success(request, 'Product added successfully!')
+            return redirect(reverse('products:product_detail', args=[product.sku]))
+        else:
+            messages.error(request, 'Failed to add product. Please check the form.')
+    else:
+        form = ProductForm()
+
+    return render(request, 'products/add_product.html', {'form': form})
+
+
+@login_required
+def edit_product(request, sku):
+    """Superuser-only view to edit an existing product"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('products:all_products'))
+
+    product = get_object_or_404(Product, sku=sku)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product updated successfully!')
+            return redirect(reverse('products:product_detail', args=[product.sku]))
+        else:
+            messages.error(request, 'Failed to update product. Please check the form.')
+    else:
+        form = ProductForm(instance=product)
+
+    return render(request, 'products/edit_product.html', {'form': form, 'product': product})
+
+
+@login_required
+def delete_product(request, sku):
+    """Superuser-only view to delete a product"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('products:all_products'))
+
+    product = get_object_or_404(Product, sku=sku)
+    product.delete()
+    messages.success(request, 'Product deleted!')
+    return redirect(reverse('products:all_products'))

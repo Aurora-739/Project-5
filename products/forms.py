@@ -1,6 +1,6 @@
 # products/forms.py
 from django import forms
-from .models import Review
+from .models import Review, Product, Category
 
 
 class ReviewForm(forms.ModelForm):
@@ -19,4 +19,16 @@ class ReviewForm(forms.ModelForm):
         labels = {
             'rating': 'Rating',
             'comment': 'Your Review',
+        }
+
+
+class ProductForm(forms.ModelForm):
+    """Form for superusers to add and edit products"""
+
+    class Meta:
+        model = Product
+        fields = ['name', 'sku', 'description', 'price', 'image', 'categories']
+        widgets = {
+            'description': forms.Textarea(attrs={'rows': 4}),
+            'categories': forms.CheckboxSelectMultiple(),
         }

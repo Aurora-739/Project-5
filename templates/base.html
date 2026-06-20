@@ -95,8 +95,7 @@
             <ul class="dropdown-menu border-0" aria-labelledby="user-options">
               {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
-              <li><a href="https://project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com/admin/"
-                  class="dropdown-item" rel="noopener noreferrer">Product Management</a></li>
+              <li><a href="{% url 'products:add_product' %}" class="dropdown-item">Add Product</a></li>
               {% endif %}
               <li><a href="{% url 'profiles:profile' %}" class="dropdown-item">My Profile</a></li>
               <li><a href="{% url 'products:wishlist' %}" class="dropdown-item">My Wishlist</a></li>

@@ -322,6 +322,8 @@ The application uses the following main models:
 - Stores newsletter signups (name, email, date subscribed).
 - Unique email constraint prevents duplicate subscriptions.
 
+
+They are interlinked as such (screenshot taken from https://dbdiagram.io as a visual representation of the relationship between my models):
 ---
 ## SEO Testing
 
