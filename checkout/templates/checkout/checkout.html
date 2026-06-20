@@ -3,13 +3,20 @@
 {% load crispy_forms_tags %}
 {% load bag_extras %}
 
-<head>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
 
-    {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
-    {% endblock %}
-
-</head>
+{% block page_header %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-center mt-3">Checkout</h2>
+            <hr class="w-50 mx-auto mb-4">
+        </div>
+    </div>
+</div>
+{% endblock %}
 
 
 {% block content %}
@@ -94,6 +101,7 @@
 {% endblock %}
 
 {% block postloadjs %}
+{{ block.super }}
 <script src="https://js.stripe.com/v3/"></script>
 <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
