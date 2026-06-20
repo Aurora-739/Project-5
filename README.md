@@ -531,8 +531,8 @@ tests.py (no errors found):
 <img width="1389" height="675" alt="image" src="https://github.com/user-attachments/assets/f0710ad0-7d13-4e4f-b983-8b2ac983fe2f" />
 urls.py (2 issues found: E501 line too long errors on lines 10 and 12. These are due to long URL path definitions which have been left as single lines for readability.):
 <img width="1443" height="653" alt="image" src="https://github.com/user-attachments/assets/b916c765-84fd-467f-80b4-7e7ab6ea7eea" />
-views.py (8 issues found, all E501 line too long errors on lines 2, 7, 80, 107, 114, 116, 120 and 135. These are due to long import statements, Stripe API calls and string expressions which have been left as single lines for readability.):
-<img width="1323" height="630" alt="image" src="https://github.com/user-attachments/assets/887fe20e-556a-4aa3-b3e0-e6c54d82d62f" />
+views.py (8 issues found, all E501 line too long errors on lines 2, 7, 80, 107, 114, 116, 120, 135 and 143. These are due to long import statements, Stripe API calls and string expressions which have been left as single lines for readability.):
+<img width="1363" height="658" alt="image" src="https://github.com/user-attachments/assets/bef63ae1-ca0d-4285-ac4a-6268bb424d48" />
 
 
 Home:
@@ -603,7 +603,7 @@ models.py (5 issues found, all E501 line too long errors on lines 11, 12, 13, 14
 urls.py (1  issue found: E501 line too long (89 > 79 characters) on line 11. This is due to a long URL path definition which has been left as a single line for readability.):
 <img width="1347" height="637" alt="image" src="https://github.com/user-attachments/assets/faecdc4d-64eb-4690-a922-07f026d7b3a6" />
 views.py (3 issues found, all E501 line too long errors on lines 25, 42 and 58. These are due to long string expressions and function calls which have been left as single lines for readability.):
-<img width="1352" height="621" alt="image" src="https://github.com/user-attachments/assets/eb45dde6-e088-4ba9-96ee-c247c5dc59f9" />
+<img width="1373" height="661" alt="image" src="https://github.com/user-attachments/assets/6e77cd6c-63a3-4eaa-930d-5b489c80a34b" />
 
 All Python files were passed through the CI Python Linter. Some E501 line too long warnings are present due to long string expressions and Stripe API calls that cannot be shortened without breaking functionality.
 
