@@ -193,10 +193,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = '/media/'
 
 # WhiteNoise / Cloudinary storage
-# if DEBUG:
-#     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-# else:
-#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STORAGES = {
     "default": {
