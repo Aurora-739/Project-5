@@ -14,7 +14,7 @@ from django.contrib.auth.forms import UserCreationForm
 @login_required
 def profile(request):
     """ Display and update the user's profile """
-    profile = UserProfile.objects.get(user=request.user)
+    profile, _ = UserProfile.objects.get_or_create(user=request.user)
     orders = profile.orders.all()  # Related name from Order model
 
     if request.method == 'POST':

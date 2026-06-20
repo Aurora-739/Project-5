@@ -30,11 +30,6 @@ def bag_contents(request):
     }
 
 
-def view_bag(request):
-    context = bag_contents(request)
-    return render(request, 'bag/bag.html', context)
-
-
 def add_to_bag(request, sku):
     product = get_object_or_404(Product, sku=sku)
     quantity = int(request.POST.get('quantity', 1))
