@@ -380,11 +380,6 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 | Access restricted page when logged out | 1. Log out 2. Manually type /profile/ in the URL bar | Redirected to login page | Works as expected | ✅ Pass | 
 | Register with duplicate email | 1. Navigate to /accounts/signup 2. Enter an email already registered 3. Submit | Error message displayed, account not created | Works as expected | ✅ Pass| 
 
-<img width="1046" height="606" alt="image" src="https://github.com/user-attachments/assets/33c3291f-b7ab-4b90-b3d2-851fde7d6f1e" />
-<img width="1888" height="267" alt="image" src="https://github.com/user-attachments/assets/605ae742-df55-420a-856f-e62d7e098460" />
-<img width="1375" height="839" alt="image" src="https://github.com/user-attachments/assets/313ef365-5630-4c6c-b480-ef5c393727e3" />
-
-
 **Shopping Experience**
 | Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
 |------|-------|-----------------|----------------|-----------|

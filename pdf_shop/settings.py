@@ -23,11 +23,6 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 ENVIRONMENT = os.environ.get('ENVIRONMENT', 'PROD')
 SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret-key')
 
-# Optional: check immediately
-print("DEBUG =", DEBUG)
-print("ENVIRONMENT =", ENVIRONMENT)
-# print("SECRET_KEY =", SECRET_KEY)
-
 # ----------------------
 # Allowed Hosts
 # ----------------------
@@ -35,8 +30,6 @@ if ENVIRONMENT == 'DEV':
     ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 else:
     ALLOWED_HOSTS = ['project-5-michelles-craft-room-cdc5efe9b632.herokuapp.com']
-
-print("ALLOWED_HOSTS =", ALLOWED_HOSTS)
 
 # ----------------------
 # Installed Apps
@@ -88,8 +81,6 @@ MIDDLEWARE = [
 # Add allauth middleware only for PROD
 if ENVIRONMENT == 'PROD':
     MIDDLEWARE.append('allauth.account.middleware.AccountMiddleware')
-
-print("MIDDLEWARE =", MIDDLEWARE)
 
 # ----------------------
 # URL & Templates
