@@ -531,7 +531,7 @@ tests.py (no errors found):
 <img width="1389" height="675" alt="image" src="https://github.com/user-attachments/assets/f0710ad0-7d13-4e4f-b983-8b2ac983fe2f" />
 urls.py (2 issues found: E501 line too long errors on lines 10 and 12. These are due to long URL path definitions which have been left as single lines for readability.):
 <img width="1443" height="653" alt="image" src="https://github.com/user-attachments/assets/b916c765-84fd-467f-80b4-7e7ab6ea7eea" />
-views.py (8 issues found, all E501 line too long errors on lines 2, 7, 80, 107, 114, 116, 120, 135 and 143. These are due to long import statements, Stripe API calls and string expressions which have been left as single lines for readability.):
+views.py (9 issues found, all E501 line too long errors on lines 2, 7, 80, 107, 114, 116, 120, 135 and 143. These are due to long import statements, Stripe API calls and string expressions which have been left as single lines for readability.):
 <img width="1363" height="658" alt="image" src="https://github.com/user-attachments/assets/bef63ae1-ca0d-4285-ac4a-6268bb424d48" />
 
 
