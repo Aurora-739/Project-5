@@ -424,7 +424,7 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 **Newsletter Subscriber**
 | Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
 |------|-------|-----------------|----------------|-----------|
-| Subscribe to newsletter | 1. Navigate to profile 2. Enter name and email 3. Click Subscribe | Success message displayed, email saved to database | Works as expected | ✅ Pass |
+| Subscribe to newsletter | 1. Navigate to "/profiles/newsletter/" or "Click Newsletter Signup in the footer." 2. Enter name and email 3. Click Subscribe | Success message displayed, email saved to database | Works as expected | ✅ Pass |
 | Duplicate email blocked | 1. Subscribe with an email 2. Try to subscribe again with the same email | Error message displayed, duplicate not created | Works as expected | ✅ Pass |
 
 **Product Reviews**
