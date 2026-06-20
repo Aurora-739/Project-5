@@ -20,7 +20,7 @@ Michelle's Craft Room is a full-stack e-commerce website built with Django that 
 
 ## User Stories
 I chose to document my user stories using two Agile tools. The user stories themselves are written out on a Google Sheet laid out as a kanban-style board, which works well for a solo developer as it keeps things simple and easy to follow. I also used GitHub Projects to track progress throughout development, moving issues through columns as they were worked on and completed.
-[View User Stories Google Sheet](https://docs.google.com/spreadsheets/d/1tD8bA1ClfzmBbyvkxD35EFTUJaqyDd4cXXsyrhJOCPY/edit?usp=sharing)
+[View User Stories Google Sheet](https://docs.google.com/spreadsheets/d/1tD8bA1ClfzmBbyvkxD35EFTUJaqyDd4cXXsyrhJOCPY/view?usp=sharing)
 [View GitHub Project Board](https://github.com/users/Aurora-739/projects/14/views/1)
 
 <img width="1241" height="819" alt="image" src="https://github.com/user-attachments/assets/12f3aaca-78dd-4184-bbb2-3d1e6597063e" />
