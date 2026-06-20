@@ -52,8 +52,8 @@ def send_confirmation_email(order):
             settings.DEFAULT_FROM_EMAIL,
             [customer_email]
         )
-    except Exception as e:
-        print(f"Email sending failed: {e}")
+    except Exception:
+        pass
 
 
 def checkout(request):
