@@ -322,8 +322,9 @@ The application uses the following main models:
 - Stores newsletter signups (name, email, date subscribed).
 - Unique email constraint prevents duplicate subscriptions.
 
-
 They are interlinked as such (screenshot taken from https://dbdiagram.io as a visual representation of the relationship between my models):
+<img width="1470" height="716" alt="image" src="https://github.com/user-attachments/assets/d2bae49b-df1a-4b93-a72e-93102163db65" />
+
 ---
 ## SEO Testing
 
@@ -456,10 +457,10 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 **Admin**
 | Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
 |------|-------|-----------------|----------------|-----------|
-| Add product | 1. Log in as superuser 2. Navigate to /admin/ 3. Add a new product with image | Product appears in the store | Works as expected | ✅ Pass |
-| Edit product | 1. Log in as superuser 2. Navigate to /admin/ 3. Edit an existing product | Changes reflected in the store | Works as expected | ✅ Pass |
-| Delete product | 1. Log in as superuser 2. Navigate to /admin/ 3. Delete a product | Product removed from store | Works as expected | ✅ Pass |
-| Non-superuser cannot access admin | 1. Log in as regular user 2. Manually type /admin/ in URL bar | Redirected away, access denied | Works as expected | ✅ Pass |
+| Add product via frontend | 1. Log in as superuser 2. Click My Account → Add Product 3. Fill in the form 4. Click Add Product | Product appears in the store | Works as expected | ✅ Pass |
+| Edit product via frontend | 1. Log in as superuser 2. Navigate to any product 3. Click Edit Product 4. Update the form 5. Click Save Changes | Changes reflected in the store | Works as expected | ✅ Pass |
+| Delete product via frontend | 1. Log in as superuser 2. Navigate to any product 3. Click Delete Product 4. Confirm | Product removed from store | Works as expected | ✅ Pass |
+| Non-superuser cannot access add/edit/delete | 1. Log in as a regular user 2. Manually type /products/add/ in the URL | Redirected to products page with error message | Works as expected | ✅ Pass |
 
 **404 Page**
 | Test | Steps | Expected Outcome | Actual Outcome | Pass/Fail |
