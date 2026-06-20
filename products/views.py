@@ -68,16 +68,19 @@ def product_detail(request, sku):
     reviews = product.reviews.all().order_by('-created_at')
     user_review = None
     review_form = ReviewForm()
+    edit_review_form = None
 
     if request.user.is_authenticated:
         user_review = Review.objects.filter(
             product=product, user=request.user
         ).first()
+        edit_review_form = ReviewForm(instance=user_review) if user_review else None
 
     context = {
         'product': product,
         'reviews': reviews,
         'review_form': review_form,
+        'edit_review_form': edit_review_form,
         'user_review': user_review,
     }
 

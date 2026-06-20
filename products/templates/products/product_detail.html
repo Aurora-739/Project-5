@@ -123,7 +123,7 @@
                 {% if request.user == review.user %}
                 <form method="POST" action="{% url 'products:edit_review' product.sku review.id %}" class="d-inline">
                     {% csrf_token %}
-                    {{ review_form.as_p }}
+                    {{ edit_review_form.as_p }}
                     <button type="submit" class="btn btn-sm btn-outline-secondary">Update Review</button>
                 </form>
                 <form method="POST" action="{% url 'products:delete_review' product.sku review.id %}"
