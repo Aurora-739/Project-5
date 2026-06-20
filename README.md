@@ -407,7 +407,6 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 | Successful payment | 1. Fill in checkout form 2. Enter test card 4242 4242 4242 4242, expiry 12/26, CVC 123 3. Click Complete Order | Order confirmed, success page displayed with order number | Works as expected | ✅ Pass |
 | Declined payment | 1. Fill in checkout form 2. Enter test card 4000 0000 0000 0002 3. Click Complete Order | Payment declined error message displayed | Works as expected | ✅ Pass |
 | Order confirmation displayed | 1. Complete a successful payment | Order confirmation page shows correct order number, items and delivery details | Works as expected | ✅ Pass |
-| Save delivery info to profile | 1. Check Save delivery info box at checkout 2. Complete order 3. Navigate to profile | Delivery information pre-filled in profile | Works as expected | ✅ Pass |
 | Confirmation email sent | 1. Complete a successful payment 2. Check email inbox | Email received containing order details and product download links | Works as expected | ✅ Pass |
 <img width="1905" height="641" alt="image" src="https://github.com/user-attachments/assets/5b598d85-d987-481c-899a-3aa381976ffe" />
 <img width="1894" height="710" alt="image" src="https://github.com/user-attachments/assets/ba988b76-01f7-4ef1-b7bb-be9c9bad1ead" />
