@@ -233,7 +233,6 @@ Testing was conducted using Chrome DevTools across multiple viewport sizes to en
 - Order confirmation page with order number.
 - Confirmation emails sent to the customer's email address after a successful payment, including product download links via Cloudinary URLs.
 - Order history stored in user profiles.
-- Webhook handlers ensure orders are created even if user closes browser.
 
 <img width="550" height="678" alt="image" src="https://github.com/user-attachments/assets/2078f2c9-435a-41ed-99ca-7e33129c5319" />
 
@@ -408,7 +407,6 @@ A custom 404 page is in place and will appear whenever a user navigates to a URL
 | Successful payment | 1. Fill in checkout form 2. Enter test card 4242 4242 4242 4242, expiry 12/26, CVC 123 3. Click Complete Order | Order confirmed, success page displayed with order number | Works as expected | ✅ Pass |
 | Declined payment | 1. Fill in checkout form 2. Enter test card 4000 0000 0000 0002 3. Click Complete Order | Payment declined error message displayed | Works as expected | ✅ Pass |
 | Order confirmation displayed | 1. Complete a successful payment | Order confirmation page shows correct order number, items and delivery details | Works as expected | ✅ Pass |
-| Webhook creates order | 1. Complete payment 2. Check Stripe dashboard webhook logs | Order created in database via webhook | Works as expected | ✅ Pass |
 | Save delivery info to profile | 1. Check Save delivery info box at checkout 2. Complete order 3. Navigate to profile | Delivery information pre-filled in profile | Works as expected | ✅ Pass |
 | Confirmation email sent | 1. Complete a successful payment 2. Check email inbox | Email received containing order details and product download links | Works as expected | ✅ Pass |
 <img width="1905" height="641" alt="image" src="https://github.com/user-attachments/assets/5b598d85-d987-481c-899a-3aa381976ffe" />
@@ -668,7 +666,6 @@ os.environ['SECRET_KEY'] = 'your-secret-key-here'
 os.environ['DATABASE_URL'] = 'your-database-url'
 os.environ['STRIPE_PUBLIC_KEY'] = 'your-stripe-public-key'
 os.environ['STRIPE_SECRET_KEY'] = 'your-stripe-secret-key'
-os.environ['STRIPE_WH_SECRET'] = 'your-webhook-secret'
 os.environ['CLOUDINARY_CLOUD_NAME'] = 'your-cloud-name'
 os.environ['CLOUDINARY_API_KEY'] = 'your-api-key'
 os.environ['CLOUDINARY_API_SECRET'] = 'your-api-secret'
@@ -729,13 +726,6 @@ heroku run python manage.py createsuperuser
 7. **Upload product images**
 - Log into the admin panel at `https://your-app-name.herokuapp.com/admin/`
 - Add products and upload images - they will be stored on Cloudinary
-
-### Stripe Webhook Setup
-
-1. Go to Stripe Dashboard → Developers → Webhooks
-2. Add endpoint: `https://your-app-name.herokuapp.com/checkout/wh/`
-3. Select events: `payment_intent.succeeded` and `payment_intent.payment_failed`
-4. Copy the webhook signing secret to `STRIPE_WH_SECRET` config var
 
 ### Cloudinary Setup
 
