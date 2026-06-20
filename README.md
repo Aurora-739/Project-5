@@ -519,7 +519,7 @@ views.py (1 issue found: E501 line too long (109 > 79 characters) on line 63. Th
 Checkout:
 
 admin.py (no errors found):
-<img width="1772" height="831" alt="image" src="https://github.com/user-attachments/assets/8370d730-f6b0-4cc1-9f42-7e8e53a2be36" />
+<img width="1416" height="653" alt="image" src="https://github.com/user-attachments/assets/be36c86b-b221-4dd6-a64d-19cfae963f16" />
 apps.py (no errors found):
 <img width="1364" height="641" alt="image" src="https://github.com/user-attachments/assets/fd48fa5b-99c1-4462-b6da-614b49034bcf" />
 forms.py (1 issue found: E501 line too long (95 > 79 characters) on line 7. This is due to long string expressions, complex function calls, or Stripe API calls which have been left as single lines for readability.):
