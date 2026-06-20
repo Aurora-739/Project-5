@@ -27,9 +27,11 @@ body {
   background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
   font-family: 'DM Serif Text', serif;
   background-size: cover;
-  height: calc(100vh - 164px);
+  min-height: 100vh;
   background-color: #FCEBD0 !important;
   z-index: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -438,7 +440,7 @@ footer {
   background-color: #874C62;
   color: #FCEBD0;
   padding: 40px 20px 20px;
-  margin-top: 60px;
+  margin-top: auto;
 }
 
 .footer-container {
